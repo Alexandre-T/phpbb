@@ -135,6 +135,20 @@ $template->assign_vars(array(
 	'U_MCP'				=> ($auth->acl_get('m_') || $auth->acl_getf_global('m_')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=main&amp;mode=front', true, $user->session_id) : '')
 );
 
+// Harahel : Ajout du module statistiques
+include($phpbb_root_path . 'includes/mods/functions_activity_stats.' . $phpEx);
+activity_mod();
+// Harahel : Fin du module statistiques
+
+// Harahel : Ajout du module statistiques
+include($phpbb_root_path . 'includes/mods/functions_rp_stats.' . $phpEx);
+rp_stats_mod();
+
+// Harahel : Ajout du module de partenaire
+include($phpbb_root_path . 'includes/mods/functions_partenaire.' . $phpEx);
+partenaire_mod();
+// Harahel : Fin du module partenaire
+
 // Output page
 page_header($user->lang['INDEX']);
 

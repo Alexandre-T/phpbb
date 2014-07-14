@@ -1,0 +1,50 @@
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDE ligne_video.html -->
+<!-- IF S_VIDEO_SELECTION -->
+<h3>{L_VIDEO_AVEC_CHOIX}</h3>
+<div class="panel "  style="text-align: center;">
+<div class="inner"><span class="corners-top"><span></span></span>
+<div class="video">
+<h4>{VIDEO_TITRE}</h4>
+<div>
+<div id='mediaspace'>Le chargement du lecteur vidéo est en cours...</div>
+<script type='text/javascript'>
+  var so = new SWFObject('{T_VIDEOS_PATH}/player-no-viral.swf','mpl','{VIDEO_WIDTH}','{VIDEO_HEIGHT}','9','#');
+  so.addParam('allowfullscreen','true');
+  so.addParam('allowscriptaccess','always');
+  so.addParam('wmode','opaque');
+  so.addVariable('author','{JS_VIDEO_AUTEUR}');
+  so.addVariable('description','{JS_VIDEO_DESCRIPTION}');
+  /*so.addVariable('duration','4:09');*/
+  so.addVariable('file','{VIDEO_LIEN}');
+  so.addVariable('image','{VIDEO_VIGNETTE}');
+  so.addVariable('title','{JS_VIDEO_TITRE}');
+  so.addVariable('backcolor','000000');
+  so.addVariable('frontcolor','ffffff');
+  so.addVariable('lightcolor','cc9900');
+  so.addVariable('screencolor','ffffff');
+  so.addVariable('skin','http://developer.longtailvideo.com/svn/skins/beelden/beelden.zip');
+  so.addVariable('stretching','exactfit');
+  so.write('mediaspace');
+</script>
+<p>{VIDEO_SOUS_TITRE}</p>
+<p>{VIDEO_DESCRIPTION}</p>
+</div>
+<span class="corners-bottom"><span></span></span></div>
+</div>
+</div>
+<!-- ENDIF S_VIDEO_SELECTION -->
+<h3>{L_AUTRES_VIDEOS}</h3>
+<div class="panel "  style="text-align: center;">
+<div class="inner"><span class="corners-top"><span></span></span>
+<!-- IF S_VIDEO_SELECTION -->
+<p>{L_NE_PAS_RATER}</p>
+<!-- ENDIF S_VIDEO_SELECTION -->
+<ul class="videos">
+<!-- BEGIN lien_videos -->
+	<li class="video"><a href="{lien_videos.URL}" title="{lien_videos.TITRE}"><img src="videos/vignettes/{lien_videos.IMAGE}" alt="Capture de la vidéo n°{lien_videos.NUMERO}"/><br/><span>{lien_videos.TITRE}</span></a></li>
+<!-- END lien_videos -->
+</ul>
+<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- INCLUDE overall_footer.html -->

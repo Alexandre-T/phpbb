@@ -1,0 +1,228 @@
+/*  	
+--------------------------------------------------------------
+Additionnals css for Poker Olympus
+-------------------------------------------------------------- */
+/*Credits: CSSpplay */
+/*URL: http://www.cssplay.co.uk/menus/pro_five */
+
+
+/* navigation bar
+--------------------------------------------- */
+
+.pro15 {
+	padding: 0 5px; 
+	margin: 0 auto; 
+	list-style: none; 
+	height: 30px; 
+	background:	#000 url("{T_THEME_PATH}/images/pro_15_0.gif") repeat-x;
+	min-width: 980px;
+}
+
+.pro15 li {
+	display: inline; 
+}
+
+.pro15 li a {
+	display: block; 
+	float: left; 
+	height: 30px; 
+	line-height: 30px; 
+	background:	url("{T_THEME_PATH}/images/pro_15_0.gif"); 
+	color: #000; 
+	text-decoration: none; 
+	font-family: arial, verdana, sans-serif; 
+	text-align:	center; 
+	padding: 0 0 0 8px; 
+	cursor: pointer; 
+	font-size: 12px;
+}
+
+.pro15 li a b {
+	float: left; 
+	display: block; 
+	background: url("{T_THEME_PATH}/images/pro_15_0.gif") right top; 
+	padding: 0 13px 0 8px;
+}
+
+.pro15 li a:hover {
+	color: #A1150D; 
+	background: url("{T_THEME_PATH}/images/pro_15_1.gif");
+	text-decoration: none;
+}
+
+.pro15 li a:hover b {
+	background: url("{T_THEME_PATH}/images/pro_15_1.gif") no-repeat right top;
+}
+
+.pro15 li a em {
+	display: block; 
+	float: left; 
+	width: 16px; 
+	height: 30px;
+}
+
+.pro15 li a em.home {
+	background: url("{T_THEME_PATH}/images/home.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.home {
+	background: url("{T_THEME_PATH}/images/home_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.profile {
+	background: url("{T_THEME_PATH}/images/profile.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.profile {
+	background: url("{T_THEME_PATH}/images/profile_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.faq {
+	background: url("{T_THEME_PATH}/images/faq.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.faq {
+	background: url("{T_THEME_PATH}/images/faq_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.members {
+	background: url("{T_THEME_PATH}/images/members.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.members {
+	background: url("{T_THEME_PATH}/images/members_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.register {
+	background: url("{T_THEME_PATH}/images/register.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.register {
+	background: url("{T_THEME_PATH}/images/register_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.login {
+	background: url("{T_THEME_PATH}/images/login.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.login {
+	background: url("{T_THEME_PATH}/images/login_hover.gif") no-repeat center center;
+}
+
+.pro15 li a em.search {
+	background: url("{T_THEME_PATH}/images/search15.gif") no-repeat center center;
+}
+
+.pro15 li a em.pm {
+	background: url("{T_THEME_PATH}/images/pm.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.pm {
+	background: url("{T_THEME_PATH}/images/pm_hover.gif") no-repeat center center;
+}
+
+.pro15 li a:hover em.search {
+	background: url("{T_THEME_PATH}/images/search15_hover.gif") no-repeat center center;
+}
+
+/* Image magnifier menu
+--------------------------------------------- */
+#enlarge {
+	background: url("{T_THEME_PATH}/images/bg_enlarge.gif") no-repeat center center;	
+	margin: 20px auto; 
+	list-style-type: none; 
+	width: 215px; 
+	height: 30px;
+	display: block;
+	float: right;
+}
+#enlarge li {
+	display: block; 
+	float:right;
+	width: 25px; 
+	height: 25px; 
+	position: relative;
+	margin: 0 5px;
+}
+
+#enlarge li a {
+	display: block; 
+	width: 25px; 
+	height: 25px; 
+	background: transparent; 
+	overflow: hidden; 
+	position: relative;
+}
+
+#enlarge li a img {
+	width: 100%; 
+	height: 100%; 
+	border: 0;
+}
+
+#enlarge li a:hover {
+	position: absolute; 
+	left: -20px; 
+	top: -20px; 
+	width: 64px; 
+	height: 64px; 
+	z-index: 100;
+}
+/*End credits: CSSpplay */
+
+/* add links footer
+--------------------------------------------- */
+#navmenu_footer {
+	float: left;
+	margin-top: 20px;
+}
+
+#navmenu_footer ul {
+	height: 35px;
+	padding: 10px 0 0 5px;
+	list-style: none;
+}
+
+#navmenu_footer li {
+	display: inline;
+}
+
+#navmenu_footer a {
+	display: block;
+	float: left;
+	width: 120px;
+	height: 40px;
+	padding-top: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: -1px;
+	font-size: 2em;
+	color: #212121;
+	border-left: 1px solid #212121;
+}
+
+#navmenu_footer a:hover {
+	color: #fff;
+	border-left: 1px solid #fff;
+}
+
+#last1 a {
+	display: block;
+	float: left;
+	width: 120px;
+	height: 40px;
+	padding-top: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: lowercase;
+	letter-spacing: -1px;
+	font-size: 2em;
+	color: #212121;
+	border-left: 1px solid #212121;
+}
+
+#last1 a:hover {
+	color: #fff;
+	border-left: 1px solid #fff;
+}

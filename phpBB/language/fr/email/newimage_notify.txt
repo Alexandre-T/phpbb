@@ -1,0 +1,12 @@
+Subject: Notification de nouvelle photo - "{ALBUM_NAME}"
+
+Bonjour {USERNAME},
+
+Vous recevez cette notification car vous surveillez l'album, "{ALBUM_NAME}" sur "{SITENAME}". Un nouvelle photo a été envoyée sur cet album depuis votre dernière visite, "{IMAGE_NAME}". Vous pouvez utiliser le lien suivant pour voir l'album.
+
+{U_ALBUM}
+
+Si vous ne souhaitez plus surveiller cet album, cliquez sur le lien "Ne plus surveiller l'album" qui se trouve dans l'album ci-dessus, ou en cliquant sur le lien suivant :
+{U_STOP_WATCHING_ALBUM}
+
+{EMAIL_SIG}

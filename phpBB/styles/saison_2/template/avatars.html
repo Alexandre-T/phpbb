@@ -1,0 +1,38 @@
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDE ligne_video.html -->
+<div id ="avatar" class="panel">
+<div class="inner"><span class="corners-top"><span></span></span>
+<h3>{L_AVATAR_PRIS}</h3>
+<p>
+	{L_AVATAR_EXPLICATIONS} 
+</p>
+<!-- BEGIN avatars -->
+<div class="liste-avatar"><dl class="avatar-image">{avatars.AVATAR_IMG}</dl><dd class="avatar-titre"><span class="avatar">{avatars.AVATAR}</span> / <span class="avatar-user">{avatars.USER_FULL}</span></dd></div>
+<!-- BEGINELSE -->
+<p>{L_AVATAR_AUCUN}</p>
+<!-- END avatars -->
+<div class="clear"></div>
+<!-- IF S_IS_SANS_AVATAR -->
+<h3>{L_AVATAR_AVERTISSEMENT}</h3>
+<p><span class="avertissement">{L_AVATAR_RENSEIGNE}</span></p>
+	<!-- BEGIN sansavatars -->
+	<div class="liste-avatar"><dl class="avatar-image">{sansavatars.AVATAR_IMG}</dl><dd class="avatar-titre"><span class="avatar-user">{sansavatars.USER_FULL}</span></dd></div>
+	<!-- END sansavatars -->
+<div class="clear"></div>
+<!-- ENDIF S_IS_SANS_AVATAR -->
+<span class="corners-bottom"><span></span></span></div>
+</div>
+<div id ="avatar" class="panel">
+<div class="inner"><span class="corners-top"><span></span></span>
+<h3>{L_AUTRES_AVATARS_TITRE}</h3>
+<div class="clear"></div>
+<p>{L_AUTRES_AVATARS_DESCRIPTION}</p>
+	<!-- BEGIN autresavatars -->
+	<div style="width:440px;height:160px;float:left;margin:0.5em;">
+	<div class="liste-autre-avatar"><dl  style="float:left;margin-right:1em"  class="autre-avatar-image"><img src="{autresavatars.SRC}" alt="Avatar de {autresavatars.NAME}" width="100" height="160"/></dl>
+	<dd class="autre-avatar-titre"><h4><span class="autre-avatar-user">{autresavatars.NAME}</span> / <span class="autre-avatar-user">{autresavatars.AVATAR}</span></h4><p style="text-align:justify;">{autresavatars.RESUME}</p></dd></div>	
+	</div>
+	<!-- END autresavatars -->
+<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- INCLUDE overall_footer.html -->

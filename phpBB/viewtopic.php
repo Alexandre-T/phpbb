@@ -1111,6 +1111,13 @@ while ($row = $db->sql_fetchrow($result))
 				'yim'				=> '',
 				'jabber'			=> '',
 				'search'			=> '',
+				// START Recherche RP
+				'search_rp'			=> '',
+				'search_rpa'		=> '',
+				// END Recherche RP
+				// START FICHE RP
+				'fiche'				=> '',
+				// END Recherche RP					
 				'age'				=> '',
 
 				'username'			=> $row['username'],
@@ -1165,7 +1172,14 @@ while ($row = $db->sql_fetchrow($result))
 				'yim'			=> ($row['user_yim']) ? 'http://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($row['user_yim']) . '&amp;.src=pg' : '',
 				'jabber'		=> ($row['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", "mode=contact&amp;action=jabber&amp;u=$poster_id") : '',
 				'search'		=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author_id=$poster_id&amp;sr=posts") : '',
-
+				// START Enable HTML
+				'user_type'			=> $row['user_type'],
+				'user_permissions'	=> $row['user_permissions'],
+				// END Enable HTML
+				// START Recherche RP
+				'search_rp'		=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$row['username']}&fid%5B%5D=".FORUM_RP."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=0") : '',
+				'search_rpa'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$row['username']}&fid%5B%5D=".FORUM_RPA."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=1") : '',
+				// END Recherche RP
 				'author_full'		=> get_username_string('full', $poster_id, $row['username'], $row['user_colour']),
 				'author_colour'		=> get_username_string('colour', $poster_id, $row['username'], $row['user_colour']),
 				'author_username'	=> get_username_string('username', $poster_id, $row['username'], $row['user_colour']),
@@ -1235,12 +1249,30 @@ if ($config['load_cpf_viewtopic'])
 	foreach ($profile_fields_tmp as $profile_user_id => $profile_fields)
 	{
 		$profile_fields_cache[$profile_user_id] = array();
+		//START FICHE RP
+		$cp_fiche[$profile_user_id] = 0;
+		//END FICHE RP
+		//START DISPO RP
+		$cp_disponibilite[$profile_user_id] = '';
+		//END DISPO RP
 		foreach ($profile_fields as $used_ident => $profile_field)
 		{
 			if ($profile_field['data']['field_show_on_vt'])
 			{
 				$profile_fields_cache[$profile_user_id][$used_ident] = $profile_field;
 			}
+			//START FICHE RP
+			//Cas particulier du champ fiche
+			if ('fiche' == $used_ident){
+				$cp_fiche[$profile_user_id]=$profile_field['value'];
+			}
+			//END FICHE RP
+			//START DISPO RP
+			//cas particulier du champ disponibilité
+			if ('disponibilite' == $used_ident){
+				$cp_disponibilite[$profile_user_id]=$profile_field['value'];
+			}
+			//END DISPO RP
 		}
 	}
 	unset($profile_fields_tmp);
@@ -1362,6 +1394,22 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 
 	$row =& $rowset[$post_list[$i]];
 	$poster_id = $row['user_id'];
+
+	// START Enable HTML
+	if (!function_exists('enable_html'))
+	{
+		include($phpbb_root_path . 'includes/mods/enable_html.' . $phpEx);
+	}
+	if (enable_html_permission($poster_id, $user_cache[$poster_id], $forum_id))
+	{
+		$row['post_text'] = enable_html($row['post_text'], $row['bbcode_uid']);
+
+		if ($user_cache[$poster_id]['sig'] && $row['enable_sig'] && empty($user_cache[$poster_id]['sig_parsed']))
+		{
+			$user_cache[$poster_id]['sig'] = enable_html($user_cache[$poster_id]['sig'], $user_cache[$poster_id]['sig_bbcode_uid']);
+		}
+	}
+	// END Enable HTML
 
 	// End signature parsing, only if needed
 	if ($user_cache[$poster_id]['sig'] && $row['enable_sig'] && empty($user_cache[$poster_id]['sig_parsed']))
@@ -1562,6 +1610,13 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 
 		'U_PROFILE'		=> $user_cache[$poster_id]['profile'],
 		'U_SEARCH'		=> $user_cache[$poster_id]['search'],
+		//START SEARCH RP
+		'U_SEARCH_RP'	=> $user_cache[$poster_id]['search_rp'],
+		'U_SEARCH_RPA'	=> $user_cache[$poster_id]['search_rpa'],
+		//END SEARCH RP
+		//START FICHE RP
+		'U_FICHE'		=> ($cp_fiche[$poster_id]) ? append_sid("{$phpbb_root_path}viewtopic.$phpEx", "t={$cp_fiche[$poster_id]}") : '',
+		//END FICHE RP
 		'U_PM'			=> ($poster_id != ANONYMOUS && $config['allow_privmsg'] && $auth->acl_get('u_sendpm') && ($user_cache[$poster_id]['allow_pm'] || $auth->acl_gets('a_', 'm_') || $auth->acl_getf_global('m_'))) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=pm&amp;mode=compose&amp;action=quotepost&amp;p=' . $row['post_id']) : '',
 		'U_EMAIL'		=> $user_cache[$poster_id]['email'],
 		'U_WWW'			=> $user_cache[$poster_id]['www'],

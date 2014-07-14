@@ -423,8 +423,10 @@ class custom_profile
 	*/
 	function generate_profile_fields_template($mode, $user_id = 0, $profile_row = false)
 	{
-		global $db;
-
+		//START FICHE RP
+		global $db,$phpEx,$phpbb_root_path;
+		//END FICHE RP
+		
 		if ($mode == 'grab')
 		{
 			if (!is_array($user_id))
@@ -508,6 +510,9 @@ class custom_profile
 					'PROFILE_FIELD_TYPE'	=> $ident_ary['data']['field_type'],
 					'PROFILE_FIELD_NAME'	=> $ident_ary['data']['lang_name'],
 					'PROFILE_FIELD_EXPLAIN'	=> $ident_ary['data']['lang_explain'],
+					//START FICHE RP
+					'PROFILE_FIELD_LINK'	=> append_sid("{$phpbb_root_path}viewtopic.$phpEx?t=$value"),
+					//END FICHE RP
 
 					'S_PROFILE_' . strtoupper($ident)		=> true
 				);

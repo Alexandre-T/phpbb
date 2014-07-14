@@ -61,6 +61,10 @@ class acp_search
 			'search_interval'			=> 'float',
 			'search_anonymous_interval'	=> 'float',
 			'load_search'				=> 'bool',
+			//START MOD SEARCH RP
+			'search_rp_announce'		=> 'bool',
+			'search_rp_postit'			=> 'bool',
+			//END MOD SEARCH RP
 			'limit_search_load'			=> 'float',
 			'min_search_author_chars'	=> 'integer',
 			'max_num_search_keywords'	=> 'integer',
@@ -221,6 +225,10 @@ class acp_search
 
 			'S_SEARCH_TYPES'		=> $search_options,
 			'S_YES_SEARCH'			=> (bool) $config['load_search'],
+			//START MOD SEARCH RP
+			'S_SEARCH_RP_ANNOUNCE'	=> (bool) $config['search_rp_announce'],
+			'S_SEARCH_RP_POSTIT'	=> (bool) $config['search_rp_postit'],
+			//END MOD SEARCH RP
 			'S_SETTINGS'			=> true,
 
 			'U_ACTION'				=> $this->u_action)

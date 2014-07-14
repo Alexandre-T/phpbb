@@ -131,6 +131,9 @@ class acp_forums
 						'forum_rules_link'		=> request_var('forum_rules_link', ''),
 						'forum_image'			=> request_var('forum_image', ''),
 						'forum_style'			=> request_var('forum_style', 0),
+						//START SEARCH RP
+						'forum_rp'				=> request_var('forum_rp', false),
+						//END SEARCH RP
 						'display_subforum_list'	=> request_var('display_subforum_list', false),
 						'display_on_index'		=> request_var('display_on_index', false),
 						'forum_topics_per_page'	=> request_var('topics_per_page', 0),
@@ -440,6 +443,9 @@ class acp_forums
 							'prune_viewed'			=> 7,
 							'prune_freq'			=> 1,
 							'forum_flags'			=> FORUM_FLAG_POST_REVIEW + FORUM_FLAG_ACTIVE_TOPICS,
+							//START SEARCH RP
+							'forum_rp'				=> 0,
+							//END SEARCH RP
 							'forum_options'			=> 0,
 							'forum_password'		=> '',
 							'forum_password_confirm'=> '',
@@ -640,6 +646,9 @@ class acp_forums
 					'S_ENABLE_ACTIVE_TOPICS'	=> ($forum_data['forum_type'] == FORUM_CAT) ? ($forum_data['forum_flags'] & FORUM_FLAG_ACTIVE_TOPICS) : false,
 					'S_ENABLE_POST_REVIEW'		=> ($forum_data['forum_flags'] & FORUM_FLAG_POST_REVIEW) ? true : false,
 					'S_ENABLE_QUICK_REPLY'		=> ($forum_data['forum_flags'] & FORUM_FLAG_QUICK_REPLY) ? true : false,
+					//Harahel : Module RP
+					'S_FORUM_RP'				=> ($forum_data['forum_rp']) ? true : false,
+					//Harahel : Fin Module RP
 					'S_CAN_COPY_PERMISSIONS'	=> ($action != 'edit' || empty($forum_id) || ($auth->acl_get('a_fauth') && $auth->acl_get('a_authusers') && $auth->acl_get('a_authgroups') && $auth->acl_get('a_mauth'))) ? true : false,
 				));
 

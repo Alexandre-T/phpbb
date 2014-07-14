@@ -42,6 +42,23 @@
 	</dl>
 	</fieldset>
 
+	<!-- START SEARCH_RP -->
+	<fieldset>
+		<legend>{L_RP_SEARCH_SETTINGS}</legend>
+	<dl>
+		<dt><label for="search_rp_announce">{L_SEARCH_RP_ANNOUNCE}:</label><br /><span>{L_SEARCH_RP_ANNOUNCE_EXPLAIN}</span></dt>
+		<dd><label><input type="radio" class="radio" id="load_search" name="config[search_rp_announce]" value="1"<!-- IF S_SEARCH_RP_ANNOUNCE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="config[search_rp_announce]" value="0"<!-- IF not S_SEARCH_RP_ANNOUNCE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label for="search_rp_postit">{L_SEARCH_RP_POSTIT}:</label><br /><span>{L_SEARCH_RP_POSTIT_EXPLAIN}</span></dt>
+		<dd><label><input type="radio" class="radio" id="load_search" name="config[search_rp_postit]" value="1"<!-- IF S_SEARCH_RP_POSTIT --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+			<label><input type="radio" class="radio" name="config[search_rp_postit]" value="0"<!-- IF not S_SEARCH_RP_POSTIT --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	
+	</fieldset>
+	<!-- END SEARCH_RP -->
+
 	<fieldset>
 		<legend>{L_SEARCH_TYPE}</legend>
 	<dl>

@@ -4460,6 +4460,15 @@ function phpbb_http_login($param)
 
 	trigger_error('NOT_AUTHORISED');
 }
+/**
+ * Retourne le prénom de l'utilisateur
+ *
+ * @return string
+ */
+function user_get_prenom($prenom){
+	$ChaineTab=explode(" ",$prenom); 
+	return $ChaineTab[0];
+}
 
 /**
 * Generate page header
@@ -4502,7 +4511,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 	if ($user->data['user_id'] != ANONYMOUS)
 	{
 		$u_login_logout = append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=logout', true, $user->session_id);
-		$l_login_logout = sprintf($user->lang['LOGOUT_USER'], $user->data['username']);
+		$l_login_logout = sprintf($user->lang['LOGOUT_USER'], user_get_prenom($user->data['username']));
 	}
 	else
 	{
@@ -4598,7 +4607,105 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		$s_feed_news = (int) $db->sql_fetchfield('forum_id');
 		$db->sql_freeresult($result);
 	}
+	//Get option for background
+	//@FIXME placer ces éléments dans le mod_background.
+	 
+	$s_background = true;
+	$background_image= 'poker_olympus/background/banniere-v2a.jpg';
+	
+	if( $user->theme['style_id'] == 3 && $config['background_enable']){
+		//le nouveau thème utilise des background en fonction de la minute et de l'heure optionnellement
+		//répertoire
+		$background_image =  'saison_2/background/';
+		$today = getdate();//tableau associatif
+		$tranche = ($today['hours'] * 60 + $today['minutes']) % 106;
+		
+		//var_dump($tranche);
+		if ($tranche <1){
+			$background_image .= 'harahel.jpg';
+		}elseif ($tranche < 6 ){
+			$background_image .= 'becky.jpg';
+		}elseif ($tranche < 11 ){
+			$background_image .= 'calypso.jpg';
+		}elseif ($tranche < 16 ){
+			$background_image .= 'asmodee.jpg';
+		}elseif ($tranche < 21 ){
+			$background_image .= 'charlie.jpg';
+		}elseif ($tranche < 26 ){
+			$background_image .= 'isadora.jpg';
+		}elseif ($tranche < 31 ){
+			$background_image .= 'sariel.jpg';
+		}elseif ($tranche < 36 ){
+			$background_image .= 'dawn.jpg';
+		}elseif ($tranche < 41 ){
+			$background_image .= 'kaylee.jpg';
+		}elseif ($tranche < 46 ){
+			$background_image .= 'jimmy.jpg';
+		}elseif ($tranche < 51 ){
+			$background_image .= 'lidrya.jpg';
+		}elseif ($tranche < 56 ){
+			$background_image .= 'lindsey.jpg';
+		}elseif ($tranche < 61 ){
+			$background_image .= 'heru.jpg';
+		}elseif ($tranche < 66 ){
+			$background_image .= 'lorelei.jpg';
+		}elseif ($tranche < 71 ){
+			$background_image .= 'lori.jpg';
+		}elseif ($tranche < 76 ){
+			$background_image .= 'kurt.jpg';
+		}elseif ($tranche < 81 ){
+			$background_image .= 'morgan.jpg';
+		}elseif ($tranche < 86 ){
+			$background_image .= 'matvei.jpg';
+		}elseif ($tranche < 91 ){
+			$background_image .= 'jezabel.jpg';
+		}elseif ($tranche < 96 ){
+			$background_image .= 'oishi.jpg';
+		}elseif ($tranche < 101 ){
+			$background_image .= 'valaerys.jpg';
+		}elseif ($tranche < 106 ){
+			$background_image .= 'raziel.jpg';
+		}else{
+			$background_image .= 'harahel.jpg';
+		}
 
+		//var_dump($background_image);die();
+	} elseif ( $config['background_enable']){
+		// l'ancien thème utilise les backgrounds de la base de données
+		/* if ($forum_id){
+			$sql = 'SELECT forum_background
+				FROM ' . FORUMS_TABLE . '
+				WHERE forum_id = '.$forum_id;
+			$result = $db->sql_query($sql);
+			$background_id = (int) $db->sql_fetchfield('forum_background');
+			$db->sql_freeresult($result);
+		}else{ */
+			$sql = 'SELECT background_id  
+				FROM ' . BACKGROUNDS_TABLE;
+			$result = $db->sql_query($sql);
+			$background_ids = array();
+			while ($row = $db->sql_fetchrow($result)){			
+				$background_ids[] = (int) $row['background_id'];
+			}
+			shuffle($background_ids);
+			$background_id=$background_ids[0];
+			$db->sql_freeresult($result);
+		/* } */
+		if(empty($background_id)){
+			$background_id = $config['default_background'];
+		}
+		if ($background_id){
+			$sql = 'SELECT background_name
+				FROM ' . BACKGROUNDS_TABLE . '
+				WHERE background_id = '.$background_id;
+			$result = $db->sql_query($sql);
+			$background_image = $db->sql_fetchfield('background_name');			
+			
+			$db->sql_freeresult($result);
+		}
+	}
+	$s_background = !empty($background_image);
+	
 	// Determine board url - we may need it later
 	$board_url = generate_board_url() . '/';
 	$web_path = (defined('PHPBB_USE_BOARD_URL_PATH') && PHPBB_USE_BOARD_URL_PATH) ? $board_url : $phpbb_root_path;
@@ -4664,12 +4771,14 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'U_MEMBERLIST'			=> append_sid("{$phpbb_root_path}memberlist.$phpEx"),
 		'U_VIEWONLINE'			=> ($auth->acl_gets('u_viewprofile', 'a_user', 'a_useradd', 'a_userdel')) ? append_sid("{$phpbb_root_path}viewonline.$phpEx") : '',
 		'U_LOGIN_LOGOUT'		=> $u_login_logout,
+		'U_HOME'				=> "/index.$phpEx",
 		'U_INDEX'				=> append_sid("{$phpbb_root_path}index.$phpEx"),
 		'U_SEARCH'				=> append_sid("{$phpbb_root_path}search.$phpEx"),
 		'U_REGISTER'			=> append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=register'),
 		'U_PROFILE'				=> append_sid("{$phpbb_root_path}ucp.$phpEx"),
 		'U_MODCP'				=> append_sid("{$phpbb_root_path}mcp.$phpEx", false, true, $user->session_id),
 		'U_FAQ'					=> append_sid("{$phpbb_root_path}faq.$phpEx"),
+		'U_SEARCH_RP_EN_COURS'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$user->data['username']}&amp;fid%5B%5D=".FORUM_RP."&amp;sc=1&amp;sf=all&amp;sr=topics&amp;sk=t&amp;sd=d&amp;st=0&amp;t=0&lock=2") : '',
 		'U_SEARCH_SELF'			=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=egosearch'),
 		'U_SEARCH_NEW'			=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=newposts'),
 		'U_SEARCH_UNANSWERED'	=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=unanswered'),
@@ -4682,6 +4791,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'U_RESTORE_PERMISSIONS'	=> ($user->data['user_perm_from'] && $auth->acl_get('a_switchperm')) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=restore_perm') : '',
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 
+		'S_BACKGROUND'			=> $s_background,
 		'S_USER_LOGGED_IN'		=> ($user->data['user_id'] != ANONYMOUS) ? true : false,
 		'S_AUTOLOGIN_ENABLED'	=> ($config['allow_autologin']) ? true : false,
 		'S_BOARD_DISABLED'		=> ($config['board_disable']) ? true : false,
@@ -4728,6 +4838,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'T_SMILIES_PATH'		=> "{$web_path}{$config['smilies_path']}/",
 		'T_AVATAR_PATH'			=> "{$web_path}{$config['avatar_path']}/",
 		'T_AVATAR_GALLERY_PATH'	=> "{$web_path}{$config['avatar_gallery_path']}/",
+		'T_BACKGROUND_PATH'		=> "{$web_path}styles",
 		'T_ICONS_PATH'			=> "{$web_path}{$config['icons_path']}/",
 		'T_RANKS_PATH'			=> "{$web_path}{$config['ranks_path']}/",
 		'T_UPLOAD_PATH'			=> "{$web_path}{$config['upload_path']}/",
@@ -4748,6 +4859,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'T_UPLOAD'				=> $config['upload_path'],
 
 		'SITE_LOGO_IMG'			=> $user->img('site_logo'),
+		'BACKGROUND_IMG'		=> $background_image,
 
 		'A_COOKIE_SETTINGS'		=> addslashes('; path=' . $config['cookie_path'] . ((!$config['cookie_domain'] || $config['cookie_domain'] == 'localhost' || $config['cookie_domain'] == '127.0.0.1') ? '' : '; domain=' . $config['cookie_domain']) . ((!$config['cookie_secure']) ? '' : '; secure')),
 	));

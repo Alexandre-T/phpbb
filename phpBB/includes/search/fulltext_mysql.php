@@ -529,14 +529,15 @@ class fulltext_mysql extends search_backend
 	* @param	array		&$id_ary			passed by reference, to be filled with ids for the page specified by $start and $per_page, should be ordered
 	* @param	int			$start				indicates the first index of the page
 	* @param	int			$per_page			number of ids each page is supposed to contain
+	* @param	int			$topic_type			0 topic et postit et annonce ; 1 topic et postit ; 2 topic et annonce ; 3 topic et postit et annonce
+	* @param	int		 	$lock				0 topic unlock; 1 topic lock; 2 topic lock and unlock
 	* @return	boolean|int						total number of results
 	*
 	* @access	public
 	*/
-	function author_search($type, $firstpost_only, $sort_by_sql, $sort_key, $sort_dir, $sort_days, $ex_fid_ary, $m_approve_fid_ary, $topic_id, $author_ary, $author_name, &$id_ary, $start, $per_page)
+	function author_search($type, $firstpost_only, $sort_by_sql, $sort_key, $sort_dir, $sort_days, $ex_fid_ary, $m_approve_fid_ary, $topic_id, $author_ary, $author_name, &$id_ary, $start, $per_page, $topic_type=3, $topic_status = 2)
 	{
 		global $config, $db;
-
 		// No author? No posts.
 		if (!sizeof($author_ary))
 		{
@@ -557,6 +558,8 @@ class fulltext_mysql extends search_backend
 			implode(',', $m_approve_fid_ary),
 			implode(',', $author_ary),
 			$author_name,
+			$topic_type,
+			$topic_status,
 		)));
 
 		// try reading the results from cache
@@ -565,7 +568,7 @@ class fulltext_mysql extends search_backend
 		{
 			return $result_count;
 		}
-
+		
 		$id_ary = array();
 
 		// Create some display specific sql strings
@@ -582,7 +585,32 @@ class fulltext_mysql extends search_backend
 		$sql_topic_id	= ($topic_id) ? ' AND p.topic_id = ' . (int) $topic_id : '';
 		$sql_time		= ($sort_days) ? ' AND p.post_time >= ' . (time() - ($sort_days * 86400)) : '';
 		$sql_firstpost = ($firstpost_only) ? ' AND p.post_id = t.topic_first_post_id' : '';
-
+		//START SEARCH RP
+		switch ($topic_type){
+			case 0 :
+				$sql_topic_type = ' AND t.topic_type = 0 ';
+				break;
+			case 1 :
+				$sql_topic_type = ' AND ' . $db->sql_in_set('t.topic_type', array(0,1));
+				break;
+			case 2 :
+				$sql_topic_type = ' AND ' . $db->sql_in_set('t.topic_type', array(0,2));
+				break;
+			default :
+				$sql_topic_type ='';
+		}		
+		switch ($topic_status){
+			case 0 :
+				$sql_topic_status = ' AND t.topic_status = 0 ';
+				break;
+			case 1 :
+				$sql_topic_status = ' AND t.topic_status = 1 ';
+				break;
+			default :
+				$sql_topic_status ='';
+		}
+		//END SEARCH RP
+		
 		// Build sql strings for sorting
 		$sql_sort = $sort_by_sql[$sort_key] . (($sort_dir == 'a') ? ' ASC' : ' DESC');
 		$sql_sort_table = $sql_sort_join = '';
@@ -628,6 +656,8 @@ class fulltext_mysql extends search_backend
 				WHERE $sql_author
 					$sql_topic_id
 					$sql_firstpost
+					$sql_topic_type
+					$sql_topic_status
 					$m_approve_fid_sql
 					$sql_fora
 					$sql_sort_join
@@ -642,6 +672,8 @@ class fulltext_mysql extends search_backend
 				WHERE $sql_author
 					$sql_topic_id
 					$sql_firstpost
+					$sql_topic_type
+					$sql_topic_status
 					$m_approve_fid_sql
 					$sql_fora
 					AND t.topic_id = p.topic_id

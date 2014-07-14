@@ -144,9 +144,12 @@ else
 // Dump out the page header and load viewforum template
 page_header($user->lang['VIEW_FORUM'] . ' - ' . $forum_data['forum_name'], true, $forum_id);
 
+//AT_MOD START : Classement des sujets
+//If this is an RP Forum, We used another template
 $template->set_filenames(array(
-	'body' => 'viewforum_body.html')
+	'body' => $forum_data['forum_rp'] == '1'?'viewforum_body_rp.html':'viewforum_body.html')
 );
+//AT_MOD END : Classement des sujets
 
 make_jumpbox(append_sid("{$phpbb_root_path}viewforum.$phpEx"), $forum_id);
 
@@ -650,7 +653,15 @@ if (sizeof($topic_list))
 		$u_mcp_queue = ($topic_unapproved || $posts_unapproved) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=queue&amp;mode=' . (($topic_unapproved) ? 'approve_details' : 'unapproved_posts') . "&amp;t=$topic_id", true, $user->session_id) : '';
 
 		// Send vars to template
-		$template->assign_block_vars('topicrow', array(
+		//AT_MOD START : Classement des sujets
+		$cible = 'topicrow';
+		if ($forum_data['forum_rp'] == '1' && $row['topic_type'] == POST_NORMAL && $row['topic_status'] == ITEM_LOCKED ){
+			$cible = 'archiverow';
+		}elseif($forum_data['forum_rp'] == '1' && $row['topic_type'] == POST_STICKY ){
+			$cible = 'descriptionrow';
+		}
+		//AT_MOD END : Classement des sujets
+		$template->assign_block_vars($cible, array(
 			'FORUM_ID'					=> $topic_forum_id,
 			'TOPIC_ID'					=> $topic_id,
 			'TOPIC_AUTHOR'				=> get_username_string('username', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),

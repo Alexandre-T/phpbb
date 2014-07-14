@@ -1172,11 +1172,29 @@ if (!sizeof($error) && $preview)
 {
 	$post_data['post_time'] = ($mode == 'edit') ? $post_data['post_time'] : $current_time;
 
+	// START Enable HTML
+	include($phpbb_root_path . 'includes/mods/enable_html.' . $phpEx);
+	if (enable_html_permission($post_data['poster_id'], false, $forum_id))
+	{
+		$temp_message = $message_parser->message;
+		$message_parser->message = enable_html($message_parser->message, $message_parser->bbcode_uid);
+	}
+	// END Enable HTML
+
 	$preview_message = $message_parser->format_display($post_data['enable_bbcode'], $post_data['enable_urls'], $post_data['enable_smilies'], false);
 
 	$preview_signature = ($mode == 'edit') ? $post_data['user_sig'] : $user->data['user_sig'];
 	$preview_signature_uid = ($mode == 'edit') ? $post_data['user_sig_bbcode_uid'] : $user->data['user_sig_bbcode_uid'];
 	$preview_signature_bitfield = ($mode == 'edit') ? $post_data['user_sig_bbcode_bitfield'] : $user->data['user_sig_bbcode_bitfield'];
+
+	// START Enable HTML
+	if (enable_html_permission($post_data['poster_id'], false, $forum_id))
+	{
+		$message_parser->message = $temp_message; // reset this otherwise the html code will not show in the message box again
+		unset($temp_message);
+		$preview_signature = enable_html($preview_signature, $preview_signature_uid);
+	}
+	// END Enable HTML
 
 	// Signature
 	if ($post_data['enable_sig'] && $config['allow_sig'] && $preview_signature && $auth->acl_get('f_sigs', $forum_id))

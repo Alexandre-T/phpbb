@@ -31,7 +31,7 @@ $group_id	= request_var('g', 0);
 $topic_id	= request_var('t', 0);
 
 // Check our mode...
-if (!in_array($mode, array('', 'group', 'viewprofile', 'email', 'contact', 'searchuser', 'leaders')))
+if (!in_array($mode, array('', 'group', 'nogroup', 'viewprofile', 'email', 'contact', 'searchuser', 'leaders')))
 {
 	trigger_error('NO_MODE');
 }
@@ -530,6 +530,13 @@ switch ($mode)
 
 		if ($member['user_sig'])
 		{
+			// START Enable HTML
+			include($phpbb_root_path . 'includes/mods/enable_html.' . $phpEx);
+			if (enable_html_permission($member['user_id'], $member))
+			{
+				$member['user_sig'] = enable_html($member['user_sig'], $member['user_sig_bbcode_uid']);
+			}
+			// END Enable HTML
 			$member['user_sig'] = censor_text($member['user_sig']);
 
 			if ($member['user_sig_bbcode_bitfield'])
@@ -1248,6 +1255,12 @@ switch ($mode)
 
 			$sql_where .= " AND ug.user_pending = 0 AND u.user_id = ug.user_id AND ug.group_id = $group_id";
 			$sql_where_data = " AND u.user_id = ug.user_id AND ug.group_id = $group_id";
+		}else if('nogroup' == $mode){
+			$sql_select = ' ';
+			$sql_from = ' ';
+			$order_by = ' ';
+			$sql_where_data = " AND u.group_id <> $group_id";
+			$sql_where .= " AND u.group_id <> $group_id";			
 		}
 
 		// Sorting and order
@@ -1716,6 +1729,8 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 		'S_WARNINGS'	=> ($auth->acl_getf_global('m_') || $auth->acl_get('m_warn')) ? true : false,
 
 		'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author_id=$user_id&amp;sr=posts") : '',
+		'U_SEARCH_USER_RP_EN_COURS'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$data['username']}&fid%5B%5D=".FORUM_RP."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=0") : '',
+	    	'U_SEARCH_USER_RP_ARCHIVES'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$data['username']}&fid%5B%5D=".FORUM_RPA."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=1") : '',	
 		'U_NOTES'		=> ($user_notes_enabled && $auth->acl_getf_global('m_')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=notes&amp;mode=user_notes&amp;u=' . $user_id, true, $user->session_id) : '',
 		'U_WARN'		=> ($warn_user_enabled && $auth->acl_get('m_warn')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=warn&amp;mode=warn_user&amp;u=' . $user_id, true, $user->session_id) : '',
 		'U_PM'			=> ($config['allow_privmsg'] && $auth->acl_get('u_sendpm') && ($data['user_allow_pm'] || $auth->acl_gets('a_', 'm_') || $auth->acl_getf_global('m_'))) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=pm&amp;mode=compose&amp;u=' . $user_id) : '',
