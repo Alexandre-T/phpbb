@@ -537,7 +537,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	sort($ex_fid_ary);
 	sort($m_approve_fid_ary);
 	sort($author_id_ary);
-
+	
 	if (!empty($search->search_query))
 	{
 		$total_match_count = $search->keyword_search($show_results, $search_fields, $search_terms, $sort_by_sql, $sort_key, $sort_dir, $sort_days, $ex_fid_ary, $m_approve_fid_ary, $topic_id, $author_id_ary, $sql_author_match, $id_ary, $start, $per_page);
@@ -545,7 +545,12 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	else if (sizeof($author_id_ary))
 	{
 		$firstpost_only = ($search_fields === 'firstpost' || $search_fields == 'titleonly') ? true : false;
+		// START SEARCH RP
+		if ($lock || in_array(FORUM_RP, $search_forum) || in_array(FORUM_RPA, $search_forum) ){
+			$ex_fid_ary = array_merge($ex_fid_ary,array_map('intval', explode(',',FORUM_EXCLUS)));
+		}	
 		$total_match_count = $search->author_search($show_results, $firstpost_only, $sort_by_sql, $sort_key, $sort_dir, $sort_days, $ex_fid_ary, $m_approve_fid_ary, $topic_id, $author_id_ary, $sql_author_match, $id_ary, $start, $per_page, 3, $lock);
+		// END SEARCH RP
 	}
 
 	// START SEARCH RP

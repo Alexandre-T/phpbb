@@ -14,3 +14,6 @@
 /tests/phpbb_unit_tests.sqlite2
 /tests/test_config*.php
 /tests/tmp/*
+/.settings
+/.buildpath
+/.project
