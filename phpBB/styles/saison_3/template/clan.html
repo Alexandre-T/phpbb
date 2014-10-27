@@ -1,0 +1,40 @@
+<!-- INCLUDE overall_header.html -->
+<h2>{L_CLAN_TITRE}</h2>
+<!-- BEGIN clans -->
+<!-- IF clans.RANG is even -->
+<div class="clan panel bg1">
+<!-- ELSE -->
+<div class="clan panel bg2">
+<!-- ENDIF -->
+<div class="inner"><span class="corners-top"><span></span></span>
+	
+	<h3>{clans.NAME}</h3>	
+	<div class="un_clan">
+	<!-- BEGIN avatars -->
+		<div class="liste-clan">
+			<dl class="clan-avatar-image">{avatars.AVATAR_IMG}</dl>
+			<dd class="clan-avatar-titre"><span class="avatar-user">{avatars.USER_FULL}</span></dd>
+		</div>
+	<!-- END avatars -->
+	</div>
+<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- END clans -->
+
+
+<div class="clan panel bg2">
+<div class="inner"><span class="corners-top"><span></span></span>
+<h3>{L_SANS_CLAN}</h3>	
+<div class="un_clan">
+<!-- BEGIN sansclan -->
+	<div class="liste-clan">
+		<dl class="clan-avatar-image">{sansclan.AVATAR_IMG}</dl>
+		<dd class="clan-avatar-titre"><span class="avatar-user">{sansclan.USER_FULL}</span></dd>
+	</div>
+<!-- END sansclan -->
+</div>
+<span class="corners-bottom"><span></span></span></div>
+</div>
+
+
+<!-- INCLUDE overall_footer.html -->

@@ -27,7 +27,7 @@ a#logo{
 /* Site description and logo */
 #site-description {
 	width:1000px;
-	height:500px;
+	height:350px;
 	background-position: top;
 	background-repeat: no-repeat;
 }
@@ -89,7 +89,7 @@ div#wrapper-central,div#wrapper-gauche,div#wrapper-droit{
 /*	background-image:url('{T_THEME_PATH}/images/bandes.jpg'); */
 /*	background-image:url('{T_THEME_PATH}/images/bg-pachad.jpg');*/
 /*	background-image:url('{T_THEME_PATH}/images/fond-v2.jpg');*/
-	background-color:#E3E0E0 ;
+	background-color:#778899 ;
 
 }
 /* Harahel Wrapper central */

@@ -4613,60 +4613,36 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 	$s_background = true;
 	$background_image= 'poker_olympus/background/banniere-v2a.jpg';
 	
-	if( $user->theme['style_id'] == 3 && $config['background_enable']){
+	if( $user->theme['style_id'] >= 3 && $config['background_enable']){
 		//le nouveau thème utilise des background en fonction de la minute et de l'heure optionnellement
 		//répertoire
-		$background_image =  'saison_2/background/';
+		$background_image =  'saison_3/background/';
 		$today = getdate();//tableau associatif
-		$tranche = ($today['hours'] * 60 + $today['minutes']) % 106;
+		$tranche = ($today['hours'] * 60 + $today['minutes']) % 56;
 		
 		//var_dump($tranche);
-		if ($tranche <1){
-			$background_image .= 'harahel.jpg';
-		}elseif ($tranche < 6 ){
-			$background_image .= 'becky.jpg';
-		}elseif ($tranche < 11 ){
-			$background_image .= 'calypso.jpg';
-		}elseif ($tranche < 16 ){
-			$background_image .= 'asmodee.jpg';
-		}elseif ($tranche < 21 ){
-			$background_image .= 'charlie.jpg';
-		}elseif ($tranche < 26 ){
-			$background_image .= 'isadora.jpg';
-		}elseif ($tranche < 31 ){
-			$background_image .= 'sariel.jpg';
+		if ($tranche < 6){
+		    $background_image .= 'vesta2.jpg';
+		}elseif ($tranche < 12 ){
+			$background_image .= 'kurt2.jpg';
+		}elseif ($tranche < 18 ){
+			$background_image .= 'kaylee2.jpg';
+		}elseif ($tranche < 24 ){
+			$background_image .= 'oishi2.jpg';
+		}elseif ($tranche < 30 ){
+			$background_image .= 'dawn2.jpg';
 		}elseif ($tranche < 36 ){
-			$background_image .= 'dawn.jpg';
-		}elseif ($tranche < 41 ){
-			$background_image .= 'kaylee.jpg';
-		}elseif ($tranche < 46 ){
-			$background_image .= 'jimmy.jpg';
-		}elseif ($tranche < 51 ){
-			$background_image .= 'lidrya.jpg';
+			$background_image .= 'heru2.jpg';
+		}elseif ($tranche < 42 ){
+			$background_image .= 'lidrya2.jpg';
+		}elseif ($tranche < 44 ){
+			$background_image .= 'jezabel2.jpg';
+		}elseif ($tranche < 50 ){
+			$background_image .= 'lorelei2.jpg';
 		}elseif ($tranche < 56 ){
-			$background_image .= 'lindsey.jpg';
-		}elseif ($tranche < 61 ){
-			$background_image .= 'heru.jpg';
-		}elseif ($tranche < 66 ){
-			$background_image .= 'lorelei.jpg';
-		}elseif ($tranche < 71 ){
-			$background_image .= 'lori.jpg';
-		}elseif ($tranche < 76 ){
-			$background_image .= 'kurt.jpg';
-		}elseif ($tranche < 81 ){
-			$background_image .= 'morgan.jpg';
-		}elseif ($tranche < 86 ){
-			$background_image .= 'matvei.jpg';
-		}elseif ($tranche < 91 ){
-			$background_image .= 'jezabel.jpg';
-		}elseif ($tranche < 96 ){
-			$background_image .= 'oishi.jpg';
-		}elseif ($tranche < 101 ){
-			$background_image .= 'valaerys.jpg';
-		}elseif ($tranche < 106 ){
-			$background_image .= 'raziel.jpg';
+			$background_image .= 'valaerys2.jpg';
 		}else{
-			$background_image .= 'harahel.jpg';
+			$background_image .= 'vesta2.jpg';
 		}
 
 		//var_dump($background_image);die();
@@ -4771,6 +4747,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'U_MEMBERLIST'			=> append_sid("{$phpbb_root_path}memberlist.$phpEx"),
 		'U_VIEWONLINE'			=> ($auth->acl_gets('u_viewprofile', 'a_user', 'a_useradd', 'a_userdel')) ? append_sid("{$phpbb_root_path}viewonline.$phpEx") : '',
 		'U_LOGIN_LOGOUT'		=> $u_login_logout,
+		'U_CARTE'				=> append_sid("{$phpbb_root_path}carte.$phpEx"),
 		'U_HOME'				=> "/index.$phpEx",
 		'U_INDEX'				=> append_sid("{$phpbb_root_path}index.$phpEx"),
 		'U_SEARCH'				=> append_sid("{$phpbb_root_path}search.$phpEx"),
