@@ -692,7 +692,8 @@ $lang = array_merge($lang, array(
 
 	'VARIANT_DATE_SEPARATOR'	=> ' / ',	// Used in date format dropdown, eg: "Today, 13:37 / 01 Jan 2007, 13:37" ... to join a relative date with calendar date
 	'VIEWED'					=> 'Vu',
-	'VIEWING_FAQ'				=> 'Consulte la FAQ',
+	'VIEWING_BOUTIQUE'     		=> 'Consulte la boutique',
+    'VIEWING_FAQ'				=> 'Consulte la FAQ',
 	'VIEWING_MEMBERS'			=> 'Consulte les informations d’un utilisateur',
 	'VIEWING_ONLINE'			=> 'Regarde qui est en ligne',
 	'VIEWING_MCP'				=> 'Consulte le panneau de modération',

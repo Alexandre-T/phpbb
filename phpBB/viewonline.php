@@ -195,7 +195,11 @@ while ($row = $db->sql_fetchrow($result))
 
 	switch ($on_page[1])
 	{
-		case 'index':
+		case 'boutique':
+			$location = $user->lang['BOUTIQUE'];
+			$location_url = append_sid("{$phpbb_root_path}boutique.$phpEx");
+		break;
+	    case 'index':
 			$location = $user->lang['INDEX'];
 			$location_url = append_sid("{$phpbb_root_path}index.$phpEx");
 		break;

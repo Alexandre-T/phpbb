@@ -1730,7 +1730,7 @@ function show_profile($data, $user_notes_enabled = false, $warn_user_enabled = f
 
 		'U_SEARCH_USER'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author_id=$user_id&amp;sr=posts") : '',
 		'U_SEARCH_USER_RP_EN_COURS'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$data['username']}&fid%5B%5D=".FORUM_RP."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=0") : '',
-	    	'U_SEARCH_USER_RP_ARCHIVES'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$data['username']}&fid%5B%5D=".FORUM_RPA."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=1") : '',	
+	    'U_SEARCH_USER_RP_ARCHIVES'	=> ($auth->acl_get('u_search')) ? append_sid("{$phpbb_root_path}search.$phpEx", "author={$data['username']}&fid%5B%5D=".FORUM_RPA."&sc=1&sf=all&sr=topics&sk=t&sd=d&st=0&t=0&lock=1") : '',	
 		'U_NOTES'		=> ($user_notes_enabled && $auth->acl_getf_global('m_')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=notes&amp;mode=user_notes&amp;u=' . $user_id, true, $user->session_id) : '',
 		'U_WARN'		=> ($warn_user_enabled && $auth->acl_get('m_warn')) ? append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=warn&amp;mode=warn_user&amp;u=' . $user_id, true, $user->session_id) : '',
 		'U_PM'			=> ($config['allow_privmsg'] && $auth->acl_get('u_sendpm') && ($data['user_allow_pm'] || $auth->acl_gets('a_', 'm_') || $auth->acl_getf_global('m_'))) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=pm&amp;mode=compose&amp;u=' . $user_id) : '',
