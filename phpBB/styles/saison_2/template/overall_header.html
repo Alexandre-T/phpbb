@@ -129,8 +129,9 @@
 							<!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
 							<!-- IF S_DISPLAY_PM --><li><a href="{U_PRIVATEMSGS}"><i class="fa fa-envelope"></i>&nbsp;<b>{PRIVATE_MESSAGE_INFO}</b></a></li><!-- ENDIF -->
 							<!-- ENDIF -->
-							<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH --><li><a href="{U_SEARCH}" title="{L_SEARCH_ADV_EXPLAIN}"><i class="fa fa-search"></i>&nbsp;<b>{L_SEARCH_ADV}</b></a></li><!-- ENDIF -->
+							<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH --><li><a href="{U_SEARCH}" title="{L_SEARCH_ADV_EXPLAIN}"><i class="fa fa-search"></i>&nbsp;<b>{L_SEARCH}</b></a></li><!-- ENDIF -->
 							<li><a href="{U_CARTE}" title="Carte de Vegas" accesskey="c"><i class="fa fa-globe"></i>&nbsp;<b>Carte</b></a></li>
+							<li><a href="{U_BOUTIQUE}" title="Carte de Vegas" accesskey="c"><i class="fa fa-shopping-cart"></i>&nbsp;<b>Boutique</b></a></li>
 							<li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x"><i class="fa fa-sign-in"></i>&nbsp;<b>{L_LOGIN_LOGOUT}</b></a></li>
 						</ul>
 					</div>
@@ -154,7 +155,7 @@
 						<div class="navbar2">
 							<div class="inner">
 							<ul class="linklist" style="font-weight:bold;">
-								<li class="icon-home">&nbsp;<a href="{U_INDEX}" accesskey="h" title="{L_INDEX}" class="navbar">{L_INDEX}</a><!-- BEGIN navlinks --><span class="navbar">&gt;</span><a href="{navlinks.U_VIEW_FORUM}" title="" class="navbar">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
+								<li style="margin-top:2px"><a href="{U_INDEX}" accesskey="h" title="{L_INDEX}" class="navbar"><i class="fa fa-home fa-lg"></i> &nbsp; {L_INDEX}</a><!-- BEGIN navlinks --><span class="navbar">&gt;</span><a href="{navlinks.U_VIEW_FORUM}" title="" class="navbar">{navlinks.FORUM_NAME}</a><!-- END navlinks --></li>
 							</ul>
 							</div>
 						</div>
