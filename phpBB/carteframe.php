@@ -195,6 +195,16 @@ $markers[]=array(
 	'LONGITUDE'		=> -112.112965,   //Longitude du lieu
 	'MARKER'		=> 'green_MarkerG.png'  //Marker sur la map blue_MarkerW.png
 );
+$markers[]=array(
+	'CODE'			=> 'erikaAndKurt', //Code javascript du lieu (doit être unique)
+	'FA'			=> 'clock-o', //Code de l'icone font-awesome
+	'TITLE' 		=> 'Dernières coordonnées', //Titre du lieu
+	'DESCRIPTION'		=> 'Dernières coordonnées émises par la montre et les rangers de ', //Description lieu
+	'FID'			=> 70,   //ID du forum
+	'LATITUDE'		=> 39.167182,   //Latitude du lieu
+	'LONGITUDE'		=> 73.476530,   //Longitude du lieu
+	'MARKER'		=> 'blue_MarkerE.png'  //Marker sur la map blue_MarkerW.png
+);
 /*
 //vierge ’
 $markers[]=array(
