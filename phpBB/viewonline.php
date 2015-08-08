@@ -21,6 +21,11 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup('memberlist');
 
+if(!$auth->acl_gets('a_')){
+    header ('Location: index.php');
+    die();    
+}
+
 // Get and set some variables
 $mode		= request_var('mode', '');
 $session_id	= request_var('s', '');
@@ -413,8 +418,8 @@ while ($row = $db->sql_fetchrow($result))
 }
 $db->sql_freeresult($result);
 
-// Refreshing the page every 60 seconds...
-meta_refresh(60, append_sid("{$phpbb_root_path}viewonline.$phpEx", "sg=$show_guests&amp;sk=$sort_key&amp;sd=$sort_dir&amp;start=$start"));
+// Refreshing the page every 1200 seconds...
+meta_refresh(1200, append_sid("{$phpbb_root_path}viewonline.$phpEx", "sg=$show_guests&amp;sk=$sort_key&amp;sd=$sort_dir&amp;start=$start"));
 
 // Send data to template
 $template->assign_vars(array(
