@@ -4,14 +4,14 @@
 				<div class="navbar">
 					<div class="inner">
 						<ul class="linklist">
-							<li style="margin-top:2px;"><a href="{U_INDEX}" accesskey="h" title="{L_INDEX}" class="navbar"><i class="fa fa-home fa-lg"></i>&nbsp;{L_INDEX}</a></li>
+							<li class="icon-home"><a href="{U_INDEX}" accesskey="h" title="{L_INDEX}" class="navbar">{L_INDEX}</a></li>
 							<!-- IF not S_IS_BOT -->
-								<!-- IF S_WATCH_FORUM_LINK --><li style="margin-top:2px;"><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}" class="navbar"><i <!-- IF S_WATCHING_FORUM -->class="fa fa-eye-open fa-lg"<!-- ELSE -->class="fa fa-eye fa-lg"<!-- ENDIF -->></i>&nbsp;{S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
-								<!-- IF U_WATCH_TOPIC --><li style="margin-top:2px;"><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}" class="navbar"><i <!-- IF S_WATCHING_TOPIC -->class="fa fa-square-o"<!-- ELSE -->class="fa fa-eye fa-lg"<!-- ENDIF -->></i>&nbsp;{L_WATCH_TOPIC}</a></li><!-- ENDIF -->
-								<!-- IF U_BOOKMARK_TOPIC --><li style="margin-top:2px;"><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}" class="navbar"><i class="fa fa-bookmark fa-lg"></i>&nbsp;{L_BOOKMARK_TOPIC}</a></li><!-- ENDIF -->
-								<!-- IF U_BUMP_TOPIC --><li style="margin-top:2px;"><a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}" class="navbar"><i class="fa fa-toggle-up fa-lg"></i>&nbsp;{L_BUMP_TOPIC}</a></li><!-- ENDIF -->
+								<!-- IF S_WATCH_FORUM_LINK --><li <!-- IF S_WATCHING_FORUM -->class="navbar icon-unsubscribe"<!-- ELSE -->class="navbar icon-subscribe"<!-- ENDIF -->><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}" class="navbar">{S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
+								<!-- IF U_WATCH_TOPIC --><li <!-- IF S_WATCHING_TOPIC -->class="navbar icon-unsubscribe"<!-- ELSE -->class="navbar icon-subscribe"<!-- ENDIF -->><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}" class="navbar">{L_WATCH_TOPIC}</a></li><!-- ENDIF -->
+								<!-- IF U_BOOKMARK_TOPIC --><li class="icon-bookmark"><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}" class="navbar">{L_BOOKMARK_TOPIC}</a></li><!-- ENDIF -->
+								<!-- IF U_BUMP_TOPIC --><li class="icon-bump"><a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}" class="navbar">{L_BUMP_TOPIC}</a></li><!-- ENDIF -->
 							<!-- ENDIF -->
-							<li class="rightside"style="margin-top:2px"><!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}" class="navbar" title=""><i class="fa fa-trash-o fa-lg"></i>&nbsp;{L_DELETE_COOKIES}</a><!-- ENDIF --></li>
+							<li class="rightside"><!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}" class="navbar" title="">{L_DELETE_COOKIES}</a><!-- ENDIF --></li>
 						</ul>
 					</div>
 				</div>
