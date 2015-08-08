@@ -531,7 +531,6 @@ class fulltext_mysql extends search_backend
 	* @param	int			$per_page			number of ids each page is supposed to contain
 	* @param	int			$topic_type			0 topic et postit et annonce ; 1 topic et postit ; 2 topic et annonce ; 3 topic et postit et annonce
 	* @param	int		 	$lock				0 topic unlock; 1 topic lock; 2 topic lock and unlock
-	* @param	int			$telecom			1 to exclude telecom forum, default 0 
 	* @return	boolean|int						total number of results
 	*
 	* @access	public
