@@ -1,0 +1,40 @@
+					<span style="display:block; text-align : center">
+						Style par <a href="http://www.jeuforum.fr" title="Hébergeur de forum">www.jeuforum.fr</a> et par <a href="http://www.pub-rpg-design.com/u14042" title="Profil d'Oracle">Oracle</a> de <a href="http://www.pub-rpg-design.com/" title="PUB RPG Design">Pub RPG Design</a>
+						<br />Hébergé gratuitement et sans publicité par <a href="http://www.jeuforum.fr" title="Hébergeur de forum">www.jeuforum.fr</a>
+						<br />{CREDIT_LINE}
+						<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+					</span>
+				</div><!-- Harahel : Fermeture de page-body -->
+			</div>
+			<div id="page-footer" class="noprint">
+				<div class="navbar">
+					<div class="inner">
+						<ul class="linklist">
+							<li style="margin-top:2px;"><a href="{U_INDEX}" accesskey="h" title="{L_INDEX}" class="navbar">{L_INDEX}</a></li>
+							<!-- IF not S_IS_BOT -->
+								<!-- IF S_WATCH_FORUM_LINK --><li style="margin-top:2px;"><a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}" class="navbar">{S_WATCH_FORUM_TITLE}</a></li><!-- ENDIF -->
+								<!-- IF U_WATCH_TOPIC --><li style="margin-top:2px;"><a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}" class="navbar">{L_WATCH_TOPIC}</a></li><!-- ENDIF -->
+								<!-- IF U_BOOKMARK_TOPIC --><li style="margin-top:2px;"><a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}" class="navbar">{L_BOOKMARK_TOPIC}</a></li><!-- ENDIF -->
+								<!-- IF U_BUMP_TOPIC --><li style="margin-top:2px;"><a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}" class="navbar">{L_BUMP_TOPIC}</a></li><!-- ENDIF -->
+							<!-- ENDIF -->
+							<li class="rightside"style="margin-top:2px"><!-- IF not S_IS_BOT --><a href="{U_DELETE_COOKIES}" class="navbar" title="">{L_DELETE_COOKIES}</a><!-- ENDIF --></li>
+						</ul>
+					</div>
+				</div>
+									
+				<div class="copyright" id="logo_footer">
+					<div>
+						<!-- IF U_ACP --><br /><strong><a href="{U_ACP}">{L_ACP}</a></strong><!-- ENDIF -->
+						<!-- IF U_RESTORE_PERMISSIONS --><br/><a href="{U_RESTORE_PERMISSIONS}" title="{L_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a><!-- ENDIF -->
+					</div>
+				</div>
+			</div>
+			<div>
+				<a id="bottom" name="bottom" accesskey="z"></a>
+				<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+			</div>
+			</div><!-- Harahel : Fermetur de wrapper central -->
+		</div><!-- Harahel : Fermetur de wrapper droit -->
+	</div><!-- Harahel : Fermetur de wrapper gauche -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB737R7yiQ2o17h1Biq3SVudn35gvD_Vo">
+    </script>
+    <script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/fontawesome-markers.js"></script>
+    <link rel="stylesheet" href="{T_SUPER_TEMPLATE_PATH}/font-awesome.min.css">
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(36.143578, -115.158006),
+          zoom: 11
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        // Define the LatLng coordinates for the dome path.
+        var domeCoords = [
+          new google.maps.LatLng(36.067349, -115.289456),//Pt rhodes Ranches
+          new google.maps.LatLng(36.181538, -115.260021),//N Buffalo Dr
+          new google.maps.LatLng(36.301575, -115.093682),//North Las Vegas desert
+          new google.maps.LatLng(36.271687, -114.993431),//las vegas motors speedway
+          new google.maps.LatLng(36.200795, -114.983475),//lake mead blvd
+          new google.maps.LatLng(36.087402, -114.988625),//Clark county wetlands park
+          new google.maps.LatLng(36.034670, -114.936440),//Henderson east
+          new google.maps.LatLng(35.984958, -114.977377),//Henderson south
+          new google.maps.LatLng(36.001208, -115.053341),//Dragonridge country club
+          new google.maps.LatLng(36.057155, -115.137627) //
+        ];
+        
+        // Construct the dome.
+        domeTriangle = new google.maps.Polygon({
+          paths: domeCoords,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 1,
+          fillColor: '#FF5555',
+          fillOpacity: 0.15
+        });
+
+        domeTriangle.setMap(map);
+
+        <!-- BEGIN markers -->
+        //{markers.TITLE} Info
+        var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">{markers.TITLE}</h1>'+
+        '<div id="bodyContent">'+
+        '<p>{markers.DESCRIPTION}</p>'+
+        '<p><a href="http://vegas.jeuforum.fr/forum/viewforum.php?f={markers.FID}" target="_top">{markers.TITLE}</a></p>'+
+        '</div>'+
+        '</div>';
+
+	    var {markers.CODE}Window = new google.maps.InfoWindow({
+	        content: contentString,
+	        maxWidth: 500
+	    });
+
+		//AéroportLatLng
+	    var {markers.CODE}Latlng = new google.maps.LatLng( {markers.LATITUDE}, {markers.LONGITUDE});
+	    
+	    var {markers.CODE}Marker = new google.maps.Marker({
+	        map: map,
+	        icon : '{T_THEME_PATH}/images/markers/{markers.MARKER}',
+	        clickable: true,
+	        position: {markers.CODE}Latlng,
+	        title: '{markers.TITLE}'
+	    });
+	    
+	    google.maps.event.addListener({markers.CODE}Marker, 'click', function() {
+	    	{markers.CODE}Window.open(map,{markers.CODE}Marker);
+	    });
+	    <!-- END markers -->
+        
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

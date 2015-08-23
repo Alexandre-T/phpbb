@@ -1,0 +1,149 @@
+/*  	
+--------------------------------------------------------------
+Additionnals css for Poker Olympus
+-------------------------------------------------------------- */
+/*Credits: CSSpplay */
+/*URL: http://www.cssplay.co.uk/menus/pro_five */
+
+
+/* navigation bar
+--------------------------------------------- */
+
+.pro15 {
+	padding: 0 5px; 
+	margin: 0 auto; 
+	list-style: none; 
+	height: 30px; 
+	background-color: #3D3D3D;
+	min-width: 980px;
+	text-align:center;
+}
+
+.pro15 li {
+	display: inline; 
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.pro15 li a {
+	height: 30px; 
+	line-height: 30px; 
+	color: #CCC; 
+	text-decoration: none; 
+	font-family: arial, verdana, sans-serif; 
+	text-align:	center; 
+	padding: 8px 8px 8px 8px; 
+	cursor: pointer; 
+	font-size: 12px;
+}
+
+.pro15 li a:hover {
+	color: #ae3731; 
+	text-decoration: none;
+}
+
+.pro15 li a b {
+	padding-left:8px;
+}
+
+/* Image magnifier menu
+--------------------------------------------- */
+#enlarge {
+	background: url("{T_THEME_PATH}/images/bg_enlarge.gif") no-repeat center center;	
+	margin: 20px auto; 
+	list-style-type: none; 
+	width: 215px; 
+	height: 30px;
+	display: block;
+	float: right;
+}
+#enlarge li {
+	display: block; 
+	float:right;
+	width: 25px; 
+	height: 25px; 
+	position: relative;
+	margin: 0 5px;
+}
+
+#enlarge li a {
+	display: block; 
+	width: 25px; 
+	height: 25px; 
+	background: transparent; 
+	overflow: hidden; 
+	position: relative;
+}
+
+#enlarge li a img {
+	width: 100%; 
+	height: 100%; 
+	border: 0;
+}
+
+#enlarge li a:hover {
+	position: absolute; 
+	left: -20px; 
+	top: -20px; 
+	width: 64px; 
+	height: 64px; 
+	z-index: 100;
+}
+/*End credits: CSSpplay */
+
+/* add links footer
+--------------------------------------------- */
+#navmenu_footer {
+	float: left;
+	margin-top: 20px;
+}
+
+#navmenu_footer ul {
+	height: 35px;
+	padding: 10px 0 0 5px;
+	list-style: none;
+}
+
+#navmenu_footer li {
+	display: inline;
+}
+
+#navmenu_footer a {
+	display: block;
+	float: left;
+	width: 120px;
+	height: 40px;
+	padding-top: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: -1px;
+	font-size: 2em;
+	color: #212121;
+	border-left: 1px solid #212121;
+}
+
+#navmenu_footer a:hover {
+	color: #fff;
+	border-left: 1px solid #fff;
+}
+
+#last1 a {
+	display: block;
+	float: left;
+	width: 120px;
+	height: 40px;
+	padding-top: 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: lowercase;
+	letter-spacing: -1px;
+	font-size: 2em;
+	color: #212121;
+	border-left: 1px solid #212121;
+}
+
+#last1 a:hover {
+	color: #fff;
+	border-left: 1px solid #fff;
+}

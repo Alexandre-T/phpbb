@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<style type="text/css">
+@font-face {
+    font-family: 'policeVegas';
+    src: url('../forum/styles/saison_4/theme/fonts/LetristaScript.otf');
+}
+.policeVegas{
+	font-family: 'policeVegas',Arial,sans-serif;
+	font-weight: lighter;
+}
+table{
+	border-spacing:0;	
+}
+body{
+	margin:0 0 0 0;
+	background-image:url('images/vegas-pa2.jpg');
+  	margin-left: 0px;
+  	margin:0;
+  	color: #344A5C;
+	background-position: top left;
+	font-family: 'Lucida Grande','MS Trebuchet', Arial, sans-serif;
+    font-weight: bold;
+	background-repeat: no-repeat;
+	background-color:#F0F0F0;
+}
+
+.pa{
+  
+}
+h1.pa_contexte_titre{
+	position:absolute;
+	top:   25px;
+	left: 120px;
+	width: 260px;
+	height: 38px;
+	line-height:38px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#282828;font-weight: lighter;
+	font-size:x-large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:100;
+}
+.pa_contexte{
+	position:absolute;
+	top: 50px;
+	left: 120px;
+  	width: 300px;
+	overflow: auto;
+	margin-top: 0px;
+	color: #344A5C;	
+}
+.iframe{
+	position:absolute;
+	top: 50px;
+	right: 0px;
+	width: 470px; 
+	height: 290px;
+}
+.iframe_titre{
+	position:absolute;
+	top:   25px;
+	right:   0px;
+	width: 470px;
+	height: 38px;
+	line-height:38px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#282828;font-weight: lighter;
+	font-size:x-large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:100;
+}
+
+.pa_staff{
+	position:absolute;
+	top:  230px;
+	left: 120px;
+  	width: 260px;
+	margin: 0;
+	padding:0;
+	color: #344A5C;
+	z-index:200;
+}
+.pa_staff_info{
+	background-image:linear-gradient(rgba(242,241,239,0.9), #F3F0F0);
+ 	border-radius:2px;
+	position:absolute;
+	top:15px;
+	left:60px;
+	text-align: center;
+	width: 138px;
+	height: 125px;
+	font-size: 14px;
+	color: #344A5C;
+	display: none;
+	z-index: 999;
+	margin: auto;
+}
+#nouveau_joueur_titre,#nouveau_joueur_titre2{
+	position:absolute;
+	line-height:38px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#282828;font-weight: lighter;
+	font-size:x-large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:100;
+	position:absolute;
+	left:413px;
+	width:160px;
+	bottom:120px;
+}
+#nouveau_joueur_titre2{
+	bottom:0px;
+}
+#nouveau_joueur{
+	width:100px;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	left:433px;
+	border-radius:2px;
+	background-image:linear-gradient(rgba(242,241,239,0.9), #F3F0F0);
+	padding:10px;
+	height:90px;
+	bottom:24px;
+}
+#nouveau_joueur img{
+	padding-top:10px;
+}
+#informations{
+	position:absolute;
+	line-height:20px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#FFF;
+	font-weight: lighter;
+	font-size:large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:100;
+	position:absolute;
+	top:284px;
+	left:546px;
+	width:220px;
+}
+#intrigue_titre{
+	position:absolute;
+	height: 38px;
+	line-height:38px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#282828;font-weight: lighter;
+	font-size:x-large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:100;
+	position:absolute;
+	top:254px;
+	left:706px;
+	width:180px;
+}
+#intrigue{
+	width:180px;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	top:280px;
+	left:706px;
+	border-radius:2px;
+}
+
+.pa_contexte a {
+  font-size: 12px;
+  color: #6590A8;
+  text-decoration: none;
+}  
+  
+.pa_contexte a:hover {
+  font-size: 12px;
+  color: #FFFFFF;
+  text-decoration: none;
+}  
+
+.pa_contexte_def_h{
+	position:absolute;
+	top:  105px;
+	left:  91px;
+}
+.pa_contexte_def_b{
+	position:absolute;
+	top : 130px;
+	left: 90px;
+}
+#pa_contexte_texte {
+	width: 250px; 
+	height: 150px; 
+	font-size: 12px; 
+	padding: 5px; 
+	overflow: hidden; 
+	text-align: justify;
+	background-image:linear-gradient(rgba(242,241,239,0.9), #F3F0F0);
+ 	border-radius:2px;
+}
+
+  
+.pa_staff_onglet_g{
+	position:absolute;
+	top:0;
+	left:0;	
+}
+.pa_staff_onglet_d{
+	position:absolute;
+	top:0;
+	right:0;	
+}
+
+.pa_staff_titre{
+	position:absolute;
+	line-height:38px;
+	height:38px;
+	text-align:center;
+	left: 120px;
+	width: 260px;
+	top : 220px;
+	text-align:center;
+	font-family: 'policeVegas',Arial,sans-serif;
+	color:#282828;font-weight: lighter;
+	font-size:x-large;
+	/*text-shadow: 1px 1px 1px #000;*/
+	z-index:250;
+}
+.pa_staff_onglet img{
+  border-radius:2px;	
+}
+  
+.pa_staff_info a, .pa_staff_info a:link, .pa_staff_info a.topiclink{
+  font-size: 14px;
+  color: #6590A8;
+  text-decoration: none;
+}
+  
+.pa_staff_info a:hover, .pa_staff_info a:link:hover, .pa_staff_info a.topiclink:hover{
+  font-size: 14px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+  
+.pa_staff_gif{
+  height: 50px;
+  border: 1px solid #000000;
+  margin-top: 15px;
+}
+  
+.pa_staff_nom{
+  font-family: 'Georgia'; 
+  font-weight: bold;
+  font-size: 16px;
+  color: #4E6577;
+}
+  
+.pa_staff_onglet{
+}
+
+.pa_staff_onglet_g{
+  margin: 1px;
+}
+
+.pa_staff_onglet_d{
+  margin: 1px;
+}
+
+.pa_memhonava {
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+	width: 100px;
+	margin: auto;
+}
+
+.pa_memhon {
+  	background-image:linear-gradient(rgba(242,241,239,0.9), #F3F0F0);
+	border-radius:2px;
+  	bottom: 0;
+  	height: 60px;
+  	left: 0;
+	margin-left:10px;
+  	margin-bottom: -30px;
+  	opacity: 0.95;
+  	position: absolute;
+  	text-align: center;
+  	transition: all 1s ease 0s;
+  	width: 100px;
+  	font-size: 12px;
+  	color: #344A5C;
+	visibility:hidden;
+}
+  
+.pa_memhon a {
+  font-size: 12px;
+  color: #6590A8;
+  text-decoration: none;
+}  
+  
+.pa_memhon a:hover {
+  font-size: 12px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.pa_memhon img{
+	border-radius:2px;
+	border:thin set red;
+}
+  
+.pa_memhonava:hover .pa_memhon {
+  visibility:visible;
+  margin-bottom: 30px;
+}
+
+div.pa_predefinis {
+  position:absolute;
+  top : 15px;
+  left: 15px;
+  width: 52px;
+  text-align: center;
+  height: 400px;
+  background-color:#CCC;
+  background-color:rgba(208,208,208,0.85);
+  padding:15px 5px;
+  border-radius: 25px;
+  height:335px;
+}
+
+div.pa_predefinis a, div.pa_predefinis a img {
+  height: 50px;
+  width: 50px;
+  transform: all;
+  -moz-transform: all;
+  -o-transform: all;
+  -htm-transform: all;
+  -webkit-transform: all;
+  transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -htm-transition: 1s;
+  -webkit-transition: 1s;
+  -ms-transition: 1s;
+  -khtml-transition: 1s;
+}
+  
+div.pa_predefinis a {
+  display: inline-block;
+  position: relative;
+  margin: 1px;
+}
+
+div.pa_predefinis a img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: all;
+  -moz-transform: all;
+  -o-transform: all;
+  -htm-transform: all;
+  -webkit-transform: all;
+  transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -htm-transition: 1s;
+  -webkit-transition: 1s;
+  -ms-transition: 1s;
+  -khtml-transition: 1s;
+}
+
+#predefinis:hover div.pa_predefinis a img:not(:hover){
+  -webkit-filter: grayscale(1) blur(1px);
+  -moz-filter: grayscale(1) blur(1px);
+  -ms-filter: grayscale(1) blur(1px);
+  -o-filter: grayscale(1) blur(1px);
+  filter: grayscale(1) blur(1px);
+}
+
+div.pa_predefinis a:hover img {
+   height: 100px;
+   width: 100px;
+   z-index: 99;
+   transform: all;
+  -moz-transform: all;
+  -o-transform: all;
+  -htm-transform: all;
+  -webkit-transform: all;
+  transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -htm-transition: 1s;
+  -webkit-transition: 1s;
+  -ms-transition: 1s;
+  -khtml-transition: 1s;
+  left: -25%;
+  top: -25%;
+}
+
+.pa_infobulle span{
+  position: absolute;
+  padding: 8px 0px;
+  font-size: 14px;
+  color: #344A5C;
+  -webkit-transform: scale(0) rotate(-20deg);
+  -moz-transform: scale(0) rotate(-20deg);
+  -ms-transform: scale(0) rotate(-20deg);
+  -o-transform: scale(0) rotate(-20deg);
+  transform: scale(0) rotate(-20deg);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  opacity: 0;
+}
+  
+.pa_infobulle:hover span, a:focus span{
+  width: 150px;
+  height: 80px;
+  color: #344A5C;
+  background-image:linear-gradient(rgba(242,241,239,0.9), #F3F0F0);
+  border-radius:2px;
+  left: 115px;
+  margin-top:-10px;	
+  -webkit-transform: scale(1) rotate(0);
+  -moz-transform: scale(1) rotate(0);
+  -ms-transform: scale(1) rotate(0);
+  -o-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+  opacity: 1;
+  z-index:300;
+}
+  
+.pa_infobulle span::before{
+  content: "";
+  color: #344A5C;
+  position: absolute;
+  top: 10px;
+  left: 7px;
+  height: 0;
+  width: 0;
+  border-right: 8px solid #93ADBD;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.pa_infobulle_nom{
+  text-align: center;
+  font-family: 'policeVegas','Lucida Grande','MS Trebuchet', Arial, sans-serif;
+  line-height:24px;
+  text-align:center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #3D3D3D;
+}
+  
+.pa_infobulle_groupe_xm, .pa_infobulle_groupe_ix, .pa_infobulle_groupe_c, .pa_infobulle_groupe_i, .pa_infobulle_groupe_h{
+  text-align: center;
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+  
+.pa_infobulle_groupe_xm{
+  color: #008800;
+}
+  
+.pa_infobulle_groupe_ix{
+  color: #FF6600;
+}
+  
+.pa_infobulle_groupe_c{
+  color: #695430;
+}
+  
+.pa_infobulle_groupe_i{
+  color: #D4911E;
+}
+  
+.pa_infobulle_groupe_h{
+  color: #C76363;
+}
+
+h1{ margin:0; text-align : center; width:100%; color:#778899;font-family : Georgia, Arial;font-size:bigger}
+</style>
+
+<link href='http://fonts.googleapis.com/css?family=Georgia' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+  //<!--
+    function change_pa_staff_onglet(name)
+    {
+      //document.getElementById('pa_staff_onglet_'+anc_pa_staff_onglet).className = 'pa_staff_onglet_g pa_staff_onglet';
+      //document.getElementById('pa_staff_onglet_'+name).className = 'pa_staff_onglet_d pa_staff_onglet';
+      document.getElementById('pa_staff_contenu_'+anc_pa_staff_onglet).style.display = 'none';
+      document.getElementById('pa_staff_contenu_'+name).style.display = 'block';
+      anc_pa_staff_onglet = name;
+    }
+  //-->
+</script>
+
+<script type="text/javascript">
+  //<!--
+    var anc_pa_staff_onglet = 'oishi';
+    change_pa_staff_onglet(anc_pa_staff_onglet);
+  //-->
+</script>
+  
+<script type="text/javascript"> 
+  var timer1;
+  function scrollDiv(divId, depl) {
+  var scroll_container = document.getElementById(divId);
+  scroll_container.scrollTop -= depl;
+  timer1 = setTimeout('scrollDiv("'+divId+'", '+depl+')', 30);
+  }
+</script>
+ </head>
+<body> 
+<div id="predefinis">
+  <div class="pa_predefinis">
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=34#p263" target=_blank><img src="images/jaimie10.png" /></a><span><div class="pa_infobulle_nom">Elsee<br/>Christensen</div><div class="pa_infobulle_groupe_xm">Nephilim</div>Skjaldmey</span></div>
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=152&t=31#p25704" target=_blank><img src="images/timo10.png" /></a><span><div class="pa_infobulle_nom">Timoty<br/>Harper</div><div class="pa_infobulle_groupe_ix">Humain</div>Vestal</span></div>
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=34#p42414" target=_blank><img src="images/blog_mb_4942763_7653392_tr_th_nina-dobrev-icon-2.png" /></a><span><div class="pa_infobulle_nom">Swann<br/>Michels</div><div class="pa_infobulle_groupe_xm">Nephilim</div>Skjaldmey</span></div>
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=29#p241" target=_blank><img src="images/739618Sanstitre44.png" /></a><span><div class="pa_infobulle_nom">Scott<br/>Maverick</div><div class="pa_infobulle_groupe_ix">Humain</div>Templier</span></div>
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=151&t=34#p46630" target=_blank><img src="images/icone_10.jpg" /></a><span><div class="pa_infobulle_nom">Milah<br/>Edwards</div><div class="pa_infobulle_groupe_xm">Nephilim</div>Skjaldmey</span></div>
+    <div class="pa_infobulle"><a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=152&t=31#p25705" target=_blank><img src="images/norman_reedus_100x100_by_tageta-d470k3t.jpg" /></a><span><div class="pa_infobulle_nom">Jude<br/>Cricols</div><div class="pa_infobulle_groupe_ix">Humain</div>Asmodéen</span></div>
+  </div>
+</div>
+
+<h1 class="pa_contexte_titre">Qui sommes-nous ?</h1>
+<div class="pa_contexte">
+	<div id="pa_contexte_texte">
+		VEGAS est un forum rpg fantastique alliant plusieurs univers. 
+		Largement inspiré de la bible et des mythes Nephilim, il allie la mythologie au monde actuel. 
+		Le jeu s'offre comme décor la majestueuse ville de Vegas, emblème de l'évolution d'une société décadente et corrompue. 
+		Percer les nombreux secrets de cette ville n'est pas sans risques. 
+		Que son personnage soit un être immortel, ou un simple humain, on ne peut sortir indemne des intrigues de ce forum. </br>
+		</br>  
+		Nous sommes un forum à intrigues. Nous fonctionnons par «Arc» autour du thème général des Nephilim. 
+		Ces Arcs, terme issu des manga japonais, sont tels les épisodes d'une série qui auraient lieu en même temps. 
+		Des quêtes secondaires sont également présentes pour attirer les personnages loin d'une voie qui leur semblerait toute tracée. 
+		Nous sommes donc sur plusieurs fronts, mais surtout, nous ne sommes pas sur une seule intrigue.</br>
+		</br>
+		Tous nos joueurs sont les héros ou les traîtres de Vegas, car nous imaginons pour eux des situations qui leurs permettront 
+		de faire vivre ce forum et leur personnage avec surprise et cela, continuellement. 
+		Nous mettons un point d'honneur à ce que ce forum vive à cent à l'heure et fasse ressentir le plus de sensations possibles à ses joueurs, 
+		les pousser là où ils n'auraient jamais pensé s'aventurer.</br>
+		</br> 
+		Nous sommes une communauté active et dynamique avec un rythme d'écriture soutenu. 
+		Nous avons tous au moins un point commun : le plaisir d'écrire. 
+		L'ambiance sur VEGAS est légère, car nous sommes tous là pour la même chose : nous amuser. 
+		Se détendre, rire et passer de bons moments. Voilà tout ce qui compte au final, non ? <a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=6#p6" target=_blank>Lire le contexte.</a>
+	</div>
+</div>
+<div class="pa_contexte_def_h">
+	<a href="javascript:void(0)" onmouseover="scrollDiv('pa_contexte_texte', 3)" onmouseout="clearTimeout(timer1)"><img src="images/PMqAGue.png"/></a>
+</div>
+<div class="pa_contexte_def_b">
+	<a href="javascript:void(0)" onmouseover="scrollDiv('pa_contexte_texte', -3)" onmouseout="clearTimeout(timer1)"><img src="images/LyE9YPD.png"/></a>
+</div>
+
+<h1 class="pa_staff_titre">Le Staff</h1>
+<div class="pa_staff">
+	<div class="pa_staff_onglet_g pa_staff_onglet" id="pa_staff_onglet_vesta" onmouseover="javascript: change_pa_staff_onglet('vesta');"><img src="http://i18.servimg.com/u/f18/17/09/13/55/dawn5012.png" /></div>
+	<div class="pa_staff_info" id="pa_staff_contenu_vesta">
+	  <img src="http://33.media.tumblr.com/b40ba9ccf8fd01fc0d597b7129215139/tumblr_inline_miwri3eTbF1qz4rgp.gif" class="pa_staff_gif" /><br />
+	  <span class="pa_staff_nom">Dawn Ludlow</span><br />
+	  Administratrice<br />
+	  <a href="http://vegas.jeuforum.fr/forum/ucp.php?i=pm&mode=compose&u=237" target=_blank>MP</a> ♣ <a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=237" target=_blank>Profil</a><br />
+	</div>
+	<div class="pa_staff_info" id="pa_staff_contenu_oishi">
+	  <img src="https://31.media.tumblr.com/83b9d614b4f07c1ba1912d5de77189f9/tumblr_ncwba2sIYF1u0vnzdo1_500.gif" class="pa_staff_gif" /><br />
+	  <span class="pa_staff_nom">Oishi Seijitsu</span><br />
+	  Administrateur<br />
+	  <a href="http://vegas.jeuforum.fr/forum/ucp.php?i=pm&mode=compose&u=185" target=_blank>MP</a> ♣ <a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=185" target=_blank>Profil</a><br />
+	</div>
+    <div class="pa_staff_onglet_d pa_staff_onglet" id="pa_staff_onglet_oishi" onmouseover="javascript: change_pa_staff_onglet('oishi');"><img src="http://i39.servimg.com/u/f39/17/09/13/55/oishi510.png" /></div>
+</div>
+
+<h1 class="iframe_titre">Les news</h1>
+<iframe class="iframe" frameborder="0" marginheight="0" marginwidth="0" src="carousselvegas.html"></iframe>
+
+<h1 id="nouveau_joueur_titre">Nouveau</h1>
+<div class="pa_memhonava" id="nouveau_joueur">
+	<img src="images/dianekrugericon005.png" />
+	<div class="pa_memhon">
+	Allegra Sam Earhart<br />
+	<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?t=1073" target=_blank>Fiche</a> ♣ <a href="http://vegas.jeuforum.fr/forum/ucp.php?i=pm&mode=compose&u=337" target=_blank>MP</a><br />
+	<a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=337" target=_blank>Son profil</a>
+	</div>
+</div>
+<h1 id="nouveau_joueur_titre2">Membre</h1>
+
+<h1 id="intrigue_titre">Intrigues</h1>
+<div class="pa_memhonava" id="intrigue">
+     <img src="http://www.theattractionforums.com/customavatars/avatar54165_2.gif" style="width: 100px; height: 60px;" />
+	<div class="pa_memhon">
+		Intrigue n°3 <br />
+	<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=7#p47165" target=_blank>Annonce</a><br />
+	<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=128&t=266" target=_blank>Questions</a>    
+	</div>
+</div>
+
+<div id="informations">
+<p>Forum à intrigues<br/>Interdit aux -18 ans<br/>15 lignes RP</p>
+</div>
+<!-- 
+<div class="pa">
+<table>
+  <td>
+
+  </td>
+  <td>
+      
+    <br />
+    <center>
+         
+    </center>
+  <td style="text-align:center">
+    <table style="width: 100%;">
+	      <td>
+        <div class="pa_memhonava" style="margin-left: 50px; margin-top: -10px;">
+          <img src="http://img43.imageshack.us/img43/6042/dianekrugericon005.png" />
+	    <div class="pa_memhon">
+  	      Allegra Sam Earhart<br />
+              <a href="http://vegas.jeuforum.fr/forum/viewtopic.php?t=1073" target=_blank>Fiche</a> ♣ <a href="http://vegas.jeuforum.fr/forum/ucp.php?i=pm&mode=compose&u=337" target=_blank>MP</a><br />
+              <a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=337" target=_blank>Son profil</a>
+	    </div>
+	</div>
+      </td>
+      <td>
+        <div class="pa_memhonava" style="margin-right: 40px; margin-top: -10px;">
+          <img src="http://www.theattractionforums.com/customavatars/avatar54165_2.gif" style="width: 100px; height: 60px;" />
+	    <div class="pa_memhon">
+  	      Intrigue n°3 <br />
+		  <a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=7#p47165" target=_blank>Annonce</a><br />
+		  <a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=128&t=266" target=_blank>Questions</a>    
+	    </div>
+	</div>
+      </td>
+
+    </table>
+  </td>
+</table>
+</div> -->
+</body>
+</html>

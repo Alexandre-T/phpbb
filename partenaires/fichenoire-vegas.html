@@ -1,0 +1,276 @@
+<html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta charset="utf-8"> <style type="text/css"> body { text-align:justify; font-family: Verdana, Geneva, sans-serif; font-size: 11px;margin:0 } #tabs { width: 520px; height: 380px; overflow: hide; margin-left: 10px; margin-top: 8px; } 
+.tabs-onglets {background: black; padding: 5px; float: right; width: 125px; box-shadow:  0px 0px 30px #000 inset; border-radius: 0px 10px 10px 0px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; font-family: "Playfair Display SC", serif; font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;} 
+.tabs-onglets.right { float: left } 
+.tabs-onglets a { display: block; background: #2d2d2d; color: #666666; text-decoration: none; padding: 0 10px; height: 30px; line-height: 30px;  text-shadow: 0px 0px 1px #640000, 1px 1px 1px black ;  border-radius: 0px 3px 3px 0px;} 
+.tabs-onglets a + a { margin-top: 5px } 
+.tabs-onglets .selected, 
+.tabs-onglets a:hover { background: #666666; color: #640000; margin-left: -6px;    text-shadow: 0px 0px 1px black, 1px 1px 1px black; } 
+.tabs-onglets.right .selected, 
+.tabs-onglets.right a:hover { margin-right: 0; margin-left: -5px } 
+#contenu { background: black; padding: 10px; height: 360px; overflow: auto; color: #726e6e; box-shadow: 0px 0px 5px #000, 0px 0px 30px #000 inset; border-radius: 10px 0px 0px 10px; border-top-width: 1px; border-right-width: 3px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: black; border-right-color: black; border-bottom-color: black; border-left-color: black; } #contenu h1 { margin-top: 0 } .img1{ height: 90px; width: 178px; padding: 2px; border: 1px solid #640000; margin-top: 3px; opacity: 0.7; -webkit-transition: all 1s linear; -moz-transition: all 1s linear;
+ -ms-transition: all 1s linear; -o-transition: all 1s linear; transition: all 2s linear; } 
+img1:hover{opacity: 1.0; border: 1px solid #ffffff} 
+.img2{ height: 55px; width: 120px;
+padding: 2px; border: 1px solid #640000; margin-top: 3px; opacity: 0.7; -webkit-transition: all 1s linear; -moz-transition: all 1s linear; -ms-transition: all 1s linear; -o-transition: all 1s linear; transition: all 2s linear; float: right; margin-left: 4px; margin-bottom: -3px;} 
+.img2:hover{opacity: 1.0; border: 1px solid #d2c2c0} 
+.img3{ height: 55px; width: 120px;
+padding: 2px; border: 1px solid #640000; margin-top: 3px; opacity: 0.7; -webkit-transition: all 1s linear;  -moz-transition: all 1s linear;  -ms-transition: all 1s linear;  -o-transition: all 1s linear; transition: all 2s linear; float: left; margin-right: 4px;   margin-bottom: -3px; } 
+.img3:hover{opacity: 1.0; border: 1px solid #d2c2c0} 
+.fond{ background-image: url('http://i39.servimg.com/u/f39/17/09/13/55/fichen14.png'); width: 650px; height: 400px; padding: 10px; background-repeat: no-repeat; background-position: center; } 
+div::-webkit-scrollbar {  width: 3px; /*largeur de la scrollbar verticale*/ height: 0px; /*hauteur de la scrollbar horizontale*/ background-color: black;} 
+div::-webkit-scrollbar-track { background-color: #393939; /*couleur du fond de la scrollbar*/ border-radius: 25px;} 
+div::-webkit-scrollbar-thumb { /*la petite bande qui monte/descend*/ width: 3px; background-color: #666666; /*couleur de l'ascenseur*/;} 
+.soustitre{ font-family: "Times New Roman", Times, serif; font-size: 9px; letter-spacing: 0.5px; font-weight: bold; text-transform: uppercase; text-align: center; text-shadow: 0px 0px 1px #4c4d52, 1px 1px 1px #000;
+color: #eeeeee;} 
+.titleee{ font-family: "Cinzel Decorative", cursive; font-size: 32px; text-align: center; color: #990102; text-shadow: 0px 0px 5px #7b0404; margin-bottom: -10px; } 
+.titlee{ font-family: 'Mrs Saint Delafield', cursive; font-size: 29px; text-align: center; color: #fff; text-shadow: 0px 0px 5px #000; margin-bottom: -21px; margin-top: -7px; } 
+word1{ font-family: "Times New Roman", Times, serif; font-size: 9px; letter-spacing: 0.5px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #eeeeee;} 
+word2{ font-family: "Times New Roman", Times, serif; font-size: 9px; letter-spacing: 0.5px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #fff;} 
+word3{ font-family: "Times New Roman", Times, serif; font-size: 9px; letter-spacing: 0.5px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #C00;} 
+ava1{ font-size: 12px; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #640000;} 
+ava2{ font-size: 12px; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #F60;} 
+ava3{ font-size: 12px; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; text-shadow: 0px 0px 1px #1d2e4b, 1px 1px 1px #000; color: #C00;}
+a{color: #990102;}</style><link href='http://fonts.googleapis.com/css?family=Mrs+Saint+Delafield|Playfair+Display+SC|Rye|Cinzel+Decorative' rel='stylesheet' type='text/css'> <script src="http://cdn.infographizm.com/javascript/jquery/jquery.js"></script> <script src="http://cdn.infographizm.com/javascript/jquery/tabs.js"></script>
+</head> 
+<body><div class="fond"> 
+<div id="tabs"> <div class="tabs-onglets">
+<a href="#lundi">Who&nbsp;are&nbsp;we&nbsp;?</a>
+<a href="#mardi">Background</a>
+<a href="#mercredi">Les&nbsp;Personnages</a>
+<a href="#jeudi">Les&nbsp;Actualités</a>
+<a href="#vendredi">Postes&nbsp;Vacants</a>
+<a href="#samedi">Statistiques</a></div>
+
+<div id="contenu">
+<div id="lundi"><div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Vegas</a></div>
+<div class="soustitre">« Il faut choisir de se battre pour vivre et exister »</div><center><img class="img1" src="http://25.media.tumblr.com/tumblr_m0hi7blTwa1qe6mn3o1_500.gif"/></center>
+<br/>
+<word1>Vegas</word1> est un forum rpg fantastique alliant plusieurs univers. Largement inspiré de la bible et des mythes Nephilim, il allie la mythologie au monde actuel. Le jeu s'offre comme décor la majestueuse ville de Vegas, emblème de l'évolution d'une société décadente et corrompue. Percer les nombreux secrets de cette ville n'est pas sans risques. Que son personnage soit un être immortel, ou un simple humain, on ne peut sortir indemne des intrigues de ce forum. <br/>
+<br/>
+Nous sommes un forum à intrigues. Nous fonctionnons par «Arc» autour du thème général des Nephilim. Ces Arcs, terme issu des manga japonais, sont tels les épisodes d'une série qui auraient lieu en même temps. Des quêtes secondaires sont également présentes pour attirer les personnages loin d'une voie qui leur semblerait toute tracée. Nous sommes donc sur plusieurs fronts, mais surtout, nous ne sommes pas sur une seule intrigue.</br>
+</br>
+Tous nos joueurs sont les héros ou les traîtres de Vegas, car nous imaginons pour eux des situations qui leurs permettront de faire vivre ce forum et leur personnage avec surprise et cela, continuellement. Nous mettons un point d'honneur à ce que ce forum vive à cent à l'heure et fasse ressentir le plus de sensations possibles à ses joueurs, les pousser là où ils n'auraient jamais pensé s'aventurer.</br>
+</br>
+Nous sommes une communauté active et dynamique avec un rythme d'écriture soutenu. Nous avons tous au moins un point commun : le plaisir d'écrire. L'ambiance sur VEGAS est légère, car nous sommes tous là pour la même chose : nous amuser. Se détendre, rire et passer de bons moments. Voilà tout ce qui compte au final, non ?</br>
+</br>
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+</div>
+
+<div id="mardi">
+<div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Background</a></div>
+<div class="soustitre" style="margin-bottom: 4px;">« C'est ainsi que tout commença . . . »</div>
+<br/> 
+<img src="http://24.media.tumblr.com/86e022370beb18e06b5b27bc1bf80608/tumblr_mjvv6e1cMF1qe0fxmo7_250.gif" class="img3" style="width: 160px; height: 95px;" />Quand les hommes commencèrent à se multiplier sur la surface de la Terre et qu'ils engendrèrent des filles, quelques Anges abandonnèrent les Cieux, descendant sur Terre pour goûter aux plaisirs charnels avec ces femmes. Les fils de Dieu virent que les filles des hommes étaient belles et choisirent parmi elles certaines pour être leurs femmes.<br/>
+<br/>
+Dieu et beaucoup de leurs semblables réprouvèrent cette attirance que ces Anges avaient pour la Terre. Ils furent rejetés par leurs semblables, contraints à vivre parmi les hommes. Loin de s'en lamenter, les Déchus décidèrent de tourner le dos à l'Éden. <img src="http://31.media.tumblr.com/efaf720c7fe0dbe95c0e2a82f7de0851/tumblr_myxxqyBimv1si0gfko1_500.gif" class="img3" style="width: 160px; height: 95px;" />En s'accouplant avec les humains, ils fondèrent une nouvelle race qui prit le nom de Nephilim. Les pouvoirs de cette race immortelle, bien qu'inférieurs à ceux des Anges, étaient terrifiants et nécessitaient une énergie abondante et constante. C'est après leur première relation sexuelle que les jeunes Nephilim découvraient leurs pouvoirs. Après bien des recherches, ils découvrirent que seule l'énergie sexuelle obtenue par le biais des humains révélait leurs dons et leur permettait une utilisation quasiment inépuisable de leurs pouvoirs. Cette nouvelle source d'énergie fut nommée Orgone.<br/>
+<br/>
+Jusque-là silencieux, Dieu et ses Anges fidèles, les Elohim, décidèrent d'intervenir et d'éliminer les Nephilim. Puissante, cette nouvelle race distribuait la haine et le chaos sur la Terre, se faisant appeler dans les légendes, les géants ou encore les Titans. <img src="http://25.media.tumblr.com/tumblr_m2123qlzzx1qb5esko1_500.gif" class="img3" style="width: 160px; height: 95px;" />Afin d'éviter d'être souillés par les pêchés humains en descendant sur terre, les esprits des Elohim durent s'incarner dans des corps charnels à leur tour. Leurs hôtes temporaires devinrent malgré eux spectateurs des agissements de leurs corps, n'ayant sur eux plus aucun contrôle. Pourchassés sans relâche par cette armée d'Anges incarnés, les Déchus apprirent à vivre tout en restant discrets, se cachant de leurs ennemis, mais profitant malgré tout des plaisirs que la Terre avait à leur offrir. Les batailles s'espacèrent et s'arrêtèrent pour un temps... <img src="http://24.media.tumblr.com/34715a0c095c5b15b57d9d9a80971ef6/tumblr_mr2xkzUGiS1sepal9o4_500.gif" class="img3" style="width: 160px; height: 95px;" />Un temps seulement, car bientôt, menée par Saint-George, l'armée des Elohim réapparut en possession d'un artefact mystique capable d'absorber la totalité de l'Orgone provenant de tout être hybride. Sans relâche, ils traquèrent les Nephilim, désormais dépouillés de leur force, et éradiquèrent de la surface de la terre les derniers témoins de la race des Déchus.<br/>
+<br/>
+Tous, vraiment ? Dans l'ombre, une poignée d'immortels s'étaient préparés à cette éventualité. <img src="http://media.giphy.com/media/Iwri9vuFqOhZ6/giphy.gif" class="img3" style="width: 160px; height: 95px;" />« Les Cinq » sont des originaux, mais plus encore, ils sont les premiers Anges à s'être détournés de l'Éden. Pendant deux années, ils alertèrent leurs semblables de la menace que représentait les Elohim et les informèrent de leur plan dans l'éventualité d'une attaque plus radicale de leur part. Certains les écoutèrent avec attention quand d'autres ne les prirent que pour des oiseaux de mauvaise augure. La guerre perdurait depuis des siècles et ils ne voulaient pas croire que les Elohim puissent un jour être suffisamment puissants pour entretenir de tels artefacts. A tort puisque ce jour arriva !<br/>
+<br/>
+Grâce à l'intervention des « Cinq », une partie de leurs frères échappèrent au massacre. Ils précipitèrent le plus grand nombre de Nephilim possible et de leurs proches humains, dans une autre dimension, Pachad. <img src="http://31.media.tumblr.com/92020bbb9e20a7016f79ac4e7a36e5c0/tumblr_myzejpKFDa1shsw6uo1_500.gif" class="img3" style="width: 160px; height: 95px;" />Ce royaume, pourtant si semblable aux Enfers, était leur unique refuge. Le plan élaboré par les Déchus originaux était simple : S'isoler le temps nécessaire à leur survie avant de revenir sur la Terre. Dans ce monde, ils furent guidés par l'un des « Cinq », Harahel. Pachad était et sera toujours un monde hostile. Aucune personne saine d'esprit n'aimerait ni ne pourrait y vivre l'éternité. Quand le moment vint, les quatre autres originaux traversèrent le portail menant vers la terre, accompagnés par leur armée, les Skaldmejar. De l'autre côté de celui-ci se dévoila Vegas.<br/>
+<br/>
+De leur séjour en Pachad, les Déchus avaient découvert et maîtrisé la magie des artefacts. Désormais remis de leur perte d'énergie, ils pouvaient lutter à armes égales contre les Elohims. Ils s'établirent dans la ville du Nevada, mais avant cela, ils durent livrer d'âpres batailles contre les anges afin de protéger celle-ci de l'influence de leurs ennemis. <img src="http://25.media.tumblr.com/557b9431b4396de2dc945ecfcbfff72e/tumblr_mmpch0rmXS1r93jyvo1_500.gif" class="img3" style="width: 160px; height: 95px;" /> Ils activèrent un artefact qui engloba Vegas sous un dôme de protection invisible de tous. Dès qu'il fut en place, tous les esprits des Anges furent éjecter des corps humains qu'ils occupaient. L'opération Nephilim fut un succès bien que lourde en pertes. Beaucoup périrent au combat, mais leur sacrifice ne fut pas vain. Grâce à eux, d'autres pourraient vivre en paix à Vegas. Dorénavant, quand un ange tenterait d'entrer dans la cité du vice et qu'il s'approcherait du dôme, son âme serait immédiatement arrachée du corps volé et renvoyé en Eden. Dans la ville, on pouvait être sûr qu'il ne restait que des humains libérés du joug angélique.<br/>
+<br/>
+C'est à ce moment, qu'en Pachad, Harahel put enfin faire passer le portail aux Nephilim et aux humains restés en retrait jusque-là. Malheureusement, certains capturés trahirent « les Cinq » en indiquant leur plan aux Elohim. Ils espéraient ainsi avoir la vie sauve. Les informations qu'ils livrèrent permirent aux Anges d'envahir Pachad afin d'accéder au portail, unique moyen pour eux d'atteindre Vegas. Ils ne pouvaient pas passer à travers le bouclier de protection que l'artefact diffusait autour de la ville, mais ils pouvaient toujours le contourner en passant par dessous.<img src="http://24.media.tumblr.com/tumblr_m8rj04El9W1qfe06vo3_r1_500.gif" class="img3" style="width: 160px; height: 95px;" /> Passer par Pachad, était pour eux le seul moyen d'envahir la ville.Parvenu à la même déduction et comprenant leurs intentions, Harahel demeura dans l'enfer de Pachad, préférant les retenir que de voir tous leurs efforts réduits à néant. Surpuissant dans ce royaume qu'il connaît mieux que quiconque, il garderait le portail envers et contre tout.<br/>
+<br/>
+La guerre est loin d'être terminée, mais l'espoir subsiste. Un peuple meurtri tente de se relever et de faire face. Plus en colère que jamais, les Nephilim sont prêts à faire valoir leur puissance. Mais les Elohim n'abandonneront pas, jusqu'à ce qu'il ne reste plus qu'une seule race.<br/>
+</br>
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+
+</div>
+<div id="mercredi">
+<div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Les Personnages</a></div>
+<div class="soustitre" style="margin-bottom: 4px;">« La nature fait les hommes semblables, <br/>
+la vie les rend différents. »</div>
+
+<br/>
+<img src="http://24.media.tumblr.com/f5a3dd99550c5b6cd735fe966bb8bab3/tumblr_mqm1wz9Ydg1rp4u9ko2_250.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les Originels : </word1>Les Originels étaient des Elohim qui ont décidé de quitter l'Eden pour arpenter la Terre. En enfantant avec les humains, ils engendrèrent une nouvelle race dont ils sont les parents Originels. Leurs pouvoirs sont plus puissants que ceux de leur descendance Nephilim, mais là est la seule différence avec leurs enfants. On ignore si leur puissance vient de leur sang pur ou de leur âge.
+<br/>
+<br/>
+
+
+
+<img src="http://24.media.tumblr.com/tumblr_me9hc7CUUt1r0jfmao1_500.gif" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ Les Nephilim : </word1> Les Nephilim sont des êtres nés de l'union d'un Ange Déchu et d'un humain. Ils ont hérité des pouvoirs de leurs parents et de leurs vices. Ils se nourrissent d'Orgone, l'énergie sexuelle humaine. C'est le seul moyen pour eux d'avoir assez d'énergie pour utiliser leurs capacités angéliques. Sans cette énergie, ils resteraient de simples humains.
+<br/>
+<br/>
+
+
+
+<img src="http://31.media.tumblr.com/4abe90c1ce2836cbe00042e6153d5e09/tumblr_mi6mxm2IZ31qd2ub7o1_500.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les SKaldmeyjar : </word1> Composé uniquement de femmes fières et fortes, ce groupe d'élite a pour mission de protéger l'entrée du portail de l'invasion angélique. Véritables amazones, elles sont entraînées depuis leur plus jeune âge au combat et aux armes. Ces Nephilim se révèlent de redoutables guerrières, éduquées pour se sacrifier au nom d'un peuple. Toujours en première ligne, cette armée jadis majestueuse a été décimé lors des récents combats. Seule force entraînée au combat restante, elles recrutent en vue d'une invasion prochaine.
+<br/>
+<br/>
+
+
+
+<img src="http://31.media.tumblr.com/d458b0f845b90781fa898043e4b59429/tumblr_mqrgsdfOiz1qdgqfoo4_250.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les Profanes : </word1> Les Profanes sont des humains comme vous et moi. Ils vivent leur vie en ayant aucune idée de ce qu'il se passe réellement autour d'eux. Il n'y a eu aucun témoin de la prise de Vegas par les Nephilim, ou tout du moins, personne n'y a survécu. Cette guerre restera dans l'ombre de l'histoire. Aucun média, aucune vidéo ni photo, ne pourrait trahir cette nuit. Le nécessaire a été fait pour que l'intégration des Nephilim se passe dans les meilleures conditions. Vous pouvez continuer à vivre l'esprit tranquille.
+<br/>
+<br/>
+
+
+
+<img src="http://24.media.tumblr.com/9889aba3a66c66f6b9bfe430e637127e/tumblr_mp5veeRd7Y1ry4f1qo1_500.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les Initiés : </word1> Les Initiés sont les humains qui connaissent l'existence des Nephilim. Ils peuvent faire parti de leurs proches et de leur entourage, comme ils peuvent n'avoir fait que les rencontrer. Les humains ne connaissent pas forcément la puissance de ces êtres ni la menace qui pèse sur eux, mais il est sûr, qu'ils ne les laissent pas indifférents.
+<br/>
+<br/>
+
+
+
+<img src="http://24.media.tumblr.com/48c95f5a7c10ba5ea558c71337303843/tumblr_mkdxp0ucid1rob81ao1_250.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les Anciens-Simulacres : </word1> Les Anciens-Simulacres sont des humains qui ont été possédés par un Elohim et libérés lors de l'activation de l'Artéfact. Conscients et prisonniers de leur corps pendant leur possession, ils se souviennent de tout à leur libération. Libéré du joug angélique, ils peuvent retrouver une vie normal. Cependant, des effets secondaires sont constatés. Tous sont dotés d'un pouvoir de divination, qu'importe le temps de possession.
+
+
+<br/>
+<br/>
+
+
+
+<img src="http://31.media.tumblr.com/47c08ed2c106bdc8deca56e4130592e6/tumblr_mnd0dpCfZ31rob81ao1_250.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Les Templiers :  </word1> Les Templiers sont des humains faisant partie d'une société secrète dont les meneurs sont influencés par les Elohim. Ils ont le devoir de garder leurs activités et leurs motivations loin des regards de personnes qui leur sont étrangères. Tous les Templiers sont activement dévoués à leur cause. Leur mission est d'infiltrer les Nephilim pour découvrir l'emplacement de l'artefact qui protège la ville des Simulacres, pour ensuite le détruire. Tous connaissent les risques qu'ils encourent. Pour les aider à se défendre, certains membres se sont vus offrir des voleuses d'âmes, seule arme à pouvoir tuer un Nephilim.
+
+<word2><span style="letter-spacing: 3px;">[ GROUPE RECHERCHÉ ] </span></word2>
+</br>
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+</div>
+
+<div id="jeudi">
+<div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Les Actualités</a></div>
+<div class="soustitre" style="margin-bottom: 4px;">« Les tribulations de nos personnages. »</div>
+
+<br/>
+<img src="http://media.tumblr.com/fdb05c2ce75ea101de6fd3d656677073/tumblr_mpp0j0qDFK1r554e6o1_500.gif" class="img3" style="width: 160px; height: 95px;" /> <word1>▹ Actualités du 8 juin:</br>
+Qu’es-tu devenu ?</word1> La question qui brûle les lèvres et qui suinte sur nos esprits, alors que l'on vient à se concentrer sur Kurt Hansel, entre les mains de Valaerys Nefgar. Qu'es-tu devenu Kurt ? Cet humain a le chic pour se retrouver dans des situations pour le moins inhabituelles. Mais qu'est-ce qui est habituel à Vegas ? Je me le demande...</br>
+</br>
+Faisons un petit récapitulatif ! Kurt Hansel, ancien simulacre, a fait le choix de notre race. Il en a été chassé pour toujours de l'Eden. Ce qui n'a pas plus à Kaylee. Kurt Hansel qui avait démasqué Edge, est désormais protégé par Oishi, qui fourre son nez partout etc.. etc... Et le voilà donc chez les Asmodéens. Pourquoi faire ? Pour voir Valaerys Nefgar. Patiente...charmante...aimable...Non, je plaisante !</br>
+</br>
+Mais s'il désirait la voir, c'est pour lui parler de plusieurs choses. De la mèche de ses cheveux volée (par le passé, l'ange qui avait habité Kurt avait volé une mèche de cheveux à Valaerys pour retracer chaque voleuse d'âme de sa création) et d'une idée ! Sacré idée même. Faire un vaccin anti ange...Elle aurait apparemment pu le traiter de fou, mais bien au contraire, l'Asmodéenne s'est sentie comme exaltée. Exaltée de mettre en oeuvre la magie de son clan.</br>
+</br>
+Etre...présenté à Asmodée n'a pas laissé Kurt tout à fait tranquille, face au maître des forges, il y a de quoi se sentir tout petit ? Mais il a fallu continuer. Jusqu'à ce qu'il lui soit posé, non sans une atroce douleur, un artefact qui lui permettra de récupérer de l'Orgone et de faire un plein nécessaire pour la suite des évènements. Un plein qu'il a partagé avec un succube et une humaine pendant que le bras droit fabriquait avec son maître, le reste des artefacts nécessaires.</br>
+</br>
+Mais la question que l'on se pose, et dont nous n'avons peut-être pas les réponses c'est : qu'es-tu devenu Kurt ? Un humain amélioré ? Si peu l'on dirait. Une image de Nephilim se reflétant mal sur un miroir ? Un...simulacre de Neph ? Qui sait...</br>
+</br>
+En tous les cas, l'humain a été modifié par la magie même du maître des forges. Le vaccin anti-ange marchera-t-il ? L'affaire est à suivre...</br>
+<br/>
+<br/>
+<div class="titlee">Welcome in Vegas</div>
+<br/>
+<br/>
+<img src="http://24.media.tumblr.com/tumblr_m5wgazykGH1ro3593o1_r2_500.gif" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ Aaron Sins : </word1> 
+Un nouveau templier dans notre cité. Lui qui aurait du être à la place de Kurt, il est le « fiancé » de Lori, en apparence. Détective privé, il est au service tout entier de son Ordre et tout ce qu’il a battit de privé, semble n’être qu’une façade pour taire sa vie de templier. Lui qui peut, grâce à sa voleuse rendre un nephilim tout à fait humain, le voilà à Vegas. <br/>
+<br/>
+Pour notre plus grand plaisir bien entendu. <br/>
+<br/>
+<br/>
+<word2><span style="letter-spacing: 3px;">LA SEMAINE PROCHAINE :</span></word2>
+<br/>
+<br/>
+Nous nous pencherons, pas trop, sur un de vous et nous lui poserons plein de petites questions. Mais qui ?Ah ! Surprise. <br/>
+<br/>
+N’oubliez pas, ce qui se passe à Vegas, reste à Vegas !<br/>
+</br>
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+</br>
+</br>
+<i>*Merci à Valaerys pour ce résumé de la semaine. </i>
+</div>
+
+
+<div id="vendredi">
+<div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Les Postes Vacants</a></div>
+<div class="soustitre" style="margin-bottom: 4px;">« Le seul moyen de se délivrer de la tentation,<br/>
+C'est d'y céder »</div>
+<br/>
+
+<word2><span style="letter-spacing: 3px;">LES PV LES PLUS RECHERCHÉS :</span></word2>
+<br/>
+<br/>
+<br/>
+<img src="http://31.media.tumblr.com/4abe90c1ce2836cbe00042e6153d5e09/tumblr_mi6mxm2IZ31qd2ub7o1_500.gif" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ ERIKA HART : Cheffe des Skjalmeyjar</word1> </br>
+Cheffe des Skjalmeyjar, elle possède toutes les qualités et les compétences d'une meneuse. Reconnue comme telle pas ses soeurs, elle n'a plus à faire ses preuves. Elle met pourtant un point d'honneur à rester un exemple. Mystérieuse, peu connaissent l'histoire de son passé. Sa mission désormais, est de protéger la sortie du portail de Pachad d'une éventuelle invasion angélique.<br/>
+<br/>
+<img src="https://rg83.files.wordpress.com/2012/02/walking-dead1.gif?w=638&h=322" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ SCOTT MAVERICK : Chef des Templiers et lieutenant de police</word1> </br>
+Chef des Templiers, votre famille était une famille de flics et de Templiers. Vous avez donc suivi cette voie depuis votre plus jeune âge. Cependant, vos contacts privilégiés avec les Elohims ont disparus du jour au lendemain. Vous allez devoir enquêter là dessus, tout en rassemblant les vôtres. Quelque chose se trame à Vegas.
+<br/>
+<br/>
+<img src="http://media.tumblr.com/tumblr_lmsw28BbAl1qjl1b2o1_500.gif" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ JAMES ALLEN : Maire de Vegas</word1> </br>
+Excellent entrepreneur, vous avez réussit dans le monde des affaires. Pour accroitre votre renommée et votre richesse, vous avez contracté un mariage par intérêt. C'est elle qui vous a poussé dans le monde politique. Maire depuis maintenant deux ans, vous êtes un être impitoyable. Veuf depuis quelques semaines, certaines rumeurs laissent entendre que vous trempez dans des magouilles. Et l'on vous connait de nombreuses maîtresses.
+<br/>
+<br/>
+<img src="http://media.tumblr.com/tumblr_m7n7hoClQP1rooebp.gif" class="img3" style="width: 160px; height: 95px;" />  <word1>▹ ELSEE CHRISTENSEN : Bras droit de Kaylee Sutton</word1> </br>
+Elsee est une jeune rescapée. Elle n'avait pas terminé sa formation d'entrainement chez les Skjaldmeyjar quand les Elohim ont attaqués, mais elle a réussie à se défendre et à se battre jusqu'au bout. Elle a vue beaucoup de ses amies mourir en sauvant les Nephilim. Elle sait qu'elle devrait être à leur place. Désormais bras droit de Kaylee, elle forme à son tour les jeunes femmes prête à devenir Skjaldmeyjar. Kaylee lui a donné une autre mission qu'elle n'apprécie pas : Protéger Kurt Hansel.
+<br/>
+<br/>
+<div class="soustitre" style="margin-bottom: 4px;text-align:left;">Bien d'autres PV existent sur le forum et différents postes stratégiques sont à pourvoir : <br/>
+Ces postes sont mixtes. A vous de choisir. <br/></div>
+<br/>
+<ava1>&clubs;</ava1> Le Chef de la Police
+<br/>
+<ava1>&clubs;</ava1> Policiers
+<br/>
+<ava1>&clubs;</ava1> Directeur de l'hôpital
+<br/>
+<ava1>&clubs;</ava1> Directeur du journal
+<br/>
+<ava1>&clubs;</ava1> Journalistes
+<br/>
+<ava1>&clubs;</ava1> Gérants de Casinos
+<br/>
+<ava1>&clubs;</ava1> Commerçants...
+<br/>
+<br/>
+<i>Tous les avatars des Postes Vacants peuvent être changés. </i>
+</br>
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+</div>
+
+<div id="samedi"><div class="titlee">which side would you choose?</div><div class="titleee"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">Les Statistiques</a></div>
+<div class="soustitre" style="margin-bottom: 4px;">Forum ouvert le 1er juin 2013</div>
+<br/>
+<div class="soustitre" style="margin-bottom: 4px;text-align:left;">Équipe du forum : </div>
+
+<ava1>&clubs;</ava1> Oishi Seijitsu - Administrateur
+<br/>
+
+<ava1>&hearts;</ava1> Vesta - Administratrice
+<br/>
+<br/>
+
+<div class="soustitre" style="margin-bottom: 4px;text-align:left;">Nombre de membres : </div>
+
+<ava1>&clubs;</ava1> 28 joueurs actifs
+<br/>
+<br/>
+
+<div class="soustitre" style="margin-bottom: 4px;text-align:left;">Statistisques RP : </div>
+
+<ava1>&hearts;</ava1> 157 RPs en cours
+<br/>
+
+<ava1>&spades;</ava1> 35100 messages
+<br/>
+<br/>
+
+<div class="soustitre" style="margin-bottom: 4px;text-align:left;">Autres Informations : </div>
+
+<ava1>&clubs;</ava1> Les personnages sont limités à deux par joueur pour plus de réactivité.  
+<br/>
+
+<ava1>&hearts;</ava1> 15 lignes par RP minimum. 
+<br/>
+
+<ava1>&spades;</ava1> Débutants acceptés. Il faut bien commencer un jour.;) 
+<br/>
+
+<ava1>&diams;</ava1> Forum interdit aux mineurs pour cause de textes parfois violents. 
+<br/>
+
+<ava1>&clubs;</ava1> Bonne ambiance assurée et no prise de tête. Forum pour les passionnés de rp avec intrigues à foison.   
+<br/>
+
+<p style="text-align:center"><a href="http://vegas.jeuforum.fr" target="_blank" title="Vegas">vegas.jeuforum.fr</a></p>
+
+
+</div>
+
+
+</div>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,641 @@
+/*  	
+--------------------------------------------------------------
+Addon by Harahel
+-------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'policeVegas';
+    src: url('{T_THEME_PATH}/fonts/LetristaScript.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+.riesling{
+    font-family: 'policeVegas';
+    font-size:3em;
+}
+.myavatar{
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+    display:block;
+}
+/* Harahel : Je vire l'image du logo*/
+a#logo{
+	display:none;
+}
+
+/* Site description and logo */
+#site-description {
+	width:1000px;
+	height:450px;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-image: url('{T_THEME_PATH}/images/vegasp17.jpg');
+}
+div#mesrps,div#vote{
+	position : relative;
+	left :15px;
+	width:300px;
+	border-radius : 1em;
+	padding-left: 15px;
+	margin-left : 630px;
+	background-color:rgba(255,255,255,0.5);
+	display : none;
+}
+div#vote{
+	top: 450px;
+	right : 100px;
+}
+div#vote h2, div#mesrps h2{
+	font-family:'Riesling';
+	display:inline;
+	font-size : 3em;
+}
+div#vote a, div#mesrps a{
+	font-family:'Riesling';
+	display:inline;
+	font-size : 2em;
+	margin-left: 10px;
+}
+div#mesrps{
+	top: 190px;
+}
+/* Harahel : paragraphes des RPs justifiés */
+.postbody {
+	text-align: justify;
+}
+/* Harahel : effet bloc-note */
+div.blocnotes{
+	background-image: url({T_THEME_PATH}/images/bloc-notes.png);
+	background-repeat: repeat-y;
+	background-position: top left;
+	width : 600px;
+	margin : 0 auto;
+	padding-left : 30px;
+}
+div.blocnotes p{
+	width : 480px;
+	margin : 0 auto;
+	font-family: cursive;
+	font-style:italic;
+	padding: 1em;
+}
+/* Harahel les wrappers */
+div#wrapper-central,div#wrapper-gauche,div#wrapper-droit{
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	/* Ceci te permet d'assurer que ce calque central fasse toute la longueur et toute la largeur */
+	width : 100%; 
+	margin : 0 auto;
+/*	background-image:url('{T_THEME_PATH}/images/bandes.jpg'); */
+/*	background-image:url('{T_THEME_PATH}/images/bg-pachad.jpg');*/
+/*	background-image:url('{T_THEME_PATH}/images/fond-v2.jpg');*/
+	background-color:#505050 ;
+
+}
+/* Harahel Wrapper central */
+div#wrapper-central{
+	background-repeat:repeat-y;
+	background-position:top center;	/* ne change pas center mais tu peux remplacer top par bottom */
+}
+/* Harahel Wrapper central */
+div#wrapper-gauche{
+	/* Ici tu définis l'image que tu veux en fond */
+	background-image:url({T_THEME_PATH}/images/gauche-de-page.png); /* Ici l'image fait la largeur que tu veux */
+	background-repeat:repeat-y;
+	background-position:bottom left;	/* ne change pas left mais tu peux remplacer bottom par top */
+}
+/* Harahel Wrapper central */
+div#wrapper-droit{
+	/* Ici tu définis l'image que tu veux en fond */
+	background-image:url({T_THEME_PATH}/images/droite-de-page.png); /* Ici l'image fait la largeur que tu veux */
+	background-repeat:repeat-y;
+	background-position:top right;	/* ne change pas right mais tu peux remplacer top par bottom */
+}
+/* Harahel : j'écrase ce qu'ils ont mis dans common.css */
+#wrap {
+	padding: 0px;
+}
+#page-header,#page-black,.navbar2{
+	width:1000px;
+	margin:0 auto;
+}
+#page-header{
+	background-color: #FFF;	
+	background: -webkit-linear-gradient(#FFF, #F3F0F0); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(#FFF, #F3F0F0); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(#FFF, #F3F0F0); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(#FFF, #F3F0F0); /* Standard syntax */
+}
+#page-footer .navbar{
+	background-color: #FFF;	
+	background: -webkit-linear-gradient(#F3F0F0, #FFF); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(#F3F0F0, #FFF); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(#F3F0F0, #FFF); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(#F3F0F0, #FFF); /* Standard syntax */
+}
+span.forum-title,span.forum-description,span.forum-subforum,span.moderateur,span.bbcode_center{
+	display: block;
+}
+
+/* Harahel : BBCODE */
+hr.bbcode{
+	width : 80%;
+	text-align:center;
+}
+span.bbcode_right,span.bbcode_left{
+	display: block;
+}
+span.bbcode_center{
+	text-align: center;
+}
+span.bbcode_right{
+	text-align: right;
+}
+span.bbcode_left{
+	text-align: left;
+}
+img.bbcode_image_droite{
+	float: right;
+	margin-left : 14px;
+}
+img.bbcode_image_gauche{
+	float: left;
+	margin-right : 14px;
+}
+
+/* jiwa */
+div.bbcode_jiwa {
+	margin:2em 0em 0em 2em;
+	float:right;
+	position: relative; 
+	width: 315px; 
+	height: 40px; 
+	overflow: hidden;
+}
+a.bbcode_jiwa{
+	position: absolute; 
+	left: 25px;
+}
+span.bbcode_titre{
+	font-family:'Riesling';
+	display:block;
+	margin: 1em 0.4em 0.6em 0.4em;
+	text-align:center;
+	font-size:3em;
+    	clear:both;
+	text-decoration:underline;
+}
+span.bbcode_soustitre{
+	display:block;
+	font-weight: bold;
+	font-size:1.2em;
+    clear:both;
+	margin-top:1em;
+}
+/* Harahel : Ajout des css pour les feuilles de la vidéo */
+div.video ul,div.partenaire ul,div.vote ul{
+	text-align:center;
+}
+div.video ul.video li,div.vote ul.votes li,div.partenaire ul.partenaire li{
+	display: inline;
+}
+ul.videos li.video,ul.votes li.vote,ul.partenaires li.partenaire{
+	width:200px;
+	list-style-type: none;	
+	display: inline-table;
+	margin:2em;
+}
+/* Harahel : ajout des css pour les avatars */
+div#avatar p{
+	font-size : small;	
+}
+div#avatar span.avatar{
+	font-weight: bolder;
+}
+div#avatar div.liste-avatar{
+	font-size : small;
+	text-align:center;
+	width:225px;
+	height:380px;
+	float:left;
+}
+/* Harahel : ajout des css pour les clans */
+div.clan p{
+	font-size : small;	
+}
+div.clan span.avatar{
+	font-weight: bolder;
+}
+div.clan div.un_clan{
+	text-align: center;
+	margin:auto;
+	width:auto;
+}
+div.clan div.liste-clan{
+	font-size : small;
+	text-align:center;
+	width:115px;
+	height:200px;
+	float:left;
+}
+
+div.partenaire ul{
+	width:600px;
+	margin:auto;
+}
+/* Harahel : ajout des alignements pour les images du staff */
+div#staff {
+	
+}
+div#staff ul{
+	padding:0;
+	margin:0 auto;
+	list-style:none;
+	width:536px; 	
+	text-align:center;
+}
+div#staff ul li{
+	display:inline;
+	float:left;
+	margin:0;
+	padding:0;
+	padding-top:0px;
+	list-style-type: none;
+	list-style-position: outside;
+	list-style-image: none;
+}
+div#staffend{
+	clear:both;
+}
+div#information{
+	clear:both;
+}
+#logo_footer{
+	width: auto;
+	height: 150px;
+	margin-top: 4px;
+	margin-bottom : -12px;
+	background: url("{T_THEME_PATH}/images/vegas_13.jpg") top right no-repeat #000;	
+}
+.member-view{
+	width:650px;
+	padding-left:25px;
+}
+h3.member-view{
+	margin-left:25px;
+	padding-left:0px;
+	
+}
+/* Gestion des liens pour l'accueil */
+.links{
+    background-image: url(styles/poker_olympus/theme/images/linkspan.png);
+    background-repeat: no-repeat;
+	background-color: transparent;
+    height: 25px;
+    width: 255px;
+    margin-right: 0px;
+    margin-left: 20px;
+}
+#link_top {
+    text-align: center;
+    position:relative;
+    background-image: url(styles/poker_olympus/theme/images/linktop.png);
+    background-repeat: no-repeat;
+    right: 0px;
+	background-color: transparent;
+    height: 40px;
+    width: 195px;
+    margin-right: 0px;
+    margin-left: 20px;
+}
+
+#link_btm {
+    position:relative;
+    background-image: url(styles/poker_olympus/theme/images/linkbtm.png);
+    background-repeat: no-repeat;
+    right: 0px;
+    background-color: transparent;
+    height: 10px;
+    width: 255px;
+    margin-right: 0px;
+    margin-left: 20px;
+margin-top:0px;
+}
+.links h4 {
+text-align: center;
+padding-top: 3px;
+}
+li.links{
+list-style-position:inside;
+padding-left:20px;
+}
+div#link_block{
+float:right; width:220px;height:220px; vertical-align:middle;    padding-top: 48px; margin-top: 4px; margin-right: 30px;
+}
+div#lignes{
+width:600px
+}
+
+/* Songes : panneau des boutons */
+div.panneau_btn{
+	border:thin transparent solid;
+	background-image: url(styles/poker_olympus/theme/images/panneau_btn.jpg);
+	height: 280px;
+    width: 930px;
+	margin:0;
+	padding:0px;
+	padding-top:0px;
+	vertical-align: middle;
+}
+div#encart-aide{
+	border:thin transparent solid;	
+	float:left;
+	margin-top:50px;
+	margin-left:160px;
+}
+div#encart-video{
+	border:thin transparent solid;	
+	float:left;
+	margin-top:50px;
+	margin-left:20px;
+}
+div#encart-bouton{
+	float:left;
+	border:thin transparent solid;
+	margin-top:72px;
+	margin-left:20px;
+}
+div#encart-bouton h4,div#encart-video h4,div#encart-aide h4{
+	color:black;
+	font-weight: bold;
+	font-size: medium;
+}
+div#encart-bouton p{
+	margin:0;	
+}
+div#encart-aide ul{
+	margin-top:0.4em; 
+}
+div#encart-aide ul li{
+	font-size:small;
+	list-style-type: none;
+	margin-top:0.2em; 
+}
+
+h4#aid{
+	background-image: url("{T_THEME_PATH}/images/titre_aid.png");
+	width:160px;
+	height:20px;
+}
+	
+h4#rej{
+	background-image: url("{T_THEME_PATH}/images/titre_rej.png");
+	width:160px;
+	height:20px;
+}
+
+h4#vot{
+	background-image: url("{T_THEME_PATH}/images/titre_vot.png");
+	width:160px;
+	height:20px;
+}
+	
+h4#vid{
+	background-image: url("{T_THEME_PATH}/images/titre_vid.png");
+	width:160px;
+	height:20px;
+	margin-top:3px;
+}
+
+h4#lie{
+	background-image: url("{T_THEME_PATH}/images/titre_lie.png");
+	width:160px;
+	height:20px;
+	margin-top:3px;
+}
+
+h4#aid span, h4#rej span, h4#vot span, h4#vid span, h4#lie span {
+	display:none;
+}
+
+dd.disponibilite{
+	float:right;
+	margin-top:-12px;
+	margin-right:-8px;
+}
+
+.heros{
+	font-size:medium;
+	line-height: 1.4em;
+	text-align :justuify;
+}
+.heros li{
+	margin-left : 3em;
+}
+p.question{
+}
+/* Harahel : Rendre invisible des spans qui commentent des images*/
+.invisible{
+	display:none;
+}
+/* Harahel : Je cache le titre le sous-titre sauf pour l'impression */
+#site-description h1,#site-description p{
+	display: none;
+}
+/*Page d'accueil*/
+#header.accueil {
+	margin:4em auto 0 auto;
+	width:1000px;
+	height: 450px;
+	overflow: hidden;
+	-webkit-border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-topleft: 20px;
+	-moz-border-radius-topright: 20px;
+	text-shadow: 1px 1px 1px #000;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+footer {
+	background: #3D3D3d;
+	margin:0 auto ;
+	width:1000px;
+	height: 60px;
+	-webkit-border-bottom-left-radius: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	text-shadow: 1px 1px 1px #000;
+	font-family:'policeVegas';
+	font-size:3em;
+	color:#CCC;
+}
+footer a.white{ 
+	color:#CCC;
+	margin : 1.5em;
+}
+footer p{
+	text-align:center;
+	width:100%;
+	padding-top:0.35em;
+}
+
+/* Modifications pour la saison 4 et les catégories */
+.forabgcategorie .topiclistcategorie{
+	display:hidden;
+	margin-top:20px;
+	background: #000 none repeat-x 0 0;
+	color:gray;
+	text-align:center;
+}
+
+ul.topiclistcategorie {
+	
+	display: block;
+	list-style-type: none;
+	margin: 0;	
+}
+ul.topiclistcategorie li.header dl.icon dt{
+	padding-right:0px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size: x-large;
+}
+
+ul.topiclistcategorie li {
+	display: block;
+	list-style-type: none;
+	color: #777777;
+	margin: 0;
+}
+ 
+ul.topiclistcategorie dl {
+	position: relative;
+}
+
+ul.topiclistcategorie li.row dl {
+	padding: 2px 0;
+}
+
+ul.topiclistcategorie dt {
+	display: block;
+	float: left;
+	width: 100%;
+	font-size: 1.1em;
+	padding-left: 5px;
+	padding-right: 5px;	
+}
+
+span.gehlastpost{
+	margin-top:18px;
+	height:90px;
+	padding:0;
+	margin:0;
+}
+.hidden{
+	display: none;
+}
+dd.subforum{
+  margin-top:21px;
+  width: 221px;
+  font-size: 1.1em;
+}
+span.listsubforum a.subforum{
+	display:block;
+	padding-left:20px;
+}
+span.subforum-separator{
+	display:none;
+}
+ul.forums{
+	background-color:#f0f0f0;
+}
+span.forum-description{
+	width:100%;
+	height:90px;
+		
+}
+span.gehlastpost, span.forum-description, dd.gehlastpost{
+	background-color : #DDD;
+}
+.policeVegas{
+	font-family: 'policeVegas', cursive, inherited;
+	text-transform: none;
+	font-size:32px;
+	line-height:32px;
+	color:#ae3731;
+	text-shadow: 1px 1px 1px #000;
+}
+.policeGris{
+	color:#3D3D3D;
+}
+a.subforum:nth-child(4n+0):before{
+	content: '♠ '
+}
+a.subforum:nth-child(4n+1):before{
+	content: '♣ '
+}
+a.subforum:nth-child(4n+2):before{
+	content: '♥ '
+}
+a.subforum:nth-child(4n+3):before{
+	content: '♦ '
+}
+span.geh_last_avatar{
+	float: left;
+	margin:0;
+	padding-left:0;
+}
+ul.topiclist dd.lastpost{
+	margin-top:21px;
+}
+dd.gehlastpost{
+	height:90px;
+	vertical-align : middle;
+	text-align:center;
+	width:233px;
+}
+dd.gehlastpost img.gehespace{
+	padding-top:15px;
+}
+
+li.header, h2.gehtitre{
+	background-color: #F3F0F0;
+	background-image:url('{T_THEME_PATH}/images/barre-cat.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	height:50px;
+	padding-top:9px;
+}
+h2.gehtitre{
+	margin-top:0px;
+	padding-top:25px;
+	text-align:center
+}
+li.header a.policeVegas{
+	
+}
+dt.gehtitle{
+	background-color: #DDD;
+	height:90px;
+}
+li.rowforum{
+	padding-bottom: 10px;
+}
+ul.topics dl{
+	width:930px;
+}
+ul.topics dt{
+	width:455px;
+}
+dd.gehposts {
+	width: 223px;
+	text-align: center;
+	line-height: 2.2em;
+	font-size: 1.2em;
+}
+ul.gehlinklist{
+	margin : 0 0 0 27px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+<head>
+<meta charset="{S_CONTENT_ENCODING}">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/styleswitcher.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
+<link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
+</head>
+<body>
+	<section id="accueil">
+		<div class="container">
+			<div id="header" class="accueil">
+				<img src="{T_THEME_PATH}/images/vegasp17.jpg">
+			</div>
+		</div>
+	</section>
+	<footer>
+		<p>
+			<a class="white" href="{U_INDEX}" title="{L_INDEX}">{L_FORUM}</a></li>
+			<a class="white" href="./forum/viewtopic.php?f=2&amp;t=6" title="Consulter le contexte">Contexte</a>
+			<a class="white" href="./forum/viewforum.php?f=128" title="Accééder à l'espace détente">Espace détente</a>
+			<!-- IF S_USER_LOGGED_IN and not S_IS_BOT -->
+				<a class="white" href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}">{L_LOGOUT}</a>
+			<!-- ELSEIF S_IS_BOT -->
+			<!-- ELSE -->
+				<a class="white" href="{U_LOGIN_LOGOUT}" title="{L_LOGIN}">{L_LOGIN}</a>
+			<!-- ENDIF -->
+		</p>
+</footer>
+</body>
+</html>
