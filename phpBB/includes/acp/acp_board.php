@@ -127,6 +127,10 @@ class acp_board
 						'avatar_gallery_path'	=> array('lang' => 'AVATAR_GALLERY_PATH',	'validate' => 'rpath',	'type' => 'text:20:255', 'explain' => true)
 					)
 				);
+				//-- mod : apiv ----------------------------------------------------------------
+				//-- add
+				$this->apiv_config($display_vars);
+				//-- fin mod : apiv ------------------------------------------------------------
 			break;
 
 			case 'message':
@@ -1000,6 +1004,36 @@ class acp_board
 		$cache->destroy('sql', FORUMS_TABLE);
 	}
 
+	//-- mod : apiv ----------------------------------------------------------------
+	//-- add
+	// borrowed and adapted from "aos who visited a topic" mod
+	function apiv_config(&$display_vars)
+	{
+	    global $user;
+	
+	    for ( $legend = 1; isset($display_vars['vars']['legend' . $legend]); $legend++ )
+	    {
+	        $legend;
+	    }
+	
+	    $options = array(
+	        'legend' . $legend => 'APIV',
+	        'avatar_max_dimensions' => array('lang' => 'APIV_MAX_DIMENSIONS', 'validate' => 'int', 'type' => 'text:7:15', 'explain' => true, 'append' => ' ' . $user->lang['PIXEL']),
+	        'avatar_forums_last_poster_show' => array('lang' => 'APIV_FORUMS_LAST_POSTER_SHOW', 'validate' => 'bool', 'type' => 'radio:yes_no', 'explain' => false),
+	        'avatar_topics_first_poster_show' => array('lang' => 'APIV_TOPICS_FIRST_POSTER_SHOW', 'validate' => 'bool', 'type' => 'radio:yes_no', 'explain' => false),
+	        'avatar_topics_last_poster_show' => array('lang' => 'APIV_TOPICS_LAST_POSTER_SHOW', 'validate' => 'bool', 'type' => 'radio:yes_no', 'explain' => false),
+	
+	        'legend' . ($legend + 1) => 'ACP_SUBMIT_CHANGES',
+	    );
+	
+	    foreach ( $options as $key => $val )
+	    {
+	        $display_vars['vars'][$key] = $val;
+	    }
+	    unset($key);
+	}
+	//-- fin mod : apiv ------------------------------------------------------------
+	
 }
 
 ?>

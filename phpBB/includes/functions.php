@@ -4617,6 +4617,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		//le nouveau thème utilise des background en fonction de la minute et de l'heure optionnellement
 		//répertoire
 		$background_image =  'saison_3/background3/';
+		if (5 == $user->theme['style_id']) $background_image =  'saison_4/background3/';
 		$today = getdate();//tableau associatif
 		$tranche = ($today['hours'] * 60 + $today['minutes']) % 230;
 		

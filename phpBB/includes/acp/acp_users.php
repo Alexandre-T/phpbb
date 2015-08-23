@@ -475,6 +475,10 @@ class acp_users
 							if ($user_row['user_avatar'] && $user_row['user_avatar_type'] != AVATAR_GALLERY)
 							{
 								avatar_delete('user', $user_row);
+								//-- mod : apiv ----------------------------------------------------------------
+								//-- add
+								user_update_avatar($user_row['user_id'], '', 0, 0, 0);
+								//-- fin mod : apiv ------------------------------------------------------------
 							}
 
 							add_log('admin', 'LOG_USER_DEL_AVATAR', $user_row['username']);

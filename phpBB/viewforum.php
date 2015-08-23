@@ -334,6 +334,13 @@ $template->assign_vars(array(
 	'U_MARK_TOPICS'		=> ($user->data['is_registered'] || $config['load_anon_lastread']) ? append_sid("{$phpbb_root_path}viewforum.$phpEx", 'hash=' . generate_link_hash('global') . "&amp;f=$forum_id&amp;mark=topics") : '',
 ));
 
+//-- mod : apiv ----------------------------------------------------------------
+//-- add
+if ( $config['avatar_topics_first_poster_show'] || $config['avatar_topics_last_poster_show'] )
+{
+    $template->assign_var('AVATAR_MAX_DIMENSIONS', $config['avatar_max_dimensions']);
+}
+//-- fin mod : apiv ------------------------------------------------------------
 // Grab icons
 $icons = $cache->obtain_icons();
 
@@ -717,6 +724,11 @@ if (sizeof($topic_list))
 			'S_TOPIC_TYPE_SWITCH'	=> ($s_type_switch == $s_type_switch_test) ? -1 : $s_type_switch_test)
 		);
 
+		//-- mod : apiv ----------------------------------------------------------------
+		//-- add
+		user_display_avatar($row, 'topic_first', $cible, $config['avatar_topics_first_poster_show']);
+		user_display_avatar($row, 'topic_last', $cible, $config['avatar_topics_last_poster_show']);
+		//-- fin mod : apiv ------------------------------------------------------------
 		$s_type_switch = ($row['topic_type'] == POST_ANNOUNCE || $row['topic_type'] == POST_GLOBAL) ? 1 : 0;
 
 		if ($unread_topic)

@@ -229,6 +229,10 @@ function update_post_information($type, $ids, $return_update_sql = false)
 			$update_sql[$forum_id][] = 'forum_last_poster_id = 0';
 			$update_sql[$forum_id][] = "forum_last_poster_name = ''";
 			$update_sql[$forum_id][] = "forum_last_poster_colour = ''";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$update_sql[$forum_id][] = "forum_last_poster_avatar = ''";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 	}
 
@@ -238,6 +242,10 @@ function update_post_information($type, $ids, $return_update_sql = false)
 			FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u
 			WHERE p.poster_id = u.user_id
 				AND ' . $db->sql_in_set('p.post_id', $last_post_ids);
+		//-- mod : apiv ----------------------------------------------------------------
+		//-- add
+		$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+		//-- fin mod : apiv ------------------------------------------------------------
 		$result = $db->sql_query($sql);
 
 		while ($row = $db->sql_fetchrow($result))
@@ -248,6 +256,17 @@ function update_post_information($type, $ids, $return_update_sql = false)
 			$update_sql[$row["{$type}_id"]][] = $type . '_last_poster_id = ' . (int) $row['poster_id'];
 			$update_sql[$row["{$type}_id"]][] = "{$type}_last_poster_colour = '" . $db->sql_escape($row['user_colour']) . "'";
 			$update_sql[$row["{$type}_id"]][] = "{$type}_last_poster_name = '" . (($row['poster_id'] == ANONYMOUS) ? $db->sql_escape($row['post_username']) : $db->sql_escape($row['username'])) . "'";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $row['user_avatar'],
+			    'type' => (int) $row['user_avatar_type'],
+			    'width' => (int) $row['user_avatar_width'],
+			    'height' => (int) $row['user_avatar_height'],
+			));
+			
+			$update_sql[$row["{$type}_id"]][] = "{$type}_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 		$db->sql_freeresult($result);
 	}
@@ -1506,6 +1525,10 @@ function delete_post($forum_id, $topic_id, $post_id, &$data)
 				WHERE p.topic_id = $topic_id
 					AND p.poster_id = u.user_id
 				ORDER BY p.post_time ASC";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+			//-- fin mod : apiv ------------------------------------------------------------
 			$result = $db->sql_query_limit($sql, 1);
 			$row = $db->sql_fetchrow($result);
 			$db->sql_freeresult($result);
@@ -1516,7 +1539,17 @@ function delete_post($forum_id, $topic_id, $post_id, &$data)
 			}
 
 			$sql_data[TOPICS_TABLE] = 'topic_poster = ' . intval($row['poster_id']) . ', topic_first_post_id = ' . intval($row['post_id']) . ", topic_first_poster_colour = '" . $db->sql_escape($row['user_colour']) . "', topic_first_poster_name = '" . (($row['poster_id'] == ANONYMOUS) ? $db->sql_escape($row['post_username']) : $db->sql_escape($row['username'])) . "', topic_time = " . (int) $row['post_time'];
-
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $row['user_avatar'],
+			    'type' => (int) $row['user_avatar_type'],
+			    'width' => (int) $row['user_avatar_width'],
+			    'height' => (int) $row['user_avatar_height'],
+			));
+			
+			$sql_data[TOPICS_TABLE] .= ', topic_first_poster_avatar = \'' . $db->sql_escape($avatar_info) . '\'';
+			//-- fin mod : apiv ------------------------------------------------------------
 			// Decrementing topic_replies here is fine because this case only happens if there is more than one post within the topic - basically removing one "reply"
 			$sql_data[TOPICS_TABLE] .= ', topic_replies_real = topic_replies_real - 1' . (($data['post_approved']) ? ', topic_replies = topic_replies - 1' : '');
 
@@ -1840,6 +1873,18 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				'topic_attachment'			=> (!empty($data['attachment_data'])) ? 1 : 0,
 			);
 
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$sql_data[TOPICS_TABLE]['sql'] += array(
+			    'topic_first_poster_avatar' => serialize(array(
+			        'avatar' => $user->data['user_avatar'],
+			        'type' => $user->data['user_avatar_type'],
+			        'width' => $user->data['user_avatar_width'],
+			        'height' => $user->data['user_avatar_height'],
+			    )),
+			    'topic_last_poster_avatar' => '',
+			);
+			//-- fin mod : apiv ------------------------------------------------------------
 			if (isset($poll['poll_options']) && !empty($poll['poll_options']))
 			{
 				$poll_start = ($poll['poll_start']) ? $poll['poll_start'] : $current_time;
@@ -2019,6 +2064,15 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				'topic_last_poster_colour'	=> $user->data['user_colour'],
 				'topic_last_post_subject'	=> (string) $subject,
 			);
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$sql_data[TOPICS_TABLE]['sql']['topic_last_poster_avatar'] = serialize(array(
+			    'avatar' => $user->data['user_avatar'],
+			    'type' => $user->data['user_avatar_type'],
+			    'width' => $user->data['user_avatar_width'],
+			    'height' => $user->data['user_avatar_height'],
+			));
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 
 		unset($sql_data[POSTS_TABLE]['sql']);
@@ -2259,6 +2313,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = ' . (int) $user->data['user_id'];
 			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = '" . $db->sql_escape((!$user->data['is_registered'] && $username) ? $username : (($user->data['user_id'] != ANONYMOUS) ? $user->data['username'] : '')) . "'";
 			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = '" . $db->sql_escape($user->data['user_colour']) . "'";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $user->data['user_avatar'],
+			    'type' => (int) $user->data['user_avatar_type'],
+			    'width' => (int) $user->data['user_avatar_width'],
+			    'height' => (int) $user->data['user_avatar_height'],
+			));
+			
+			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 		else if ($post_mode == 'edit_last_post' || $post_mode == 'edit_topic' || ($post_mode == 'edit_first_post' && !$data['topic_replies']))
 		{
@@ -2307,6 +2372,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 							FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u
 							WHERE p.poster_id = u.user_id
 								AND p.post_id = ' . (int) $row['last_post_id'];
+						//-- mod : apiv ----------------------------------------------------------------
+						//-- add
+						$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+						//-- fin mod : apiv ------------------------------------------------------------
 						$result = $db->sql_query($sql);
 						$row = $db->sql_fetchrow($result);
 						$db->sql_freeresult($result);
@@ -2318,6 +2387,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 						$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = ' . (int) $row['poster_id'];
 						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = '" . $db->sql_escape(($row['poster_id'] == ANONYMOUS) ? $row['post_username'] : $row['username']) . "'";
 						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = '" . $db->sql_escape($row['user_colour']) . "'";
+						//-- mod : apiv ----------------------------------------------------------------
+						//-- add
+						$avatar_info = serialize(array(
+						    'avatar' => $row['user_avatar'],
+						    'type' => (int) $row['user_avatar_type'],
+						    'width' => (int) $row['user_avatar_width'],
+						    'height' => (int) $row['user_avatar_height'],
+						));
+						
+						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+						//-- fin mod : apiv ------------------------------------------------------------
 					}
 					else
 					{
@@ -2328,6 +2408,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 						$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = 0';
 						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = ''";
 						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = ''";
+						//-- mod : apiv ----------------------------------------------------------------
+						//-- add
+						$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = ''";
+						//-- fin mod : apiv ------------------------------------------------------------
 					}
 				}
 			}
@@ -2362,6 +2446,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 					FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u
 					WHERE p.poster_id = u.user_id
 						AND p.post_id = ' . (int) $row['last_post_id'];
+				//-- mod : apiv ----------------------------------------------------------------
+				//-- add
+				$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+				//-- fin mod : apiv ------------------------------------------------------------
 				$result = $db->sql_query($sql);
 				$row = $db->sql_fetchrow($result);
 				$db->sql_freeresult($result);
@@ -2373,6 +2461,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = ' . (int) $row['poster_id'];
 				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = '" . $db->sql_escape(($row['poster_id'] == ANONYMOUS) ? $row['post_username'] : $row['username']) . "'";
 				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = '" . $db->sql_escape($row['user_colour']) . "'";
+				//-- mod : apiv ----------------------------------------------------------------
+				//-- add
+				$avatar_info = serialize(array(
+				    'avatar' => $row['user_avatar'],
+				    'type' => (int) $row['user_avatar_type'],
+				    'width' => (int) $row['user_avatar_width'],
+				    'height' => (int) $row['user_avatar_height'],
+				));
+				
+				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+				//-- fin mod : apiv ------------------------------------------------------------
 			}
 			else
 			{
@@ -2383,6 +2482,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = 0';
 				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = ''";
 				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = ''";
+				//-- mod : apiv ----------------------------------------------------------------
+				//-- add
+				$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = ''";
+				//-- fin mod : apiv ------------------------------------------------------------
 			}
 		}
 		else if ($topic_row['topic_type'] == POST_GLOBAL && $topic_type != POST_GLOBAL && $forum_row['forum_last_post_id'] < $topic_row['topic_last_post_id'])
@@ -2392,6 +2495,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u
 				WHERE p.poster_id = u.user_id
 					AND p.post_id = ' . (int) $topic_row['topic_last_post_id'];
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+			//-- fin mod : apiv ------------------------------------------------------------
 			$result = $db->sql_query($sql);
 			$row = $db->sql_fetchrow($result);
 			$db->sql_freeresult($result);
@@ -2403,6 +2510,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			$sql_data[FORUMS_TABLE]['stat'][] = 'forum_last_poster_id = ' . (int) $row['poster_id'];
 			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_name = '" . $db->sql_escape(($row['poster_id'] == ANONYMOUS) ? $row['post_username'] : $row['username']) . "'";
 			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_colour = '" . $db->sql_escape($row['user_colour']) . "'";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $row['user_avatar'],
+			    'type' => (int) $row['user_avatar_type'],
+			    'width' => (int) $row['user_avatar_width'],
+			    'height' => (int) $row['user_avatar_height'],
+			));
+			
+			$sql_data[FORUMS_TABLE]['stat'][] = "forum_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 	}
 
@@ -2419,6 +2537,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_poster_colour = '" . (($user->data['user_id'] != ANONYMOUS) ? $db->sql_escape($user->data['user_colour']) : '') . "'";
 			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_post_subject = '" . $db->sql_escape($subject) . "'";
 			$sql_data[TOPICS_TABLE]['stat'][] = 'topic_last_post_time = ' . (int) $current_time;
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $user->data['user_avatar'],
+			    'type' => (int) $user->data['user_avatar_type'],
+			    'width' => (int) $user->data['user_avatar_width'],
+			    'height' => (int) $user->data['user_avatar_height'],
+			));
+			
+			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 		else if ($post_mode == 'edit_last_post' || $post_mode == 'edit_topic' || ($post_mode == 'edit_first_post' && !$data['topic_replies']))
 		{
@@ -2450,6 +2579,10 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 				FROM ' . POSTS_TABLE . ' p, ' . USERS_TABLE . ' u
 				WHERE p.poster_id = u.user_id
 					AND p.post_id = ' . (int) $row['last_post_id'];
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$sql = str_replace('SELECT ', 'SELECT u.user_avatar, u.user_avatar_type, u.user_avatar_width, u.user_avatar_height, ', $sql);
+			//-- fin mod : apiv ------------------------------------------------------------
 			$result = $db->sql_query($sql);
 			$row = $db->sql_fetchrow($result);
 			$db->sql_freeresult($result);
@@ -2461,6 +2594,17 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll, &$data, $u
 			$sql_data[TOPICS_TABLE]['stat'][] = 'topic_last_poster_id = ' . (int) $row['poster_id'];
 			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_poster_name = '" . $db->sql_escape(($row['poster_id'] == ANONYMOUS) ? $row['post_username'] : $row['username']) . "'";
 			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_poster_colour = '" . $db->sql_escape($row['user_colour']) . "'";
+			//-- mod : apiv ----------------------------------------------------------------
+			//-- add
+			$avatar_info = serialize(array(
+			    'avatar' => $row['user_avatar'],
+			    'type' => (int) $row['user_avatar_type'],
+			    'width' => (int) $row['user_avatar_width'],
+			    'height' => (int) $row['user_avatar_height'],
+			));
+			
+			$sql_data[TOPICS_TABLE]['stat'][] = "topic_last_poster_avatar = '" . $db->sql_escape($avatar_info) . "'";
+			//-- fin mod : apiv ------------------------------------------------------------
 		}
 	}
 

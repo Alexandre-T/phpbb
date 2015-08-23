@@ -268,6 +268,10 @@ function display_forums($root_data = '', $display_moderators = true, $return_mod
 				$forum_rows[$parent_id]['forum_last_poster_id'] = $row['forum_last_poster_id'];
 				$forum_rows[$parent_id]['forum_last_poster_name'] = $row['forum_last_poster_name'];
 				$forum_rows[$parent_id]['forum_last_poster_colour'] = $row['forum_last_poster_colour'];
+				//-- mod : apiv ----------------------------------------------------------------
+				//-- add
+				$forum_rows[$parent_id]['forum_last_poster_avatar'] = $row['forum_last_poster_avatar'];
+				//-- fin mod : apiv ------------------------------------------------------------
 				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;
 			}
 		}
@@ -439,7 +443,7 @@ function display_forums($root_data = '', $display_moderators = true, $return_mod
 		{
 			$s_subforums_list[] = '<a href="' . $subforum['link'] . '" class="subforum ' . (($subforum['unread']) ? 'unread' : 'read') . '" title="' . (($subforum['unread']) ? $user->lang['UNREAD_POSTS'] : $user->lang['NO_UNREAD_POSTS']) . '">' . $subforum['name'] . '</a>';
 		}
-		$s_subforums_list = (string) implode(', ', $s_subforums_list);
+		$s_subforums_list = (string) implode('<span class="subforum-separator">, </span>', $s_subforums_list);
 		$catless = ($row['parent_id'] == $root_data['forum_id']) ? true : false;
 
 		if ($row['forum_type'] != FORUM_LINK)
@@ -497,7 +501,10 @@ function display_forums($root_data = '', $display_moderators = true, $return_mod
 			'U_LAST_POSTER'		=> get_username_string('profile', $row['forum_last_poster_id'], $row['forum_last_poster_name'], $row['forum_last_poster_colour']),
 			'U_LAST_POST'		=> $last_post_url)
 		);
-
+		//-- mod : apiv ----------------------------------------------------------------
+		//-- add
+		user_display_avatar($row, 'forum_last', 'forumrow', $config['avatar_forums_last_poster_show']);
+		//-- fin mod : apiv ------------------------------------------------------------
 		// Assign subforums loop for style authors
 		foreach ($subforums_list as $subforum)
 		{
@@ -518,7 +525,13 @@ function display_forums($root_data = '', $display_moderators = true, $return_mod
 		'LAST_POST_IMG'		=> $user->img('icon_topic_latest', 'VIEW_LATEST_POST'),
 		'UNAPPROVED_IMG'	=> $user->img('icon_topic_unapproved', 'TOPICS_UNAPPROVED'),
 	));
-
+	//-- mod : apiv ----------------------------------------------------------------
+	//-- add
+	if ( $config['avatar_forums_last_poster_show'] )
+	{
+	    $template->assign_var('AVATAR_MAX_DIMENSIONS', $config['avatar_max_dimensions']);
+	}
+	//-- fin mod : apiv ------------------------------------------------------------
 	if ($return_moderators)
 	{
 		return array($active_forum_ary, $forum_moderators);
@@ -1339,5 +1352,33 @@ function get_user_avatar($avatar, $avatar_type, $avatar_width, $avatar_height, $
 	$avatar_img .= $avatar;
 	return '<img src="' . (str_replace(' ', '%20', $avatar_img)) . '" width="' . $avatar_width . '" height="' . $avatar_height . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
 }
+//-- mod : apiv ----------------------------------------------------------------
+//-- add
+function user_display_avatar($row, $prefix = '', $tpl_switch, $display)
+{
+    if ( !$display || empty($row[$prefix . '_poster_avatar']) )
+    {
+        return;
+    }
 
+    global $config, $template;
+
+    $avatar = unserialize($row[$prefix . '_poster_avatar']);
+    if ( $avatar['width'] >= $avatar['height'] )
+    {
+        $avatar_width = ($avatar['width'] > $config['avatar_max_dimensions']) ? $config['avatar_max_dimensions'] : $avatar['width'];
+        $avatar_height = ($avatar_width == $config['avatar_max_dimensions']) ? round($config['avatar_max_dimensions'] / $avatar['width'] * $avatar['height']) : $avatar['height'];
+    }
+    else
+    {
+        $avatar_height = ($avatar['height'] > $config['avatar_max_dimensions']) ? $config['avatar_max_dimensions'] : $avatar['height'];
+        $avatar_width = ($avatar_height == $config['avatar_max_dimensions']) ? round($config['avatar_max_dimensions'] / $avatar['height'] * $avatar['width']) : $avatar['width'];
+    }
+
+    $template->alter_block_array($tpl_switch, array(
+        strtoupper($prefix) . '_POSTER_AVATAR' => get_user_avatar($avatar['avatar'], $avatar['type'], $avatar_width, $avatar_height),
+        strtoupper($prefix) . '_POSTER_AVATAR_MARGIN' => ($avatar_width == $config['avatar_max_dimensions']) ? 5 : ($config['avatar_max_dimensions'] - $avatar_width + 5),
+    ), true, 'change');
+}
+//-- fin mod : apiv ------------------------------------------------------------
 ?>
