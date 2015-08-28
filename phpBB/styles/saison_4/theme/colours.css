@@ -85,7 +85,7 @@ hr.dashed {
 }
 
 .bg1	{ background-color: #ededed; }
-.bg2	{ background-color: #E2E1E1;  }
+.bg2	{ background-color: #E2E1E1; }
 .bg3	{ background-color: #ededed; }
 
 .ucprowbg {
@@ -229,7 +229,7 @@ p.rules {
 	background-image: none;
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for links.css
 -------------------------------------------------------------- */
@@ -319,7 +319,7 @@ a.topictitle:active {
 	color: #D31141;
 }
 
-/* Profile searchresults */	
+/* Profile searchresults */
 .search .postprofile a {
 	color: #105289;
 }
@@ -338,10 +338,10 @@ a.top2 {
 }
 
 /* Arrow links  */
-a.up		{ background-image: url("{T_THEME_PATH}/images/arrow_up.gif") }
-a.down		{ background-image: url("{T_THEME_PATH}/images/arrow_down.gif") }
-a.left		{ background-image: url("{T_THEME_PATH}/images/arrow_left.gif") }
-a.right		{ background-image: url("{T_THEME_PATH}/images/arrow_right.gif") }
+a.up		{ background-image: url("{T_THEME_PATH}/images/arrow_up.gif"); }
+a.down		{ background-image: url("{T_THEME_PATH}/images/arrow_down.gif"); }
+a.left		{ background-image: url("{T_THEME_PATH}/images/arrow_left.gif"); }
+a.right		{ background-image: url("{T_THEME_PATH}/images/arrow_right.gif"); }
 
 a.up:hover {
 	background-color: transparent;
@@ -363,7 +363,7 @@ a.right:hover {
 .copyright a:hover {
 	color: #fff;
 }
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for content.css
 -------------------------------------------------------------- */
@@ -640,7 +640,7 @@ fieldset.polls dd div {
 	background-image: url("{IMG_ICON_USER_ONLINE_SRC}"); 
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for buttons.css
 -------------------------------------------------------------- */
@@ -649,9 +649,9 @@ Colours and backgrounds for buttons.css
 .reply-icon span	{ background-image: url("{IMG_BUTTON_TOPIC_REPLY_SRC}"); }
 .post-icon span		{ background-image: url("{IMG_BUTTON_TOPIC_NEW_SRC}"); }
 .locked-icon span	{ background-image: url("{IMG_BUTTON_TOPIC_LOCKED_SRC}"); }
-.pmreply-icon span	{ background-image: url("{IMG_BUTTON_PM_REPLY_SRC}") ;}
-.newpm-icon span 	{ background-image: url("{IMG_BUTTON_PM_NEW_SRC}") ;}
-.forwardpm-icon span	{ background-image: url("{IMG_BUTTON_PM_FORWARD_SRC}") ;}
+.pmreply-icon span	{ background-image: url("{IMG_BUTTON_PM_REPLY_SRC}"); }
+.newpm-icon span 	{ background-image: url("{IMG_BUTTON_PM_NEW_SRC}"); }
+.forwardpm-icon span	{ background-image: url("{IMG_BUTTON_PM_FORWARD_SRC}"); }
 .video-icon span	{ background-image: url("{IMG_ICON_VIDEO_SRC}"); }
 
 a.print {
@@ -703,7 +703,7 @@ a.fontsize {
 .info-icon, .info-icon a			{ background-image: url("{IMG_ICON_POST_INFO_SRC}"); }
 .warn-icon, .warn-icon a			{ background-image: url("{IMG_ICON_USER_WARN_SRC}"); } /* Need updated warn icon */
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for cp.css
 -------------------------------------------------------------- */
@@ -911,7 +911,7 @@ dl.mini dt {
 	background-color: #EEE;
 }
 
-/*  	
+/*
 --------------------------------------------------------------
 Colours and backgrounds for forms.css
 -------------------------------------------------------------- */
