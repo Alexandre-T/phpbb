@@ -24,6 +24,42 @@
 	</div>
 <!-- ENDIF -->
 
+
+<!-- Gestion des annonces -->
+
+<!-- BEGIN descriptionrow -->
+	
+	<div class="forumbg<!-- IF descriptionrow.S_TOPIC_TYPE_SWITCH and (descriptionrow.S_POST_ANNOUNCE or descriptionrow.S_POST_GLOBAL) --> announcement<!-- ENDIF -->">
+		<ul class="topiclist topics">
+		<li class="row <!-- IF descriptionrow.S_POST_GLOBAL --> global-announce<!-- ENDIF --><!-- IF descriptionrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF descriptionrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF descriptionrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
+			<dl>
+				<dt class="gehtitle" <!-- IF descriptionrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{descriptionrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF --> title="{descriptionrow.TOPIC_FOLDER_IMG_ALT}">
+					<h4><a href="{descriptionrow.U_VIEW_TOPIC}" class="topictitle">{descriptionrow.TOPIC_TITLE}</a><!-- IF descriptionrow.S_UNREAD_TOPIC --><a href="{descriptionrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF descriptionrow.ATTACH_ICON_IMG -->{descriptionrow.ATTACH_ICON_IMG} <!-- ENDIF --></h4>
+					<span>Description du lieu</span>
+			
+					<!-- IF descriptionrow.TOPIC_FIRST_POSTER_AVATAR --><span style="float: left; padding-top: 3px; margin-right: {descriptionrow.TOPIC_FIRST_POSTER_AVATAR_MARGIN}px;">{descriptionrow.TOPIC_FIRST_POSTER_AVATAR}</span><!-- ENDIF -->
+					<!-- IF descriptionrow.S_TOPIC_UNAPPROVED or descriptionrow.S_POSTS_UNAPPROVED --><a href="{descriptionrow.U_MCP_QUEUE}">{descriptionrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
+					<!-- IF descriptionrow.S_TOPIC_REPORTED --><a href="{descriptionrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
+					<br/>
+					{descriptionrow.REPLIES} <!-- IF descriptionrow.REPLIES gt 1 --> réponses <!-- ELSE --> réponse<!-- ENDIF --> | 
+					{descriptionrow.VIEWS} <!-- IF descriptionrow.VIEWS gt 1 --> lectures <!-- ELSE --> lecture <!-- ENDIF --><br/>
+					<!-- IF descriptionrow.PAGINATION --><strong class="pagination"><span>{descriptionrow.PAGINATION}</span></strong><!-- ENDIF -->
+					Description écrite {L_POST_BY_AUTHOR} {descriptionrow.TOPIC_AUTHOR_FULL} &raquo; {descriptionrow.FIRST_POST_TIME}
+				</dt>
+				<dd class="gehposts">&nbsp;</dd>
+				<dd class="gehlastpost">
+					<!-- IF descriptionrow.TOPIC_LAST_POSTER_AVATAR --><span class="geh_last_avatar">{descriptionrow.TOPIC_LAST_POSTER_AVATAR}</span><!-- ENDIF -->
+					<img class="gehespace" src="{descriptionrow.TOPIC_FOLDER_IMG_SRC}" alt="{descriptionrow.TOPIC_FOLDER_IMG_ALT}"/><br/>
+					<span><!-- IF not S_IS_BOT --><a href="{descriptionrow.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF -->{descriptionrow.LAST_POST_TIME}</span><br />
+					<span>{L_LAST_POST} {L_POST_BY_AUTHOR}  <br/> {descriptionrow.LAST_POST_AUTHOR_FULL}</span>
+				</dd>
+			</dl>
+		</li>
+		</ul>
+	</div>
+
+<!-- END descriptionrow -->
+
 <!-- IF S_HAS_SUBFORUM -->
 <!-- INCLUDE forumlist_body.html -->
 <!-- ENDIF -->
@@ -107,47 +143,43 @@
 
 <h2 class="gehtitre"><span class="policeVegas policeGris">RP En cours</span></h2>
 
-<!-- BEGIN descriptionrow -->
+<!-- BEGIN rpencoursrow -->
 	
-	<!-- IF not descriptionrow.S_TOPIC_TYPE_SWITCH and not descriptionrow.S_FIRST_ROW -->
+	<!-- IF not rpencoursrow.S_TOPIC_TYPE_SWITCH and not rpencoursrow.S_FIRST_ROW -->
 		</ul>
 	</div>
 	<!-- ENDIF -->
 
-	<!-- IF descriptionrow.S_FIRST_ROW or not descriptionrow.S_TOPIC_TYPE_SWITCH -->
-		<div class="forumbg<!-- IF descriptionrow.S_TOPIC_TYPE_SWITCH and (descriptionrow.S_POST_ANNOUNCE or descriptionrow.S_POST_GLOBAL) --> announcement<!-- ENDIF -->">
+	<!-- IF rpencoursrow.S_FIRST_ROW or not rpencoursrow.S_TOPIC_TYPE_SWITCH -->
+		<div class="forumbg">
 		<ul class="topiclist topics">
 	<!-- ENDIF -->
 	
-		<li class="row <!-- IF descriptionrow.S_POST_GLOBAL --> global-announce<!-- ENDIF --><!-- IF descriptionrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF descriptionrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF descriptionrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
+		<li class="row<!-- IF rpencoursrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
 			<dl>
-				<dt class="gehtitle" <!-- IF descriptionrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{descriptionrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF --> title="{descriptionrow.TOPIC_FOLDER_IMG_ALT}">
-					<h4><a href="{descriptionrow.U_VIEW_TOPIC}" class="topictitle">{descriptionrow.TOPIC_TITLE}</a><!-- IF descriptionrow.S_UNREAD_TOPIC --><a href="{descriptionrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF descriptionrow.ATTACH_ICON_IMG -->{descriptionrow.ATTACH_ICON_IMG} <!-- ENDIF --></h4>
-					<span><!-- IF descriptionrow.S_POST_GLOBAL --> Annonce globale <!-- ENDIF -->
-						<!-- IF descriptionrow.S_POST_ANNOUNCE --> Annonce <!-- ENDIF -->
-						<!-- IF descriptionrow.S_POST_STICKY --> Description du lieu <!-- ENDIF -->
-					</span>
+				<dt class="gehtitle" <!-- IF rpencoursrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{rpencoursrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF --> title="{rpencoursrow.TOPIC_FOLDER_IMG_ALT}">
+					<h4><a href="{rpencoursrow.U_VIEW_TOPIC}" class="topictitle">{rpencoursrow.TOPIC_TITLE}</a><!-- IF rpencoursrow.S_UNREAD_TOPIC --><a href="{rpencoursrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF rpencoursrow.ATTACH_ICON_IMG -->{rpencoursrow.ATTACH_ICON_IMG} <!-- ENDIF --></h4>
 			
-					<!-- IF descriptionrow.TOPIC_FIRST_POSTER_AVATAR --><span style="float: left; padding-top: 3px; margin-right: {descriptionrow.TOPIC_FIRST_POSTER_AVATAR_MARGIN}px;">{descriptionrow.TOPIC_FIRST_POSTER_AVATAR}</span><!-- ENDIF -->
-					<!-- IF descriptionrow.S_TOPIC_UNAPPROVED or descriptionrow.S_POSTS_UNAPPROVED --><a href="{descriptionrow.U_MCP_QUEUE}">{descriptionrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
-					<!-- IF descriptionrow.S_TOPIC_REPORTED --><a href="{descriptionrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
+					<!-- IF rpencoursrow.TOPIC_FIRST_POSTER_AVATAR --><span style="float: left; padding-top: 3px; margin-right: {rpencoursrow.TOPIC_FIRST_POSTER_AVATAR_MARGIN}px;">{rpencoursrow.TOPIC_FIRST_POSTER_AVATAR}</span><!-- ENDIF -->
+					<!-- IF rpencoursrow.S_TOPIC_UNAPPROVED or rpencoursrow.S_POSTS_UNAPPROVED --><a href="{rpencoursrow.U_MCP_QUEUE}">{rpencoursrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
+					<!-- IF rpencoursrow.S_TOPIC_REPORTED --><a href="{rpencoursrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
 					<br/>
-					{descriptionrow.REPLIES} <!-- IF descriptionrow.REPLIES gt 1 --> réponses <!-- ELSE --> réponse<!-- ENDIF --> | 
-					{descriptionrow.VIEWS} <!-- IF descriptionrow.VIEWS gt 1 --> lectures <!-- ELSE --> lecture <!-- ENDIF --><br/>
-					<!-- IF descriptionrow.PAGINATION --><strong class="pagination"><span>{descriptionrow.PAGINATION}</span></strong><!-- ENDIF -->
-					RP ouvert {L_POST_BY_AUTHOR} {descriptionrow.TOPIC_AUTHOR_FULL} &raquo; {descriptionrow.FIRST_POST_TIME}
+					{rpencoursrow.REPLIES} <!-- IF rpencoursrow.REPLIES gt 1 --> réponses <!-- ELSE --> réponse<!-- ENDIF --> | 
+					{rpencoursrow.VIEWS} <!-- IF rpencoursrow.VIEWS gt 1 --> lectures <!-- ELSE --> lecture <!-- ENDIF --><br/>
+					<!-- IF rpencoursrow.PAGINATION --><strong class="pagination"><span>{rpencoursrow.PAGINATION}</span></strong><!-- ENDIF -->
+					RP ouvert {L_POST_BY_AUTHOR} {rpencoursrow.TOPIC_AUTHOR_FULL} &raquo; {rpencoursrow.FIRST_POST_TIME}
 				</dt>
 				<dd class="gehposts">&nbsp;</dd>
 				<dd class="gehlastpost">
-					<!-- IF descriptionrow.TOPIC_LAST_POSTER_AVATAR --><span class="geh_last_avatar">{descriptionrow.TOPIC_LAST_POSTER_AVATAR}</span><!-- ENDIF -->
-					<img class="gehespace" src="{descriptionrow.TOPIC_FOLDER_IMG_SRC}" alt="{descriptionrow.TOPIC_FOLDER_IMG_ALT}"/><br/>
-					<span><!-- IF not S_IS_BOT --><a href="{descriptionrow.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF -->{descriptionrow.LAST_POST_TIME}</span><br />
-					<span>{L_LAST_POST} {L_POST_BY_AUTHOR}  <br/> {descriptionrow.LAST_POST_AUTHOR_FULL}</span>
+					<!-- IF rpencoursrow.TOPIC_LAST_POSTER_AVATAR --><span class="geh_last_avatar">{rpencoursrow.TOPIC_LAST_POSTER_AVATAR}</span><!-- ENDIF -->
+					<img class="gehespace" src="{rpencoursrow.TOPIC_FOLDER_IMG_SRC}" alt="{rpencoursrow.TOPIC_FOLDER_IMG_ALT}"/><br/>
+					<span><!-- IF not S_IS_BOT --><a href="{rpencoursrow.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF -->{rpencoursrow.LAST_POST_TIME}</span><br />
+					<span>{L_LAST_POST} {L_POST_BY_AUTHOR}  <br/> {rpencoursrow.LAST_POST_AUTHOR_FULL}</span>
 				</dd>
 			</dl>
 		</li>
 
-	<!-- IF descriptionrow.S_LAST_ROW -->
+	<!-- IF rpencoursrow.S_LAST_ROW -->
 			</ul>
 	</div>
 	<!-- ENDIF -->
@@ -156,11 +188,11 @@
 	<!-- IF S_IS_POSTABLE -->
 	<div class="panel">
 		<div class="inner"><span class="corners-top"><span></span></span>
-		<strong>{L_NO_TOPICS}</strong>
+		<strong>Aucun RP n’est en cours en ce moment&hellip;</strong>
 		<span class="corners-bottom"><span></span></span></div>
 	</div>
 	<!-- ENDIF -->
-<!-- END descriptionrow -->
+<!-- END rpencoursrow -->
 
 <h2 class="gehtitre"><span class="policeVegas policeGris">RP Terminés</span></h2>
 
@@ -208,7 +240,7 @@
 	<!-- IF S_IS_POSTABLE -->
 	<div class="panel">
 		<div class="inner"><span class="corners-top"><span></span></span>
-		<strong>{L_NO_TOPICS}</strong>
+		<strong>Il n’y a pas encore de RPs archivés en ce lieu.</strong>
 		<span class="corners-bottom"><span></span></span></div>
 	</div>
 	<!-- ENDIF -->

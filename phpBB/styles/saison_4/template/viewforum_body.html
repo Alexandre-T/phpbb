@@ -113,6 +113,9 @@
 	<!-- ENDIF -->
 
 	<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
+		<!-- IF topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL --> <h3 class="gehtitre">Sujets importants</h3><!-- ENDIF -->
+		<!-- IF topicrow.S_POST_STICKY --> <h3 class="gehtitre">Post-it</h3><!-- ENDIF -->
+		<!-- IF not topicrow.S_POST_ANNOUNCE and not topicrow.S_POST_GLOBAL and not topicrow.S_POST_STICKY --> <h3 class="gehtitre">Sujets</h3><!-- ENDIF -->
 		<div class="forumbg<!-- IF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) --> announcement<!-- ENDIF -->">
 		<ul class="topiclist topics">
 	<!-- ENDIF -->

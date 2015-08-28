@@ -210,7 +210,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 
 	$not_in_fid = (sizeof($ex_fid_ary)) ? 'WHERE ' . $db->sql_in_set('f.forum_id', $ex_fid_ary, true) . " OR (f.forum_password <> '' AND fa.user_id <> " . (int) $user->data['user_id'] . ')' : "";
 
-	$sql = 'SELECT f.forum_id, f.forum_name, f.parent_id, f.forum_type, f.right_id, f.forum_password, f.forum_flags, fa.user_id
+	$sql = 'SELECT f.forum_id, f.forum_name, f.forum_rp, f.parent_id, f.forum_type, f.right_id, f.forum_password, f.forum_flags, fa.user_id
 		FROM ' . FORUMS_TABLE . ' f
 		LEFT JOIN ' . FORUMS_ACCESS_TABLE . " fa ON (fa.forum_id = f.forum_id
 			AND fa.session_id = '" . $db->sql_escape($user->session_id) . "')
@@ -658,7 +658,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			}
 			$db->sql_freeresult($result);
 
-			$sql = 'SELECT p.*, f.forum_id, f.forum_name, t.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_colour
+			$sql = 'SELECT p.*, f.forum_id, f.forum_name, f.forum_rp, t.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_colour
 				FROM ' . POSTS_TABLE . ' p
 					LEFT JOIN ' . TOPICS_TABLE . ' t ON (p.topic_id = t.topic_id)
 					LEFT JOIN ' . FORUMS_TABLE . ' f ON (p.forum_id = f.forum_id)
@@ -670,7 +670,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			$sql_from = TOPICS_TABLE . ' t
 				LEFT JOIN ' . FORUMS_TABLE . ' f ON (f.forum_id = t.forum_id)
 				' . (($sort_key == 'a') ? ' LEFT JOIN ' . USERS_TABLE . ' u ON (u.user_id = t.topic_poster) ' : '');
-			$sql_select = 't.*, f.forum_id, f.forum_name';
+			$sql_select = 't.*, f.forum_id, f.forum_name, f.forum_rp';
 
 			if ($user->data['is_registered'])
 			{
@@ -1035,7 +1035,8 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 				'TOPIC_ID'			=> $result_topic_id,
 				'POST_ID'			=> ($show_results == 'posts') ? $row['post_id'] : false,
 
-				'FORUM_TITLE'		=> $row['forum_name'],
+				'FORUM_RP'          => $row['forum_rp'],
+			    'FORUM_TITLE'		=> $row['forum_name'],
 				'TOPIC_TITLE'		=> $topic_title,
 				'TOPIC_REPLIES'		=> $replies,
 				'TOPIC_VIEWS'		=> $row['topic_views'],
@@ -1068,7 +1069,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 
 // Search forum
 $s_forums = '';
-$sql = 'SELECT f.forum_id, f.forum_name, f.parent_id, f.forum_type, f.left_id, f.right_id, f.forum_password, f.enable_indexing, fa.user_id
+$sql = 'SELECT f.forum_id, f.forum_name, f.forum_rp, f.parent_id, f.forum_type, f.left_id, f.right_id, f.forum_password, f.enable_indexing, fa.user_id
 	FROM ' . FORUMS_TABLE . ' f
 	LEFT JOIN ' . FORUMS_ACCESS_TABLE . " fa ON (fa.forum_id = f.forum_id
 		AND fa.session_id = '" . $db->sql_escape($user->session_id) . "')

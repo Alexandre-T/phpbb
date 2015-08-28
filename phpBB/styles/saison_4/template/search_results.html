@@ -42,21 +42,21 @@
 		<!-- BEGIN searchresults -->
 			<li class="row">
 				<dl>
-					<dt class="gehtitle">
-						<h4><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a> <!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF --></h4>
+					<dt class="gehtitle gehlong">
+						<h4 class="gehtitle4search"><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a> <!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF --></h4>
 						<!-- IF searchresults.PAGINATION --><strong class="pagination" style="float:left;"><span>{searchresults.PAGINATION}</span></strong><!-- ENDIF -->
 						<br/>
 						{searchresults.TOPIC_REPLIES} <!-- IF searchresults.TOPIC_REPLIES gt 1 --> réponses <!-- ELSE --> réponse<!-- ENDIF --> | 
 						{searchresults.TOPIC_VIEWS} <!-- IF searchresults.TOPIC_VIEWS gt 1 --> lectures <!-- ELSE --> lecture <!-- ENDIF --><br/>
-						Sujet ouvert {L_POST_BY_AUTHOR} {searchresults.TOPIC_AUTHOR_FULL} &raquo; {searchresults.FIRST_POST_TIME}
+						<!-- IF searchresults.FORUM_RP -->RP ouvert<!-- ELSE -->Sujet ouvert<!-- ENDIF --> 
+						{L_POST_BY_AUTHOR} {searchresults.TOPIC_AUTHOR_FULL} &raquo; {searchresults.FIRST_POST_TIME}
 						<!-- IF not searchresults.S_TOPIC_GLOBAL -->{L_IN} <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a><!-- ELSE --> ({L_GLOBAL})<!-- ENDIF -->
 					</dt>
-					<dd class="gehposts">&nbsp;</dd>
-					<dd class="gehlastpost">
+					<dd class="gehlastpost gehlastsearch">
 						<!-- IF searchresults.TOPIC_LAST_POSTER_AVATAR --><span class="geh_last_avatar">{searchresults.TOPIC_LAST_POSTER_AVATAR}</span><!-- ENDIF -->
-						<img class="gehespace" src="{searchresults.TOPIC_FOLDER_IMG_SRC}" alt="{searchresults.TOPIC_FOLDER_IMG_ALT}"/><br/>
-						<span><!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF -->{searchresults.LAST_POST_TIME}</span><br />
-						<span>{L_LAST_POST} {L_POST_BY_AUTHOR} <br/> {searchresults.LAST_POST_AUTHOR_FULL}</span>
+						<!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}" title="Lire le dernier message"><!-- ENDIF --><img class="gehespace" src="{searchresults.TOPIC_FOLDER_IMG_SRC}" alt="{searchresults.TOPIC_FOLDER_IMG_ALT}"/><!-- IF not S_IS_BOT --></a><!-- ENDIF --><br/>
+						<span><!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}" title="Lire le dernier message">{LAST_POST_IMG}</a> <!-- ENDIF -->{searchresults.LAST_POST_TIME}</span><br/>
+						<span><!-- IF not S_IS_BOT --><a href="{searchresults.U_LAST_POST}" title="Lire le dernier message"><!-- ENDIF -->{L_LAST_POST} {L_POST_BY_AUTHOR}<!-- IF not S_IS_BOT --></a><!-- ENDIF --> {searchresults.LAST_POST_AUTHOR_FULL}</span>
 					</dd>
 				</dl>
 			</li>

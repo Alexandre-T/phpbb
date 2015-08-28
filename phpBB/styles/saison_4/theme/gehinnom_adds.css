@@ -46,12 +46,12 @@ div#vote{
 	right : 100px;
 }
 div#vote h2, div#mesrps h2{
-	font-family:'Riesling';
+	font-family:'policeVegas';
 	display:inline;
 	font-size : 3em;
 }
 div#vote a, div#mesrps a{
-	font-family:'Riesling';
+	font-family:'policeVegas';
 	display:inline;
 	font-size : 2em;
 	margin-left: 10px;
@@ -81,35 +81,20 @@ div.blocnotes p{
 }
 /* Harahel les wrappers */
 div#wrapper-central,div#wrapper-gauche,div#wrapper-droit{
-	background-repeat:no-repeat;
-	background-attachment:fixed;
 	/* Ceci te permet d'assurer que ce calque central fasse toute la longueur et toute la largeur */
 	width : 100%; 
 	margin : 0 auto;
-/*	background-image:url('{T_THEME_PATH}/images/bandes.jpg'); */
-/*	background-image:url('{T_THEME_PATH}/images/bg-pachad.jpg');*/
-/*	background-image:url('{T_THEME_PATH}/images/fond-v2.jpg');*/
 	background-color:#505050 ;
 
 }
 /* Harahel Wrapper central */
 div#wrapper-central{
-	background-repeat:repeat-y;
-	background-position:top center;	/* ne change pas center mais tu peux remplacer top par bottom */
 }
 /* Harahel Wrapper central */
 div#wrapper-gauche{
-	/* Ici tu définis l'image que tu veux en fond */
-	background-image:url({T_THEME_PATH}/images/gauche-de-page.png); /* Ici l'image fait la largeur que tu veux */
-	background-repeat:repeat-y;
-	background-position:bottom left;	/* ne change pas left mais tu peux remplacer bottom par top */
 }
 /* Harahel Wrapper central */
 div#wrapper-droit{
-	/* Ici tu définis l'image que tu veux en fond */
-	background-image:url({T_THEME_PATH}/images/droite-de-page.png); /* Ici l'image fait la largeur que tu veux */
-	background-repeat:repeat-y;
-	background-position:top right;	/* ne change pas right mais tu peux remplacer top par bottom */
 }
 /* Harahel : j'écrase ce qu'ils ont mis dans common.css */
 #wrap {
@@ -177,7 +162,7 @@ a.bbcode_jiwa{
 	left: 25px;
 }
 span.bbcode_titre{
-	font-family:'Riesling';
+	font-family:'policeVegas';
 	display:block;
 	margin: 1em 0.4em 0.6em 0.4em;
 	text-align:center;
@@ -597,11 +582,20 @@ dd.gehlastpost{
 	text-align:center;
 	width:233px;
 }
+dd.gehlastsearch {
+	height:70px;
+	vertical-align : middle;
+	text-align:center;
+	width:250px;
+}
 dd.gehlastpost img.gehespace{
 	padding-top:15px;
 }
+dd.gehlastsearch img.gehespace{
+	padding-top:8px;
+}
 
-li.header, h2.gehtitre{
+li.header, h2.gehtitre, h3.gehtitre{
 	background-color: #F3F0F0;
 	background-image:url('{T_THEME_PATH}/images/barre-cat.png');
 	background-position: center center;
@@ -612,7 +606,18 @@ li.header, h2.gehtitre{
 h2.gehtitre{
 	margin-top:0px;
 	padding-top:25px;
-	text-align:center
+	text-align:center;
+}
+h3.gehtitre{	
+	font-family: 'policeVegas';
+	font-size:20px;
+	height:20px;
+	line-height:20px;
+	border-bottom:none;
+	margin-top:0px;
+	padding-top:10px;
+	text-align:center;
+	text-transform:none;
 }
 li.header a.policeVegas{
 	
@@ -620,6 +625,10 @@ li.header a.policeVegas{
 dt.gehtitle{
 	background-color: #DDD;
 	height:90px;
+}
+dt.gehlong{
+	background-color: #DDD;
+	height:70px;
 }
 li.rowforum{
 	padding-bottom: 10px;
@@ -630,6 +639,13 @@ ul.topics dl{
 ul.topics dt{
 	width:455px;
 }
+ul.topics dt.gehlong{
+	width:550px;
+	margin-right:112px;
+}
+h4.gehtitle4search{
+	margin-bottom:5px;
+}
 dd.gehposts {
 	width: 223px;
 	text-align: center;
@@ -638,4 +654,7 @@ dd.gehposts {
 }
 ul.gehlinklist{
 	margin : 0 0 0 27px;
+}
+.postprofile a:link, .postprofile a:active, .postprofile a:visited, .postprofile dt.author a {
+	line-height:25px;
 }

@@ -664,8 +664,10 @@ if (sizeof($topic_list))
 		$cible = 'topicrow';
 		if ($forum_data['forum_rp'] == '1' && $row['topic_type'] == POST_NORMAL && $row['topic_status'] == ITEM_LOCKED ){
 			$cible = 'archiverow';
-		}elseif($forum_data['forum_rp'] == '1' && $row['topic_type'] == POST_STICKY ){
+		}elseif($forum_data['forum_rp'] == '1' && ( $row['topic_type'] == POST_STICKY || $row['topic_type'] == POST_ANNOUNCE ) ){
 			$cible = 'descriptionrow';
+		}elseif($forum_data['forum_rp'] == '1' ){
+			$cible = 'rpencoursrow';
 		}
 		//AT_MOD END : Classement des sujets
 		$template->assign_block_vars($cible, array(
