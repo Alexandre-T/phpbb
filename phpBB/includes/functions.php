@@ -4614,156 +4614,7 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		$db->sql_freeresult($result);
 	}
 	//Get option for background
-	//@FIXME placer ces éléments dans le mod_background.
-	 
-	$s_background = true;
-	$background_image= 'poker_olympus/background/banniere-v2a.jpg';
 	
-	if( $user->theme['style_id'] >= 3 && $config['background_enable']){
-		//le nouveau thème utilise des background en fonction de la minute et de l'heure optionnellement
-		//répertoire
-		$background_image =  'saison_3/background3/';
-		if (5 == $user->theme['style_id']) $background_image =  'saison_4/background3/';
-		$today = getdate();//tableau associatif
-		$tranche = ($today['hours'] * 60 + $today['minutes']) % 230;
-		
-		//var_dump($user);die();
-		
-		if ($tranche < 5){
-		    $background_image .= 'Aaron_Lori.jpg';
-		}elseif ($tranche < 10 ){
-			$background_image .= 'Milah.jpg';
-		}elseif ($tranche < 15 ){
-			$background_image .= 'Azrael.jpg';
-		}elseif ($tranche < 20 ){
-			$background_image .= 'Julie.jpg';
-		}elseif ($tranche < 25 ){
-			$background_image .= 'Oishi.jpg';
-		}elseif ($tranche < 30 ){
-			$background_image .= 'Dawn_Matvei.jpg';
-		}elseif ($tranche < 35 ){
-			$background_image .= 'Alex.jpg';
-		}elseif ($tranche < 40 ){
-			$background_image .= 'Alicia.jpg';
-		}elseif ($tranche < 45 ){
-			$background_image .= 'Kurt.jpg';
-		}elseif ($tranche < 50 ){
-			$background_image .= 'Camille.jpg';
-		}elseif ($tranche < 55 ){
-			$background_image .= 'Harahel_Lidrya.jpg';
-		}elseif ($tranche < 60 ){
-			$background_image .= 'Elsee.jpg';
-		}elseif ($tranche < 65 ){
-			$background_image .= 'Djinn.jpg';
-		}elseif ($tranche < 70 ){
-			$background_image .= 'Lindsey.jpg';
-		}elseif ($tranche < 75 ){
-			$background_image .= 'Raven.jpg';
-		}elseif ($tranche < 80 ){
-			$background_image .= 'Heru_Tony.jpg';
-		}elseif ($tranche < 85 ){
-			$background_image .= 'Hannah.jpg';
-		}elseif ($tranche < 90 ){
-			$background_image .= 'Lori.jpg';
-		}elseif ($tranche < 95 ){
-			$background_image .= 'Samuel.jpg';
-		}elseif ($tranche < 100 ){
-			$background_image .= 'Miranda.jpg';
-		}elseif ($tranche < 105 ){
-			$background_image .= 'Kaylee_Kurt.jpg';
-		}elseif ($tranche < 110 ){
-			$background_image .= 'Lidrya.jpg';
-		}elseif ($tranche < 115 ){
-			$background_image .= 'Eric.jpg';
-		}elseif ($tranche < 120 ){
-			$background_image .= 'Valaerys.jpg';
-		}elseif ($tranche < 125 ){
-			$background_image .= 'Heru.jpg';
-		}elseif ($tranche < 130 ){
-			$background_image .= 'Sassy_Jimmy.jpg';
-		}elseif ($tranche < 135 ){
-			$background_image .= 'Erika.jpg';
-		}elseif ($tranche < 140 ){
-			$background_image .= 'James.jpg';
-		}elseif ($tranche < 145 ){
-			$background_image .= 'Dawn.jpg';
-		}elseif ($tranche < 150 ){
-			$background_image .= 'Shayne.jpg';
-		}elseif ($tranche < 155 ){
-			$background_image .= 'Sariel_Vesta.jpg';
-		}elseif ($tranche < 160 ){
-			$background_image .= 'Aaron.jpg';
-		}elseif ($tranche < 165 ){
-			$background_image .= 'Kaylee.jpg';
-		}elseif ($tranche < 170 ){
-			$background_image .= 'Severide.jpg';
-		}elseif ($tranche < 175 ){
-			$background_image .= 'Lorelei.jpg';
-		}elseif ($tranche < 177 ){
-			$background_image .= 'Azrael_Valaerys.jpg';
-		}elseif ($tranche < 182 ){
-			$background_image .= 'Matvei.jpg';
-		}elseif ($tranche < 187 ){
-			$background_image .= 'Sassy.jpg';
-		}elseif ($tranche < 192 ){
-			$background_image .= 'Harahel.jpg';
-		}elseif ($tranche < 197 ){
-			$background_image .= 'June.jpg';
-		}elseif ($tranche < 198 ){
-			$background_image .= 'Dawn_Eric.jpg';
-		}elseif ($tranche < 200 ){
-			$background_image .= 'Lucy.jpg';
-		}elseif ($tranche < 205 ){
-			$background_image .= 'Seelie.jpg';
-		}elseif ($tranche < 210) {
-			$background_image .= 'Mathew.jpg';
-		}elseif ($tranche < 215) {
-			$background_image .= 'Tony.jpg';
-		}elseif ($tranche < 220) {
-			$background_image .= 'Sariel.jpg';
-		}elseif ($tranche < 225) {
-			$background_image .= 'Elsee_Matvei.jpg';
-		}else {
-			$background_image .= 'Stan.jpg';
-		}
-
-		//var_dump($background_image);die();
-	} elseif ( $config['background_enable']){
-		// l'ancien thème utilise les backgrounds de la base de données
-		/* if ($forum_id){
-			$sql = 'SELECT forum_background
-				FROM ' . FORUMS_TABLE . '
-				WHERE forum_id = '.$forum_id;
-			$result = $db->sql_query($sql);
-			$background_id = (int) $db->sql_fetchfield('forum_background');
-			$db->sql_freeresult($result);
-		}else{ */
-			$sql = 'SELECT background_id  
-				FROM ' . BACKGROUNDS_TABLE;
-			$result = $db->sql_query($sql);
-			$background_ids = array();
-			while ($row = $db->sql_fetchrow($result)){			
-				$background_ids[] = (int) $row['background_id'];
-			}
-			shuffle($background_ids);
-			$background_id=$background_ids[0];
-			$db->sql_freeresult($result);
-		/* } */
-		if(empty($background_id)){
-			$background_id = $config['default_background'];
-		}
-		if ($background_id){
-			$sql = 'SELECT background_name
-				FROM ' . BACKGROUNDS_TABLE . '
-				WHERE background_id = '.$background_id;
-			$result = $db->sql_query($sql);
-			$background_image = $db->sql_fetchfield('background_name');			
-			
-			$db->sql_freeresult($result);
-		}
-	}
-	$s_background = !empty($background_image);
-
 	// Determine board url - we may need it later
 	$board_url = generate_board_url() . '/';
 	$web_path = (defined('PHPBB_USE_BOARD_URL_PATH') && PHPBB_USE_BOARD_URL_PATH) ? $board_url : $phpbb_root_path;
@@ -4851,7 +4702,6 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'U_RESTORE_PERMISSIONS'	=> ($user->data['user_perm_from'] && $auth->acl_get('a_switchperm')) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=restore_perm') : '',
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 
-		'S_BACKGROUND'			=> $s_background,
 		'S_USER_LOGGED_IN'		=> ($user->data['user_id'] != ANONYMOUS) ? true : false,
 		'S_AUTOLOGIN_ENABLED'	=> ($config['allow_autologin']) ? true : false,
 		'S_BOARD_DISABLED'		=> ($config['board_disable']) ? true : false,
@@ -4919,7 +4769,6 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 		'T_UPLOAD'				=> $config['upload_path'],
 
 		'SITE_LOGO_IMG'			=> $user->img('site_logo'),
-		'BACKGROUND_IMG'		=> $background_image,
 
 		'A_COOKIE_SETTINGS'		=> addslashes('; path=' . $config['cookie_path'] . ((!$config['cookie_domain'] || $config['cookie_domain'] == 'localhost' || $config['cookie_domain'] == '127.0.0.1') ? '' : '; domain=' . $config['cookie_domain']) . ((!$config['cookie_secure']) ? '' : '; secure')),
 	));
