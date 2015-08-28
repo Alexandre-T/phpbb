@@ -59,7 +59,7 @@ $lang = array_merge($lang, array(
 
 		<br />
 
-		<p>Pour de plus amples informations sur la configuration et la gestion des permissions de votre forum phpBB3, consultez la documentation <a href="http://forums.phpbb-fr.com/documentation/utilisation-de-phpbb/regler-les-permissions-dun-forum-simple-a43-view.html">Régler les permissions d’un forum (simple)</a>.</p>
+		<p>Pour de plus amples informations sur la configuration et la gestion des permissions de votre forum phpBB3, consultez la documentation <a href="http://forums.phpbb-fr.com/documentation/utilisation-de-phpbb/regler-les-permissions-d-un-forum-simple-a43-view.html">Régler les permissions d’un forum (simple)</a>.</p>
 	',
 	'ACL_NEVER'				=> 'Jamais',
 	'ACL_SET'				=> 'Configuration des permissions',

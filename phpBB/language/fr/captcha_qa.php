@@ -47,7 +47,7 @@ $lang = array_merge($lang, array(
 	'CONFIRM_QUESTION_WRONG'	=> 'Vous avez fourni une réponse invalide à la question.',
 
 	'QUESTION_ANSWERS'			=> 'Réponses',
-	'ANSWERS_EXPLAIN'			=> 'Entrez des réponses valides à la question, une par ligne.',
+	'ANSWERS_EXPLAIN'			=> 'Saisissez des réponses valides à la question, une par ligne.',
 	'CONFIRM_QUESTION'			=> 'Question',
 
 	'ANSWER'					=> 'Réponse',

@@ -49,7 +49,7 @@ $help = array(
 		1 => 'COPPA (ou <em>Children’s Online Privacy Protection Act</em> de 1998) est une loi aux États-Unis qui dit que les sites Internet pouvant recueillir des informations de mineurs de moins de 13 ans doivent obtenir le consentement écrit des parents (ou d’un tuteur légal) pour la collecte de ces informations permettant d’identifier un mineur de moins de 13 ans. Si vous n’êtes pas sûr que cela s’applique à vous, lorsque vous vous enregistrez ou que quelqu’un le fait à votre place, contactez un conseiller juridique pour obtenir son avis. Notez que phpBB Limited et les propriétaires de ce forum ne peuvent pas fournir de conseils juridiques et ne sauraient être contactés pour des questions légales de toutes sortes, à l’exception de celles mentionnées dans la question « Qui contacter pour les abus ou les questions légales concernant ce forum ? ».',
 	),
 	array(
-		0 => 'Je souhaite m’enregistrer, mais je n’y parviens pas !',
+		0 => 'Je souhaite m’enregistrer, mais je n’y parviens pas !',
 		1 => 'Il est possible qu’un administrateur du forum ait désactivé la création de nouveaux comptes. Il peut également avoir banni votre IP ou interdit le nom d’utilisateur que vous souhaitez utiliser. Contactez un administrateur du forum pour obtenir de l’aide.',
 	),
 	array(
@@ -134,7 +134,7 @@ $help = array(
 	),
 	array(
 		0 => 'Comment créer un sondage ?',
-		1 => 'Il est facile de créer un sondage, lors de la publication d’un nouveau sujet ou la modification du premier message d’un sujet (si vous en avez les permissions), cliquez sur l’onglet <em>Sondage</em> sous la partie message (si vous ne le voyez pas, vous n’avez probablement pas le droit de créer des sondages). Saisissez le titre du sondage et au moins deux options possibles, entrez une option par ligne dans le champ des réponses. Vous pouvez aussi indiquer le nombre de réponses qu’un utilisateur peut choisir lors de son vote dans « Option(s) par l’utilisateur », limiter la durée en jours du sondage (mettre « 0 » pour une durée illimitée) et enfin permettre aux utilisateurs de modifier leur vote.'
+		1 => 'Il est facile de créer un sondage, lors de la publication d’un nouveau sujet ou la modification du premier message d’un sujet (si vous en avez les permissions), cliquez sur l’onglet <em>Sondage</em> sous la partie message (si vous ne le voyez pas, vous n’avez probablement pas le droit de créer des sondages). Saisissez le titre du sondage et au moins deux options possibles, saisissez une option par ligne dans le champ des réponses. Vous pouvez aussi indiquer le nombre de réponses qu’un utilisateur peut choisir lors de son vote dans « Option(s) par l’utilisateur », limiter la durée en jours du sondage (mettre « 0 » pour une durée illimitée) et enfin permettre aux utilisateurs de modifier leur vote.'
 	),
 	array(
 		0 => 'Pourquoi ne puis-je pas ajouter plus d’options à mon sondage ?',
@@ -178,7 +178,7 @@ $help = array(
 	),
 	array(
 		0 => 'Que sont les BBCodes ?',
-		1 => 'Le BBCode est une implantation spéciale au language HTML, offrant un large contrôle de mise en forme des éléments d’un message. L’administrateur peut décider si vous pouvez utiliser les BBCodes, vous pouvez aussi les désactiver dans chacun de vos messages en utilisant l’option appropriée du formulaire de rédaction de message. Le BBCode lui-même est similaire au style HTML, mais les balises sont incluses entre crochets [ et ] plutôt que &lt; et &gt;. Pour plus d’informations sur le BBCode, consultez le guide accessible depuis la page de rédaction de message.',
+		1 => 'Le BBCode est une implantation spéciale au langage HTML, offrant un large contrôle de mise en forme des éléments d’un message. L’administrateur peut décider si vous pouvez utiliser les BBCodes, vous pouvez aussi les désactiver dans chacun de vos messages en utilisant l’option appropriée du formulaire de rédaction de message. Le BBCode lui-même est similaire au style HTML, mais les balises sont incluses entre crochets [ et ] plutôt que &lt; et &gt;. Pour plus d’informations sur le BBCode, consultez le guide accessible depuis la page de rédaction de message.',
 	),
 	array(
 		0 => 'Puis-je utiliser le HTML ?',
@@ -234,8 +234,8 @@ $help = array(
 		1 => 'Les groupes permettent aux administrateurs de gérer l’accès des membres et des invités au forum et à ses fonctionnalités. Chaque membre peut appartenir à un ou plusieurs groupes et chaque groupe peut avoir ses permissions. La gestion des membres par l’intermédiaire des groupes permet aux administrateurs de modifier rapidement les permissions de plusieurs membres à la fois, telles qu’ajouter des permissions de modération ou rendre accessible un forum privé.',
 	),
 	array(
-		0 => 'Où trouver la liste des groupes d’utilisateurs et comment les rejoindre ?',
-		1 => 'Pour consulter la liste des groupes, cliquez sur le lien <em>Groupes d’utilisateurs</em> depuis votre panneau de l’utilisateur. Si vous souhaitez rejoindre un des groupes, sélectionnez le groupe désiré et cliquez sur le bouton approprié. Toutefois, tous les groupes ne sont pas en libre accès. Certains peuvent nécessiter une approbation, certains sont fermés et d’autres peuvent même être masqués. Si le groupe est dit « Ouvert », vous pouvez le rejoindre librement. Si le groupe est dit « À la demande », vous pouvez rejoindre le groupe mais votre demande nécessitera d’être approuvée par un chef de groupe. Ce dernier pourra vous demander pourquoi vous souhaitez rejoindre le groupe et ainsi décider s’il approuvera ou non votre demande. N’importunez pas le chef de groupe s’il annule votre demande, il a sûrement ses raisons.',
+		0 => 'Où trouver la liste des groupes d’utilisateurs et comment les rejoindre ?',
+		1 => 'Pour consulter la liste des groupes, cliquez sur le lien <em>Groupes d’utilisateurs</em> depuis votre panneau de l’utilisateur. Si vous souhaitez rejoindre un des groupes, sélectionnez le groupe désiré et cliquez sur le bouton approprié. Toutefois, tous les groupes ne sont pas en libre accès. Certains peuvent nécessiter une approbation, certains sont fermés et d’autres peuvent même être masqués. Si le groupe est dit « Ouvert », vous pouvez le rejoindre librement. Si le groupe est dit « À la demande », vous pouvez rejoindre le groupe mais votre demande nécessitera d’être approuvée par un chef de groupe. Ce dernier pourra vous demander pourquoi vous souhaitez rejoindre le groupe et ainsi décider s’il approuvera ou non votre demande. N’importunez pas le chef de groupe s’il annule votre demande, il a sûrement ses raisons.',
 	),
 	array(
 		0 => 'Comment devenir chef de groupe ?',

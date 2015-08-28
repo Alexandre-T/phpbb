@@ -77,7 +77,7 @@ $lang = array_merge($lang, array(
 
 	'TOKEN'					=> 'Chaîne de symboles',
 	'TOKENS'				=> 'Chaînes de symboles',
-	'TOKENS_EXPLAIN'		=> 'Les chaînes de symboles sont des conteneurs pour les saisies des utilisateurs. Les entrées ne seront validées que si elles trouvent la définition correspondante. Si besoin, vous pouvez les numéroter en y ajoutant un nombre comme dernier caractère entre les accolades, exemple : {TEXT1}, {TEXT2}.<br /><br />En plus du remplacement HTML, vous pouvez utiliser les clés de langue présentes dans votre dossier language/ comme ceci : {L_<em>&lt;STRINGNAME&gt;</em>} où <em>&lt;STRINGNAME&gt;</em> est le nom de la chaîne traduite que vous souhaitez ajouter. Par exemple, {L_WROTE} affichera « a écrit » ou son équivalence selon la langue locale de l’utilisateur.<br /><br /><strong>Notez que seules les chaînes listées ci-dessous sont autorisées à être utilisées dans les BBCodes personnalisés.</strong>',
+	'TOKENS_EXPLAIN'		=> 'Les chaînes de symboles sont des conteneurs pour les saisies des utilisateurs. Les entrées ne seront validées que si elles trouvent la définition correspondante. Si besoin, vous pouvez les numéroter en y ajoutant un nombre comme dernier caractère entre les accolades, exemple : {TEXT1}, {TEXT2}.<br /><br />En plus du remplacement HTML, vous pouvez utiliser les clés de langue présentes dans votre répertoire « language/ » comme ceci : {L_<em>&lt;STRINGNAME&gt;</em>} où <em>&lt;STRINGNAME&gt;</em> est le nom de la chaîne traduite que vous souhaitez ajouter. Par exemple, {L_WROTE} affichera « a écrit » ou son équivalence selon la langue locale de l’utilisateur.<br /><br /><strong>Notez que seules les chaînes listées ci-dessous sont autorisées à être utilisées dans les BBCodes personnalisés.</strong>',
 	'TOKEN_DEFINITION'		=> 'Que peut-elle être ?',
 	'TOO_MANY_BBCODES'		=> 'Vous ne pouvez pas créer d’autres BBCodes. Supprimez un ou plusieurs BBCodes puis réessayez.',
 
@@ -270,7 +270,7 @@ $lang = array_merge($lang, array(
 
 	'REASON_ADD'				=> 'Ajouter une raison au rapport',
 	'REASON_ADDED'				=> 'Une raison a été ajoutée au rapport.',
-	'REASON_ALREADY_EXIST'		=> 'Une raison existe déjà avec ce titre, entrez un autre titre pour cette raison.',
+	'REASON_ALREADY_EXIST'		=> 'Une raison existe déjà avec ce titre, saisissez un autre titre pour cette raison.',
 	'REASON_DESCRIPTION'		=> 'Description de la raison',
 	'REASON_DESC_TRANSLATED'	=> 'Description affichée de la raison',
 	'REASON_EDIT'				=> 'Modifier la raison du rapport',

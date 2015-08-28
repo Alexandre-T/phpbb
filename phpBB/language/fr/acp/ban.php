@@ -47,7 +47,7 @@ $lang = array_merge($lang, array(
 	'30_MINS'		=> '30 minutes',
 	'6_HOURS'		=> '6 heures',
 
-	'ACP_BAN_EXPLAIN'	=> 'Vous pouvez contrôler le bannissement d’utilisateurs par nom, adresse IP ou adresse e-mail. Ces méthodes empêchent un utilisateur d’atteindre n’importe quelle partie du forum. Vous pouvez donner si vous le souhaitez une courte raison (3000 caractères maximum) du bannissement. Cela sera affiché dans les journaux d’administration.<br />Une durée de bannissement peut également être indiquée. Si vous voulez que le bannissement se termine à une date particulière plutôt qu’après une période de temps définie, sélectionnez <span style="text-decoration: underline;">Jusqu’au -&gt;</span> pour la durée du bannissement et saississez une date au format <kbd>AAAA-MM-JJ</kbd>.',
+	'ACP_BAN_EXPLAIN'	=> 'Vous pouvez contrôler le bannissement d’utilisateurs par nom, adresse IP ou adresse e-mail. Ces méthodes empêchent un utilisateur d’atteindre n’importe quelle partie du forum. Vous pouvez donner si vous le souhaitez une courte raison (3000 caractères maximum) du bannissement. Cela sera affiché dans les journaux d’administration.<br />Une durée de bannissement peut également être indiquée. Si vous voulez que le bannissement se termine à une date particulière plutôt qu’après une période de temps définie, sélectionnez <span style="text-decoration: underline;">Jusqu’au -&gt;</span> pour la durée du bannissement et saisissez une date au format <kbd>AAAA-MM-JJ</kbd>.',
 
 	'BAN_EXCLUDE'			=> 'Exclure du bannissement',
 	'BAN_LENGTH'			=> 'Durée du bannissement',
@@ -66,7 +66,7 @@ $lang = array_merge($lang, array(
 
 	'IP_BAN'					=> 'Bannir une ou plusieurs adresses IP',
 	'IP_BAN_EXCLUDE_EXPLAIN'	=> 'Activez cette option pour exclure les adresses IP listées de tous bannissements actuels.',
-	'IP_BAN_EXPLAIN'			=> 'Pour indiquer plusieurs adresses IP ou noms d’hôtes différents, saississez chacun d’eux sur une nouvelle ligne. Pour indiquer une plage d’adresses IP, séparez le début et la fin par un tiret, et utilisez « * » comme caractère joker.',
+	'IP_BAN_EXPLAIN'			=> 'Pour indiquer plusieurs adresses IP ou noms d’hôtes différents, saisissez chacun d’eux sur une nouvelle ligne. Pour indiquer une plage d’adresses IP, séparez le début et la fin par un tiret, et utilisez « * » comme caractère joker.',
 	'IP_HOSTNAME'				=> 'Adresses IP ou noms d’hôtes',
 	'IP_NO_BANNED'				=> 'Aucune adresse IP bannie',
 	'IP_UNBAN'					=> 'Débannir ou ne plus exclure des adresses IP',

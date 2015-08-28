@@ -57,7 +57,7 @@ $lang = array_merge($lang, array(
 	'SEND_IMMEDIATELY'		=> 'Envoyer immédiatement',
 	'SEND_TO_GROUP'			=> 'Envoyer au groupe',
 	'SEND_TO_USERS'			=> 'Envoyer aux utilisateurs',
-	'SEND_TO_USERS_EXPLAIN'	=> 'Entrer des noms ici écrasera tout groupe sélectionné ci-dessus. Entrez chaque nom d’utilisateur sur une ligne différente.',
+	'SEND_TO_USERS_EXPLAIN'	=> 'Saisir des noms ici écrasera tout groupe sélectionné ci-dessus. Saisissez chaque nom d’utilisateur sur une ligne différente.',
 
 	'MAIL_BANNED'			=> 'Envoyer aux utilisateurs bannis',
 	'MAIL_BANNED_EXPLAIN'	=> 'Si vous cochez cette case, les utilisateurs bannis recevront aussi cet e-mail de masse.',
@@ -68,7 +68,7 @@ $lang = array_merge($lang, array(
 	'MASS_MESSAGE'			=> 'Votre message',
 	'MASS_MESSAGE_EXPLAIN'	=> 'Notez que vous ne pouvez mettre que du texte brut. Toutes les balises seront supprimées avant l’envoi.',
 
-	'NO_EMAIL_MESSAGE'		=> 'Vous devez entrer un message.',
+	'NO_EMAIL_MESSAGE'		=> 'Vous devez saisir un message.',
 	'NO_EMAIL_SUBJECT'		=> 'Vous devez indiquer un sujet pour votre message.',
 ));
 

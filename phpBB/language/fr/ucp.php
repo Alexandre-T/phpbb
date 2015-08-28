@@ -172,7 +172,7 @@ $lang = array_merge($lang, array(
 	'CONFIRM_CHANGES'			=> 'Confirmation des modifications',
 	'CONFIRM_EMAIL'				=> 'Confirmation de l’adresse e-mail',
 	'CONFIRM_EMAIL_EXPLAIN'		=> 'Vous devez l’indiquer uniquement en cas de modification de votre adresse e-mail.',
-	'CONFIRM_EXPLAIN'			=> 'Pour éviter les enregistrements automatisés, l’administrateur exige la saisie d’un code de confirmation. Ce code est affiché dans l’image que vous devirez voir ci-dessous. Si vous êtes déficient visuel ou si vous ne pouvez pas lire ce code, contactez %sl’administrateur de ce forum%s.',
+	'CONFIRM_EXPLAIN'			=> 'Pour éviter les enregistrements automatisés, l’administrateur exige la saisie d’un code de confirmation. Ce code est affiché dans l’image que vous devriez voir ci-dessous. Si vous êtes déficient visuel ou si vous ne pouvez pas lire ce code, contactez %sl’administrateur de ce forum%s.',
 	'VC_REFRESH'				=> 'Rafraîchir le code de confirmation',
 	'VC_REFRESH_EXPLAIN'		=> 'Si vous n’arrivez pas à lire le code, vous pouvez en demander un nouveau en cliquant.',
 
@@ -360,7 +360,7 @@ $lang = array_merge($lang, array(
 	'NO_BCC_RECIPIENT'			=> 'Aucun',
 	'NO_BOOKMARKS'				=> 'Vous n’avez pas de favoris.',
 	'NO_BOOKMARKS_SELECTED'		=> 'Vous n’avez choisi aucun favori.',
-	'NO_EDIT_READ_MESSAGE'		=> 'Ce message privé ne peut pas être modifié, car il a déja été lu par son destinataire.',
+	'NO_EDIT_READ_MESSAGE'		=> 'Ce message privé ne peut pas être modifié, car il a déjà été lu par son destinataire.',
 	'NO_EMAIL_USER'				=> 'L’e-mail/nom d’utilisateur fourni est introuvable.',
 	'NO_FOES'					=> 'Aucun ignoré actuellement',
 	'NO_FRIENDS'				=> 'Aucun ami actuellement',
@@ -463,12 +463,12 @@ $lang = array_merge($lang, array(
 
 	'UCP'						=> 'Panneau de l’utilisateur',
 	'UCP_ACTIVATE'				=> 'Activer le compte',
-	'UCP_ADMIN_ACTIVATE'		=> 'Notez que vous devez entrer une adresse e-mail valide pour activer votre compte. L’administrateur vérifiera votre compte et s’il est accepté vous recevrez un e-mail à l’adresse indiquée.',
+	'UCP_ADMIN_ACTIVATE'		=> 'Notez que vous devez saisir une adresse e-mail valide pour activer votre compte. L’administrateur vérifiera votre compte et s’il est accepté vous recevrez un e-mail à l’adresse indiquée.',
 	'UCP_AIM'					=> 'Messagerie instantanée AOL',
 	'UCP_ATTACHMENTS'			=> 'Fichiers joints',
 	'UCP_COPPA_BEFORE'			=> 'Avant le %s',
 	'UCP_COPPA_ON_AFTER'		=> 'Le ou après le %s',
-	'UCP_EMAIL_ACTIVATE'		=> 'Notez que vous devez entrer une adresse e-mail valide pour activer votre compte. Vous recevrez un e-mail à l’adresse indiquée contenant le lien d’activation de votre compte.',
+	'UCP_EMAIL_ACTIVATE'		=> 'Notez que vous devez saisir une adresse e-mail valide pour activer votre compte. Vous recevrez un e-mail à l’adresse indiquée contenant le lien d’activation de votre compte.',
 	'UCP_ICQ'					=> 'Numéro ICQ',
 	'UCP_JABBER'				=> 'Adresse Jabber',
 

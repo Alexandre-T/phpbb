@@ -84,7 +84,7 @@ $lang = array_merge($lang, array(
 	'ACP_CUSTOM_PROFILE_FIELDS'	=> 'Champs de profil personnalisés',
 
 	'ACP_DATABASE'				=> 'Gestion de la base de données',
-	'ACP_DISALLOW'				=> 'Interdit',
+	'ACP_DISALLOW'				=> 'Interdictions',
 	'ACP_DISALLOW_USERNAMES'	=> 'Interdire des noms d’utilisateurs',
 
 	'ACP_EMAIL_SETTINGS'		=> 'Paramètres des e-mails',
@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'ACP_LANGUAGE'				=> 'Gestion des langues',
 	'ACP_LANGUAGE_PACKS'		=> 'Packs de langue',
 	'ACP_LOAD_SETTINGS'			=> 'Paramètres de charge',
-	'ACP_LOGGING'				=> 'Se connecte',
+	'ACP_LOGGING'				=> 'Journaux',
 
 	'ACP_MAIN'					=> 'Index de l’administration',
 	'ACP_MANAGE_EXTENSIONS'		=> 'Gérer les extensions',
@@ -426,7 +426,7 @@ $lang = array_merge($lang, array(
 
 // Send statistics page
 $lang = array_merge($lang, array(
-	'EXPLAIN_SEND_STATISTICS'	=> 'Si vous le souhaitez, envoyez les informations de configuration concernant votre serveur et votre forum à phpBB pour contribuer aux analyses statistiques. Toutes les informations qui permettraient d’identifier votre site ou vous-même seront supprimées - Les données sont complètement <strong>anonymes</strong>. Nous baserons nos décisions au sujet des futures versions de phpBB sur ces informations. Les statistiques seront disponibles publiquement. Nous partageons aussi ces données avec le projet PHP, language de programmation avec lequel phpBB est conçu.',
+	'EXPLAIN_SEND_STATISTICS'	=> 'Si vous le souhaitez, envoyez les informations de configuration concernant votre serveur et votre forum à phpBB pour contribuer aux analyses statistiques. Toutes les informations qui permettraient d’identifier votre site ou vous-même seront supprimées - Les données sont complètement <strong>anonymes</strong>. Nous baserons nos décisions au sujet des futures versions de phpBB sur ces informations. Les statistiques seront disponibles publiquement. Nous partageons aussi ces données avec le projet PHP, langage de programmation avec lequel phpBB est conçu.',
 	'EXPLAIN_SHOW_STATISTICS'	=> 'En utilisant le bouton ci-dessous, vous pouvez prévisualiser toutes les variables qui nous seront transmises.',
 	'DONT_SEND_STATISTICS'		=> 'Retourner au PCA si vous ne souhaitez pas envoyer de statistiques à phpBB.',
 	'GO_ACP_MAIN'				=> 'Aller à la page de démarrage du PCA',

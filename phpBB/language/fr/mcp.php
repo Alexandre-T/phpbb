@@ -197,10 +197,10 @@ $lang = array_merge($lang, array(
 	'MCP_REPORT_DETAILS'			=> 'Détails du rapport',
 	'MCP_REPORTS_CLOSED'			=> 'Rapports clôturés',
 	'MCP_REPORTS_CLOSED_EXPLAIN'	=> 'Liste de tous les rapports de messages qui ont été résolus.',
-	'MCP_REPORTS_OPEN'				=> 'Rapports en cours',
-	'MCP_REPORTS_OPEN_EXPLAIN'		=> 'Liste de tous les messages rapportés qui sont encore à traiter.',
+	'MCP_REPORTS_OPEN'				=> 'Rapports ouverts',
+	'MCP_REPORTS_OPEN_EXPLAIN'		=> 'Liste de tous les rapports de messages qui sont encore à traiter.',
 
-	'MCP_QUEUE'								=> 'En attente de modération',
+	'MCP_QUEUE'								=> 'File d’attente de modération',
 	'MCP_QUEUE_APPROVE_DETAILS'				=> 'Approuver les détails',
 	'MCP_QUEUE_UNAPPROVED_POSTS'			=> 'Messages en attente',
 	'MCP_QUEUE_UNAPPROVED_POSTS_EXPLAIN'	=> 'Liste de tous les messages nécessitant une approbation avant publication.',
@@ -216,7 +216,7 @@ $lang = array_merge($lang, array(
 	'MCP_WARN_USER'			=> 'Avertir le membre',
 
 	'MERGE_POSTS_CONFIRM'	=> 'Êtes-vous sûr de vouloir déplacer les messages sélectionnés ?',
-	'MERGE_TOPIC_EXPLAIN'	=> 'L’utilisation du formulaire ci-dessous vous permet de déplacer les messages sélectionnés dans un autre sujet. Ces messages seront déplacés de ce sujet et fusionnés dans l’autre sujet. Ces messages ne seront pas réordonnés et apparaîtront comme si les utilisateurs les avaient postés dans le nouveau sujet.<br />Saississez l’id du sujet de destination ou cliquez sur « Sélectionner le sujet » pour en rechercher un.',
+	'MERGE_TOPIC_EXPLAIN'	=> 'L’utilisation du formulaire ci-dessous vous permet de déplacer les messages sélectionnés dans un autre sujet. Ces messages seront déplacés de ce sujet et fusionnés dans l’autre sujet. Ces messages ne seront pas réordonnés et apparaîtront comme si les utilisateurs les avaient postés dans le nouveau sujet.<br />Saisissez l’id du sujet de destination ou cliquez sur « Sélectionner le sujet » pour en rechercher un.',
 	'MERGE_TOPIC_ID'		=> 'Id du sujet de destination',
 	'MERGE_TOPICS'			=> 'Fusionner les sujets',
 	'MERGE_TOPICS_CONFIRM'	=> 'Êtes-vous sûr de vouloir fusionner les sujets sélectionnés ?',

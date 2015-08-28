@@ -97,9 +97,9 @@ $lang = array_merge($lang, array(
 	'DRAFT_TITLE'				=> 'Titre du brouillon',
 
 	'EDIT_REASON'				=> 'Raison de la modification du message',
-	'EMPTY_FILEUPLOAD'			=> 'Le fichier chargé est vide ou n’existe pas.',
+	'EMPTY_FILEUPLOAD'			=> 'Le fichier transféré est vide ou n’existe pas.',
 	'EMPTY_MESSAGE'				=> 'Votre message est vide !',
-	'EMPTY_REMOTE_DATA'			=> 'Le fichier n’a pas pu être chargé, essayez de le charger manuellement.',
+	'EMPTY_REMOTE_DATA'			=> 'Le fichier n’a pas pu être transféré, essayez de le transférer manuellement.',
 
 	'FLASH_IS_OFF'				=> '[flash] est <em>désactivé</em>',
 	'FLASH_IS_ON'				=> '[flash] est <em>activé</em>',
@@ -113,15 +113,15 @@ $lang = array_merge($lang, array(
 	'FONT_SMALL'				=> 'Petite',
 	'FONT_TINY'					=> 'Très petite',
 
-	'GENERAL_UPLOAD_ERROR'		=> 'Impossible de charger le fichier joint de %s.',
+	'GENERAL_UPLOAD_ERROR'		=> 'Impossible de transférer le fichier joint de %s.',
 
 	'IMAGES_ARE_OFF'			=> '[img] est <em>désactivé</em>',
 	'IMAGES_ARE_ON'				=> '[img] est <em>activé</em>',
 	'INVALID_FILENAME'			=> '%s est un nom de fichier invalide.',
 
 	'LOAD'						=> 'Charger',
-	'LOAD_DRAFT'				=> 'Charger un brouillon',
-	'LOAD_DRAFT_EXPLAIN'		=> 'Vous pouvez charger le brouillon que vous souhaitez finir. Votre message actuel sera annulé, tout le contenu de votre message actuel sera supprimé. Vous pouvez voir, modifier et supprimer vos brouillons dans le panneau de l’utilisateur.',
+	'LOAD_DRAFT'				=> 'Charger ce brouillon',
+	'LOAD_DRAFT_EXPLAIN'		=> 'Vous pouvez charger le brouillon que vous souhaitez finir. La publication de votre message actuel sera annulé et l’intégralité de son contenu sera supprimé. Vous pouvez consulter, modifier et supprimer vos brouillons depuis le panneau de l’utilisateur.',
 	'LOGIN_EXPLAIN_BUMP'		=> 'Vous devez être connecté pour remonter un sujet de ce forum.',
 	'LOGIN_EXPLAIN_DELETE'		=> 'Vous devez être connecté pour supprimer des messages dans ce forum.',
 	'LOGIN_EXPLAIN_POST'		=> 'Vous devez être connecté pour poster dans ce forum.',
@@ -139,14 +139,14 @@ $lang = array_merge($lang, array(
 	'MORE_SMILIES'				=> 'Voir plus de smileys',
 
 	'NOTIFY_REPLY'				=> 'M’avertir lorsqu’une réponse est postée.',
-	'NOT_UPLOADED'				=> 'Le fichier ne peut pas être chargé.',
+	'NOT_UPLOADED'				=> 'Le fichier ne peut pas être transféré.',
 	'NO_DELETE_POLL_OPTIONS'	=> 'Vous ne pouvez pas supprimer les options du sondage existantes.',
 	'NO_PM_ICON'				=> 'Aucune',
-	'NO_POLL_TITLE'				=> 'Vous devez entrer un titre de sondage.',
+	'NO_POLL_TITLE'				=> 'Vous devez saisir un titre de sondage.',
 	'NO_POST'					=> 'Le message demandé n’existe pas.',
 	'NO_POST_MODE'				=> 'Aucun type de message n’est indiqué.',
 
-	'PARTIAL_UPLOAD'			=> 'Le fichier n’a été que partiellement chargé.',
+	'PARTIAL_UPLOAD'			=> 'Le fichier n’a été que partiellement transféré.',
 	'PHP_SIZE_NA'				=> 'La taille du fichier joint est trop grande.<br />Impossible de déterminer la taille maximale définie par PHP dans php.ini.',
 	'PHP_SIZE_OVERRUN'			=> 'La taille du fichier joint est trop grande, la taille maximale de chargement est de %1$d %2$s.<br />Notez que ce paramètre se trouve dans php.ini et ne peut pas être outrepassé.',
 	'PLACE_INLINE'				=> 'Insérer dans le message',
@@ -198,8 +198,8 @@ $lang = array_merge($lang, array(
 	'STYLES_TIP'				=> 'Astuce : les mises en forme peuvent être appliquées rapidement en sélectionnant le texte.',
 
 	'TOO_FEW_CHARS'				=> 'Votre message ne contient aucun caractère.',
-	'TOO_FEW_CHARS_LIMIT'		=> 'Vous devez saisir au moins %1$d caractère(s). Le nombre minimum de caractères autorisés est de %2$d.',
-	'TOO_FEW_POLL_OPTIONS'		=> 'Vous devez entrer au moins deux options possibles au sondage.',
+	'TOO_FEW_CHARS_LIMIT'		=> 'Votre message contient %1$d caractère(s). Vous devez saisir au moins %2$d caractères.',
+	'TOO_FEW_POLL_OPTIONS'		=> 'Vous devez saisir au moins deux options possibles au sondage.',
 	'TOO_MANY_ATTACHMENTS'		=> 'Impossible d’ajouter un nouveau fichier joint, %d est le maximum autorisé.',
 	'TOO_MANY_CHARS'			=> 'Votre message contient trop de caractères.',
 	'TOO_MANY_CHARS_POST'		=> 'Vous devez saisir au moins %1$d caractère(s). Le nombre maximum de caractères autorisés est %2$d.',
