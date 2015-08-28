@@ -204,7 +204,7 @@ class fulltext_native extends search_backend
 		$this->search_query = $keywords;
 
 		$exact_words = array();
-		preg_match_all('#([^\\s+\\-|*()]+)(?:$|[\\s+\\-|()])#u', $keywords, $exact_words);
+		preg_match_all('#([^\\s+\\-|()]+)(?:$|[\\s+\\-|()])#u', $keywords, $exact_words);
 		$exact_words = $exact_words[1];
 
 		$common_ids = $words = array();
@@ -365,14 +365,14 @@ class fulltext_native extends search_backend
 			else
 			{
 				if (!isset($common_ids[$word]))
+			{
+				$len = utf8_strlen($word);
+				if ($len < $this->word_length['min'] || $len > $this->word_length['max'])
 				{
-					$len = utf8_strlen($word);
-					if ($len < $this->word_length['min'] || $len > $this->word_length['max'])
-					{
-						$this->common_words[] = $word;
-					}
+					$this->common_words[] = $word;
 				}
 			}
+		}
 		}
 
 		// Return true if all words are not common words
