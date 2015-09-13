@@ -1,0 +1,96 @@
+<div class="text-align:center">
+<table>
+	<tr>
+		<td style="width: 380px; height: 930px; background-color: #fff; text-align: justify; font-size: 9px; color: #505050;">
+			<a href="http://vegas.jeuforum.fr/forum/index.php"><img src="http://vegas.jeuforum.fr/forum/styles/saison_4/theme/images/vegasp17.jpg" style="width:100%;"></a>
+			<h1 style="font-family: cursive; font-size: 30px; color: #505050; text-align: center;">Bonjour {USERNAME} !</h1>
+			<p style="margin:auto; padding: 5px; width: 330px; font-size: 14px;">
+				<b>Vous recevez ce mail parce que vous étiez inscrit sur «{SITE}»</b> 
+				avec l'adresse email <a href="mailto:{USEREMAIL}">{USEREMAIL}</a> et si ce contexte vous avait plu, nous vous invitons à venir suivre la troisième saison de 
+				<a href="http://vegas.jeuforum.fr/" title="Venez jouer sur Vegas">Vegas</a> ! 
+			<p/>
+			<p style="margin:auto; padding: 5px; width: 330px; font-size: 14px;">
+				<b>Qui sommes nous ?</b> • <a href="http://vegas.jeuforum.fr/" title="Venez jouer sur Vegas">VEGAS</a> est un forum RPG fantastique et contemporain. 
+				Largement inspiré de la bible et des mythes Nephilim, il allie la mythologie au monde actuel. 
+				Le jeu s'offre comme décor la majestueuse ville de Vegas, emblème de l'évolution d'une société décadente et corrompue. 
+				Percer les nombreux secrets de cette ville n'est pas sans risques. 
+				Que son personnage soit un être immortel, ou un simple humain, on ne peut sortir indemne des intrigues de ce forum. (Oui, je me la pète. xD)
+			</p>
+			<p style="margin:auto; padding: 5px; width: 330px; font-size: 14px;">
+				Nous sommes un forum à intrigues. Nous fonctionnons par «Arc» autour du thème général des Nephilim. 
+				Ces Arcs, terme issu des manga japonais, sont tels les épisodes d'une série qui auraient lieu en même temps. 
+				Des quêtes secondaires sont également présentes pour attirer les personnages loin d'une voie qui leur semblerait toute tracée. 
+				Nous sommes donc sur plusieurs fronts, mais surtout, nous ne sommes pas sur une seule intrigue.
+			</p>
+			<p style="margin:auto; padding: 5px; width: 330px; font-size: 14px;">
+				Tous nos joueurs peuvent se retrouver les héros ou les traîtres de <a href="http://vegas.jeuforum.fr/" title="Venez jouer sur Vegas">Vegas</a>. 
+				C'est à vous de voir ce que vous voulez jouer et jusqu'où. 
+				Nous mettons aussi un point d'honneur à ce que ce forum vive à cent à l'heure et fasse ressentir le plus de sensations possibles à ses joueurs, 
+				les pousser là où ils n'auraient jamais pensé s'aventurer donc si vous n'avez pas peur... suivez-nous ! 
+			</p>
+			<p style="margin:auto; padding: 5px; width: 330px; font-size: 14px;">
+				Nous sommes une communauté active et dynamique avec un rythme d'écriture soutenu, mais un joueur tranquille pourra tout autant trouver sa place. 
+				Ce qui importe, c'est que nous avons tous au moins ce point commun : le plaisir d'écrire. 
+				L'ambiance sur <a href="http://vegas.jeuforum.fr/" title="Venez jouer sur Vegas">VEGAS</a> 
+				est légère, car nous sommes tous là pour la même chose : nous amuser, nous détendre, rire et passer de bons moments. 
+				Voilà tout ce qui compte au final, non ? Alors, qu'est-ce que tu attends ? On t'attend nous !  
+			</p>
+			<p style="padding: 5px; width: 330px; font-size: 14px; text-align:center;">
+				<img src="http://vegas.jeuforum.fr/forum/images/smilies/mega_joie.gif">
+			</p>
+		</td>
+		<td style="width: 165px; position: relative; left: -5px; padding: 25px; background-color: #3D3D3D; font-size: 10px; color: #AAA;">
+			<h2 style="font-family: cursive; font-size: 25px; color: #FFF; text-align: center;">Liens utiles</h2>
+			<p>
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=4#p25257" style="color: #FFF !important; text-decoration: none !important;">Règlement</a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=5#p39" style="color: #FFF !important; text-decoration: none !important;">Groupes</a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewforum.php?f=147" style="color: #FFF !important; text-decoration: none !important;">Avatars</a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewforum.php?f=148" style="color: #FFF !important; text-decoration: none !important;">Prédéfinis</a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=126" style="color: #FFF !important; text-decoration: none !important;">La FAQ</a><br/>
+			</p>
+			<p>
+				# <b>Personnages importants disponibles</b><br/>
+				# RPG <b>fantastique, city, contemporain</b></span><br/>
+				# Interdit <b>- 18 ans</b><br/>
+				# Ouvert depuis +2ans<br/>
+				# Contexte créé depuis +8ans<br/>
+			</p>
+			<h2 style="font-family: cursive; font-size: 25px; color: #FFF; text-align: center;">ARC III</h2>
+			<p style="text-align:center">
+				<img src="http://vegas.jeuforum.fr/partenaires/images/avatar54165_2.gif" style="width: 100px;">
+				<br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=2&t=7#p47165" style="color: #fff !important; text-decoration: none !important;"><b>Bas les masques !</b></a>
+				<br/>
+				<br/>
+				<br/>
+			</p>
+			<h2 style="font-family: cursive; font-size: 25px; color: #FFF; text-align: center;">Le Staff</h2>
+			<p style="text-align:center">
+				<a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=185" style="color: #AAA !important; text-decoration: none !important;">Oishi Seijitsu</a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/memberlist.php?mode=viewprofile&u=237" style="color: #AAA !important; text-decoration: none !important;">Dawn Ludlow</a>
+			</p>
+			<h2 style="font-family: cursive; font-size: 25px; color: #FFF; text-align: center;">Partenariat</h2>
+			<p style="text-align:center">
+				<a href="http://vegas.jeuforum.fr/forum/index.php"><img src="http://vegas.jeuforum.fr/partenaires/images/petit-bouton.gif" style="width: 100px;"></a><br/>
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=132&t=14&p=14#p14" style="color: #AAA !important; text-decoration: none !important;">Vous ?</a>
+				★
+				<a href="http://vegas.jeuforum.fr/forum/viewtopic.php?f=132&t=13" style="color: #AAA !important; text-decoration: none !important;">Les autres ?</a><br/>
+			<p>
+			<h2 style="font-family: cursive; font-size: 25px; color: #FFF; text-align: center;">Les News & Infos</h2>
+			<p style="text-align: left;">
+				# Fow ouvert en avril 2013 <br/>
+				# Contexte créé en 2007 <br/>
+				# 30 joueurs actifs <br/>
+				# +96000 messages pour 1021 sujets <br/>
+				# 54 RPs actifs • 442 RPs terminés  <br/>
+				# Perso de -21 ans interdit<br/>
+				# Forum à avatars réels<br/>
+				# Forum à Intrigues<br/>
+			</p>
+			<p style="text-align:center">
+				<a href="http://www.never-utopia.com" style="color: #AAA !important; text-decoration: none !important; font-size: 9px;">© Mail Halloween</a>
+			</p>
+		</td>
+	</tr>
+</table>
+</div>

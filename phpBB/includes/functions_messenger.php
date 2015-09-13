@@ -24,6 +24,7 @@ class messenger
 {
 	var $vars, $msg, $extra_headers, $replyto, $from, $subject;
 	var $addresses = array();
+	var $plain = true;
 
 	var $mail_priority = MAIL_NORMAL_PRIORITY;
 	var $use_queue = true;
@@ -97,6 +98,19 @@ class messenger
 		$pos = isset($this->addresses['cc']) ? sizeof($this->addresses['cc']) : 0;
 		$this->addresses['cc'][$pos]['email'] = trim($address);
 		$this->addresses['cc'][$pos]['name'] = trim($realname);
+	}
+	
+	/**
+	 * Sets mode html
+	 */
+	function mode($mode='text')
+	{
+	    if ('html' == $mode)
+	    {
+	        $this->plain = false;
+	    }else{
+	        $this->plain = true;
+	    }
 	}
 
 	/**
@@ -439,9 +453,12 @@ class messenger
 		$headers[] = 'MIME-Version: 1.0';
 		$headers[] = 'Message-ID: <' . $this->generate_message_id() . '>';
 		$headers[] = 'Date: ' . date('r', time());
-		$headers[] = 'Content-Type: text/plain; charset=UTF-8'; // format=flowed
+		if ($this->plain){
+		    $headers[] = 'Content-Type: text/plain; charset=UTF-8'; // format=flowed
+		}else{
+		    $headers[] = 'Content-Type: text/html; charset=UTF-8'; // format=html
+		}
 		$headers[] = 'Content-Transfer-Encoding: 8bit'; // 7bit
-
 		$headers[] = 'X-Priority: ' . $this->mail_priority;
 		$headers[] = 'X-MSMail-Priority: ' . (($this->mail_priority == MAIL_LOW_PRIORITY) ? 'Low' : (($this->mail_priority == MAIL_NORMAL_PRIORITY) ? 'Normal' : 'High'));
 		$headers[] = 'X-Mailer: phpBB3';
